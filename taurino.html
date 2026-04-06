@@ -1,0 +1,2794 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="La Famosa Taurina - El portal taurino más completo del mundo. Noticias, toreros, plazas, ganaderías y todo sobre tauromaquia.">
+    <meta name="keywords" content="tauromaquia, corridas de toros, toreros, plazas de toros, noticias taurinas, ferias taurinas">
+    <meta name="author" content="La Famosa Taurina">
+    <meta property="og:title" content="La Famosa Taurina | El Santuario del Toreo Mundial">
+    <meta property="og:description" content="El portal taurino más completo del mundo. Noticias, análisis, archivos históricos y todo sobre el arte del toreo.">
+    <meta property="og:type" content="website">
+    <title>LA FAMOSA TAURINA | El Santuario del Toreo Mundial</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,700&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-void: #060504;
+            --bg-deep: #0d0b09;
+            --bg-surface: #181512;
+            --bg-elevated: #222019;
+            --bg-card: #1a1714;
+            --gold-primary: #c9a227;
+            --gold-light: #e8c547;
+            --gold-dark: #8b7020;
+            --gold-glow: rgba(201, 162, 39, 0.3);
+            --rust: #8b3a2f;
+            --rust-dark: #5c2720;
+            --cream: #f5e6c8;
+            --cream-muted: #b8a88a;
+            --text-primary: #f8f4e8;
+            --text-secondary: #c0b8a8;
+            --text-muted: #807870;
+            --border-subtle: rgba(201, 162, 39, 0.12);
+            --border-gold: rgba(201, 162, 39, 0.3);
+            --shadow-gold: 0 4px 20px rgba(201, 162, 39, 0.15);
+            --shadow-deep: 0 10px 40px rgba(0, 0, 0, 0.5);
+            --gradient-gold: linear-gradient(135deg, var(--gold-primary), var(--gold-dark));
+            --gradient-rust: linear-gradient(135deg, var(--rust), var(--rust-dark));
+            --font-display: 'Playfair Display', serif;
+            --font-body: 'Inter', sans-serif;
+            --font-accent: 'Cormorant Garamond', serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--bg-void);
+            color: var(--text-primary);
+            line-height: 1.65;
+            overflow-x: hidden;
+            font-size: 15px;
+        }
+
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-deep); }
+        ::-webkit-scrollbar-thumb { background: var(--gold-dark); border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: var(--gold-primary); }
+
+        .bg-cinematic {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .bg-gradient-layer {
+            position: absolute;
+            inset: 0;
+            background: 
+                radial-gradient(ellipse 120% 70% at 10% 5%, rgba(139, 58, 47, 0.25) 0%, transparent 50%),
+                radial-gradient(ellipse 100% 80% at 90% 90%, rgba(201, 162, 39, 0.1) 0%, transparent 50%),
+                radial-gradient(ellipse 60% 50% at 50% 50%, rgba(201, 162, 39, 0.03) 0%, transparent 60%);
+            animation: pulseBg 20s ease-in-out infinite;
+        }
+
+        .bg-vignette {
+            position: absolute;
+            inset: 0;
+            box-shadow: inset 0 0 250px 80px var(--bg-void);
+        }
+
+        @keyframes pulseBg {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(1.02); }
+        }
+
+        /* Navigation */
+        .nav-main {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 0.75rem 2rem;
+            transform: translateY(-100%);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-main.visible { transform: translateY(0); }
+
+        .nav-inner {
+            max-width: 1600px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 24px;
+            background: rgba(13, 11, 9, 0.95);
+            backdrop-filter: blur(20px);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+        }
+
+        .nav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo {
+            width: 42px;
+            height: 42px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 1.2rem;
+            color: var(--bg-void);
+        }
+
+        .nav-brand-text {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .nav-link {
+            position: relative;
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            padding: 8px 0;
+            transition: color 0.3s;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--gold-primary);
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover { color: var(--gold-primary); }
+        .nav-link:hover::after { width: 100%; }
+
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-btn {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+            border: 1px solid var(--border-subtle);
+            border-radius: 8px;
+            color: var(--gold-primary);
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-btn:hover {
+            background: rgba(201, 162, 39, 0.1);
+            border-color: var(--gold-primary);
+        }
+
+        .nav-subscribe {
+            padding: 10px 20px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 8px;
+            color: var(--bg-void);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .nav-subscribe:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* Hero Section */
+        .hero-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            z-index: 1;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero-bg {
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+        }
+
+        .hero-bg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.4;
+            filter: grayscale(30%);
+        }
+
+        .hero-bg::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to bottom, 
+                rgba(6, 5, 4, 0.7) 0%,
+                rgba(6, 5, 4, 0.4) 50%,
+                rgba(6, 5, 4, 0.95) 100%);
+        }
+
+        .hero-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .hero-content {
+            max-width: 900px;
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(201, 162, 39, 0.1);
+            border: 1px solid var(--border-gold);
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.1s;
+        }
+
+        .hero-badge-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .hero-badge-text {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .hero-title {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 10vw, 7rem);
+            font-weight: 900;
+            line-height: 0.95;
+            color: var(--cream);
+            margin-bottom: 1rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.2s;
+        }
+
+        .hero-title-accent {
+            display: block;
+            font-size: 0.35em;
+            font-weight: 400;
+            font-style: italic;
+            font-family: var(--font-accent);
+            color: var(--gold-primary);
+            letter-spacing: 0.15em;
+            margin-top: 0.5rem;
+        }
+
+        .hero-subtitle {
+            font-family: var(--font-accent);
+            font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+            font-weight: 400;
+            color: var(--text-secondary);
+            max-width: 650px;
+            margin-bottom: 2rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.3s;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 3rem;
+            margin-bottom: 2.5rem;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.4s;
+        }
+
+        .hero-stat { text-align: left; }
+
+        .hero-stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+        }
+
+        .hero-stat-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .hero-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease forwards 0.5s;
+        }
+
+        .btn-gold {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--gradient-gold);
+            color: var(--bg-void);
+            font-weight: 700;
+            font-size: 0.95rem;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(201, 162, 39, 0.3);
+        }
+
+        .btn-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: transparent;
+            color: var(--cream);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-ghost:hover {
+            background: rgba(201, 162, 39, 0.1);
+            border-color: var(--gold-primary);
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ==================== TICKER MUY LENTO JS ==================== */
+        .live-ticker-container {
+            background: var(--bg-card);
+            border-bottom: 1px solid var(--border-subtle);
+            padding: 1rem 0;
+            margin-bottom: 2rem;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .live-ticker-container::before,
+        .live-ticker-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 100px;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        .live-ticker-container::before {
+            left: 0;
+            background: linear-gradient(to right, var(--bg-card), transparent);
+        }
+
+        .live-ticker-container::after {
+            right: 0;
+            background: linear-gradient(to left, var(--bg-card), transparent);
+        }
+
+        .live-indicator {
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 8px 16px;
+            background: var(--gradient-rust);
+            border-radius: 25px;
+            z-index: 3;
+        }
+
+        .live-dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: pulse 1s infinite;
+        }
+
+        .live-label {
+            font-weight: 700;
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: white;
+            white-space: nowrap;
+        }
+
+        .ticker-wrapper {
+            margin-left: 180px;
+            overflow: hidden;
+        }
+
+        .ticker-track {
+            display: flex;
+            gap: 0;
+            width: max-content;
+        }
+
+        .ticker-item {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            padding: 12px 50px;
+            border-right: 1px solid var(--border-subtle);
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        .ticker-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .ticker-content-inner {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .ticker-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--cream);
+        }
+
+        .ticker-description {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            max-width: 400px;
+        }
+
+        .ticker-time {
+            font-size: 0.7rem;
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* ==================== MAIN CONTENT ==================== */
+        .main-wrapper { 
+            position: relative; 
+            z-index: 10; 
+            padding: 0 2rem;
+        }
+
+        .main-container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        /* ==================== STATS ==================== */
+        .stats-section {
+            margin-bottom: 3rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 1000px) { .stats-grid { grid-template-columns: repeat(3, 1fr); } }
+        @media (max-width: 600px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .stat-card {
+            padding: 1.5rem 1rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            text-align: center;
+            transition: all 0.4s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--border-gold);
+            box-shadow: var(--shadow-gold);
+        }
+
+        .stat-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+
+        .stat-number {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            line-height: 1;
+            margin-bottom: 0.4rem;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* ==================== LAYOUT PRINCIPAL ==================== */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 2.5rem;
+            align-items: start;
+        }
+
+        @media (max-width: 1100px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Sidebar */
+        .sidebar {
+            position: sticky;
+            top: 100px;
+        }
+
+        .sidebar-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .sidebar-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .sidebar-icon {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(201, 162, 39, 0.1);
+            border-radius: 10px;
+            color: var(--gold-primary);
+            font-size: 1.2rem;
+        }
+
+        .sidebar-title {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
+
+        .sidebar-subtitle {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        /* Countries List CON SCROLL */
+        .country-list {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+            max-height: 320px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .country-list::-webkit-scrollbar {
+            width: 4px;
+        }
+
+        .country-list::-webkit-scrollbar-thumb {
+            background: var(--gold-dark);
+            border-radius: 2px;
+        }
+
+        .country-item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 12px 16px;
+            background: var(--bg-surface);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .country-item:hover {
+            background: var(--bg-elevated);
+            border-color: var(--border-subtle);
+            color: var(--cream);
+        }
+
+        .country-item.active {
+            background: rgba(201, 162, 39, 0.12);
+            border-color: var(--gold-primary);
+            color: var(--gold-primary);
+        }
+
+        .country-flag { font-size: 1.2rem; margin-right: 10px; }
+        .country-name { flex: 1; text-align: left; }
+        .country-count {
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 4px;
+        }
+
+        .plazas-mini-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-top: 1rem;
+            max-height: 300px;
+            overflow-y: auto;
+            padding-right: 8px;
+        }
+
+        .plaza-mini-card {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px;
+            background: var(--bg-surface);
+            border: 1px solid transparent;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .plaza-mini-card:hover {
+            background: var(--bg-elevated);
+            border-color: var(--border-gold);
+        }
+
+        .plaza-mini-img {
+            width: 55px;
+            height: 55px;
+            border-radius: 8px;
+            object-fit: cover;
+            border: 1px solid var(--border-subtle);
+        }
+
+        .plaza-mini-info h4 {
+            font-family: var(--font-display);
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--cream);
+            margin-bottom: 2px;
+        }
+
+        .plaza-mini-info span {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .ranking-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 10px;
+            background: var(--bg-surface);
+            border-radius: 10px;
+            margin-bottom: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .ranking-item:hover {
+            background: var(--bg-elevated);
+        }
+
+        .ranking-position {
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.8rem;
+            flex-shrink: 0;
+        }
+
+        .ranking-position.gold { background: var(--gold-primary); color: var(--bg-void); }
+        .ranking-position.silver { background: #9ca3af; color: var(--bg-void); }
+        .ranking-position.bronze { background: #cd7f32; color: var(--bg-void); }
+        .ranking-position.default { background: var(--bg-elevated); color: var(--text-secondary); }
+
+        .ranking-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .ranking-name {
+            font-family: var(--font-display);
+            font-weight: 600;
+            color: var(--cream);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .ranking-stats {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        /* ==================== CONTENT AREA ==================== */
+        .content-area {
+            min-width: 0;
+        }
+
+        .section-block {
+            margin-bottom: 4rem;
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.7s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .section-block.visible { opacity: 1; transform: translateY(0); }
+
+        .section-header {
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-between;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-meta {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.5rem;
+        }
+
+        .section-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--gold-primary);
+            border-radius: 50%;
+        }
+
+        .section-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            color: var(--gold-primary);
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 700;
+            color: var(--cream);
+            line-height: 1.1;
+        }
+
+        .section-title em {
+            font-style: italic;
+            font-family: var(--font-accent);
+            color: var(--gold-primary);
+        }
+
+        .section-link {
+            color: var(--gold-primary);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: gap 0.3s;
+        }
+
+        .section-link:hover { gap: 12px; }
+
+        /* ==================== NEWS ==================== */
+        .news-filters {
+            display: flex;
+            gap: 12px;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 10px 20px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--bg-void);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .news-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-gold);
+            box-shadow: var(--shadow-deep);
+        }
+
+        .news-visual {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .news-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .news-card:hover .news-visual img { transform: scale(1.1); }
+
+        .news-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
+        }
+
+        .news-badge {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 8px 16px;
+            background: var(--rust);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            color: white;
+        }
+
+        .news-badge.result { background: var(--gold-primary); color: var(--bg-void); }
+        .news-badge.entrevista { background: #7c3aed; }
+        .news-badge.analisis { background: #0891b2; }
+        .news-badge.feria { background: #059669; }
+        .news-badge.historia { background: #92400e; }
+
+        .news-body { padding: 1.5rem; }
+
+        .news-title {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+            line-height: 1.3;
+        }
+
+        .news-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 1rem;
+            line-height: 1.7;
+        }
+
+        .news-details {
+            background: var(--bg-surface);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-detail-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 6px 0;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .news-detail-item:last-child { border-bottom: none; }
+
+        .news-detail-label {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .news-detail-value {
+            font-size: 0.85rem;
+            color: var(--cream-muted);
+            font-weight: 500;
+        }
+
+        .news-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .news-time {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+        }
+
+        .news-result {
+            display: inline-block;
+            padding: 6px 14px;
+            background: rgba(201, 162, 39, 0.15);
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+        }
+
+        .news-quote {
+            font-family: var(--font-accent);
+            font-style: italic;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            padding: 0.75rem;
+            background: rgba(201, 162, 39, 0.05);
+            border-left: 3px solid var(--gold-primary);
+            border-radius: 0 8px 8px 0;
+            margin-top: 1rem;
+        }
+
+        /* ==================== TOREROS ==================== */
+        .toreros-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.75rem;
+        }
+
+        .torero-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .torero-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--gold-primary);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4);
+        }
+
+        .torero-visual {
+            position: relative;
+            height: 260px;
+            overflow: hidden;
+        }
+
+        .torero-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .torero-card:hover .torero-visual img { transform: scale(1.08); }
+
+        .torero-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, var(--bg-card) 0%, transparent 50%);
+        }
+
+        .torero-rank {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--gold-primary);
+            border-radius: 50%;
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 900;
+            color: var(--bg-void);
+            z-index: 1;
+        }
+
+        .torero-status {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            padding: 8px 14px;
+            background: rgba(0,0,0,0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            font-size: 0.7rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            color: #4ade80;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            z-index: 1;
+        }
+
+        .torero-body { padding: 1.5rem; }
+
+        .torero-name {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+        }
+
+        .torero-fullname {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .torero-origin {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            margin-bottom: 0.75rem;
+        }
+
+        .torero-bio {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .torero-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 0.75rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border-subtle);
+        }
+
+        .torero-stat { text-align: center; }
+
+        .torero-stat-value {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
+
+        .torero-stat-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-top: 2px;
+        }
+
+        /* ==================== PLAZAS ==================== */
+        .plazas-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .plaza-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
+
+        .plaza-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--border-gold);
+            box-shadow: var(--shadow-deep);
+        }
+
+        .plaza-visual {
+            position: relative;
+            height: 220px;
+            overflow: hidden;
+        }
+
+        .plaza-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s;
+        }
+
+        .plaza-card:hover .plaza-visual img { transform: scale(1.08); }
+
+        .plaza-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 60%);
+        }
+
+        .plaza-country {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            padding: 8px 14px;
+            background: rgba(0,0,0,0.7);
+            backdrop-filter: blur(10px);
+            border-radius: 8px;
+            font-size: 1.3rem;
+            z-index: 1;
+        }
+
+        .plaza-body { padding: 1.5rem; }
+
+        .plaza-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .plaza-location {
+            font-size: 0.9rem;
+            color: var(--gold-primary);
+            margin-bottom: 1rem;
+        }
+
+        .plaza-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .plaza-info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .plaza-info-label {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .plaza-info-value {
+            font-size: 0.9rem;
+            color: var(--cream-muted);
+            font-weight: 500;
+        }
+
+        .plaza-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ==================== GANADERÍAS ==================== */
+        .ganaderias-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .ganaderia-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            overflow: hidden;
+            transition: all 0.3s;
+        }
+
+        .ganaderia-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--border-gold);
+        }
+
+        .ganaderia-visual {
+            position: relative;
+            height: 180px;
+        }
+
+        .ganaderia-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .ganaderia-badge {
+            position: absolute;
+            bottom: 0.75rem;
+            left: 0.75rem;
+            padding: 8px 16px;
+            background: var(--gradient-gold);
+            border-radius: 8px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--bg-void);
+        }
+
+        .ganaderia-body { padding: 1.5rem; }
+
+        .ganaderia-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.3rem;
+        }
+
+        .ganaderia-location {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .ganaderia-desc {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .ganaderia-toro {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            background: var(--bg-surface);
+            border-radius: 8px;
+            font-size: 0.85rem;
+        }
+
+        .ganaderia-toro-label {
+            color: var(--text-muted);
+        }
+
+        .ganaderia-toro-name {
+            color: var(--gold-primary);
+            font-weight: 600;
+        }
+
+        /* ==================== GLOSARIO ==================== */
+        .glossary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1rem;
+        }
+
+        .glossary-card {
+            padding: 1.5rem;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 12px;
+            transition: all 0.3s;
+        }
+
+        .glossary-card:hover {
+            border-color: var(--border-gold);
+            background: var(--bg-surface);
+        }
+
+        .glossary-term {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .glossary-def {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        /* ==================== AD SPACE ==================== */
+        .ad-space {
+            padding: 2rem;
+            background: linear-gradient(135deg, var(--bg-card), var(--bg-surface));
+            border: 2px dashed var(--border-gold);
+            border-radius: 16px;
+            text-align: center;
+            margin: 3rem 0;
+        }
+
+        .ad-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.75rem;
+        }
+
+        .ad-content {
+            font-size: 1rem;
+            color: var(--gold-primary);
+        }
+
+        /* ==================== NEWSLETTER ==================== */
+        .newsletter-section {
+            padding: 3rem 2rem;
+            background: linear-gradient(135deg, var(--bg-surface), var(--bg-elevated));
+            border-radius: 20px;
+            text-align: center;
+            margin: 4rem 0;
+        }
+
+        .newsletter-title {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 0.75rem;
+        }
+
+        .newsletter-subtitle {
+            font-family: var(--font-accent);
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            max-width: 550px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 12px;
+            max-width: 450px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .newsletter-input {
+            flex: 1;
+            min-width: 220px;
+            padding: 14px 20px;
+            background: var(--bg-deep);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--cream);
+            font-size: 0.95rem;
+            transition: all 0.3s;
+        }
+
+        .newsletter-input:focus {
+            outline: none;
+            border-color: var(--gold-primary);
+        }
+
+        .newsletter-input::placeholder { color: var(--text-muted); }
+
+        .newsletter-btn {
+            padding: 14px 28px;
+            background: var(--gradient-gold);
+            border: none;
+            border-radius: 10px;
+            color: var(--bg-void);
+            font-weight: 700;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .newsletter-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-gold);
+        }
+
+        /* ==================== FOOTER ==================== */
+        .footer {
+            background: var(--bg-deep);
+            border-top: 1px solid var(--border-subtle);
+            padding: 4rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        @media (max-width: 900px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; gap: 2rem; }
+        }
+
+        @media (max-width: 500px) {
+            .footer-grid { grid-template-columns: 1fr; }
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-logo {
+            width: 50px;
+            height: 50px;
+            background: var(--gradient-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-display);
+            font-weight: 900;
+            font-size: 1.3rem;
+            color: var(--bg-void);
+        }
+
+        .footer-name {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+        }
+
+        .footer-desc {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-link {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-secondary);
+            font-size: 1rem;
+            transition: all 0.3s;
+        }
+
+        .social-link:hover {
+            background: var(--gold-primary);
+            border-color: var(--gold-primary);
+            color: var(--bg-void);
+        }
+
+        .footer-title {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin-bottom: 1.25rem;
+        }
+
+        .footer-links { display: flex; flex-direction: column; gap: 0.6rem; }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover { color: var(--gold-primary); }
+
+        .footer-bottom {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-subtle);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-copy {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .footer-legal {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-legal a {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-legal a:hover { color: var(--gold-primary); }
+
+        /* ==================== MODAL ==================== */
+        .modal-backdrop {
+            position: fixed;
+            inset: 0;
+            background: rgba(6, 5, 4, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            display: none;
+            align-items: flex-start;
+            justify-content: center;
+            padding: 2rem;
+            overflow-y: auto;
+        }
+
+        .modal-backdrop.active { display: flex; }
+
+        .modal-container {
+            width: 100%;
+            max-width: 850px;
+            max-height: 90vh;
+            background: var(--bg-card);
+            border: 1px solid var(--border-gold);
+            border-radius: 20px;
+            overflow: hidden;
+            margin: 2rem auto;
+            animation: modalEnter 0.4s ease;
+        }
+
+        @keyframes modalEnter {
+            from { opacity: 0; transform: scale(0.95) translateY(30px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid var(--border-subtle);
+            background: var(--bg-surface);
+        }
+
+        .modal-title {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--cream);
+            padding-right: 1rem;
+            line-height: 1.2;
+        }
+
+        .modal-close {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 10px;
+            color: var(--text-muted);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .modal-close:hover {
+            background: var(--rust);
+            border-color: var(--rust);
+            color: white;
+        }
+
+        .modal-body {
+            padding: 2rem;
+            overflow-y: auto;
+            max-height: calc(90vh - 100px);
+        }
+
+        .modal-visual {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            border-radius: 16px;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-badge {
+            display: inline-block;
+            padding: 8px 18px;
+            background: var(--gold-primary);
+            border-radius: 10px;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--bg-void);
+            margin-bottom: 1.25rem;
+        }
+
+        .modal-section-title {
+            font-family: var(--font-display);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--cream);
+            margin: 2rem 0 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-subtle);
+        }
+
+        .modal-text {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+
+        .modal-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            padding: 1.25rem;
+            background: var(--bg-surface);
+            border-radius: 12px;
+            margin: 1.25rem 0;
+        }
+
+        @media (max-width: 600px) { .modal-grid { grid-template-columns: repeat(2, 1fr); } }
+
+        .modal-grid-item strong {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--gold-primary);
+            margin-bottom: 4px;
+        }
+
+        .modal-grid-item span {
+            color: var(--cream);
+            font-size: 0.9rem;
+        }
+
+        .modal-highlight {
+            padding: 1.25rem;
+            background: rgba(201, 162, 39, 0.08);
+            border-left: 4px solid var(--gold-primary);
+            border-radius: 0 12px 12px 0;
+            margin: 1.5rem 0;
+        }
+
+        .modal-highlight h4 {
+            font-family: var(--font-display);
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+            margin-bottom: 0.5rem;
+        }
+
+        .modal-highlight p {
+            font-size: 0.95rem;
+            color: var(--text-secondary);
+            line-height: 1.7;
+        }
+
+        .share-row { display: flex; gap: 12px; margin-top: 2rem; }
+
+        .share-btn {
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+
+        .share-btn:hover { transform: scale(1.1); }
+        .share-btn.twitter { background: #1da1f2; color: white; }
+        .share-btn.facebook { background: #1877f2; color: white; }
+        .share-btn.whatsapp { background: #25d366; color: white; }
+
+        /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
+            .hero-section { padding: 5rem 1.5rem 3rem; }
+            .main-wrapper { padding: 0 1rem; }
+            .section-header { flex-direction: column; align-items: flex-start; }
+            .live-indicator { display: none; }
+            .ticker-wrapper { margin-left: 0; }
+        }
+
+        *:focus-visible {
+            outline: 2px solid var(--gold-primary);
+            outline-offset: 3px;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background -->
+    <div class="bg-cinematic">
+        <div class="bg-gradient-layer"></div>
+        <div class="bg-vignette"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="nav-main" id="navbar">
+        <div class="nav-inner">
+            <a href="#" class="nav-brand">
+                <div class="nav-logo">🦊</div>
+                <span class="nav-brand-text">La Famosa Taurina</span>
+            </a>
+            <div class="nav-links">
+                <a href="#archivo" class="nav-link">Archivo</a>
+                <a href="#toreros" class="nav-link">Toreros</a>
+                <a href="#noticias" class="nav-link">Noticias</a>
+                <a href="#plazas" class="nav-link">Plazas</a>
+                <a href="#ganaderias" class="nav-link">Ganaderías</a>
+                <a href="#glosario" class="nav-link">Glosario</a>
+            </div>
+            <div class="nav-actions">
+                <button class="nav-btn" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+                <button class="nav-subscribe">Suscribirse</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="hero-section" id="hero">
+        <div class="hero-bg">
+            <img src="" id="heroBgImage" alt="Tauromaquia">
+        </div>
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <div class="hero-badge-dot"></div>
+                    <span class="hero-badge-text">Archivo Taurino Mundial</span>
+                </div>
+                <h1 class="hero-title">
+                    LA FAMOSA
+                    <span class="hero-title-accent">Taurina</span>
+                </h1>
+                <p class="hero-subtitle">
+                    El santuario digital del arte del toreo. Descubre las plazas históricas más emblemáticas,
+                    las leyendas vivientes del toreo contemporáneo y cada instante que define la tradición taurina mundial.
+                </p>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="heroPlazas">0</div>
+                        <div class="hero-stat-label">Plazas Históricas</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="heroToreros">0</div>
+                        <div class="hero-stat-label">Toreros Activos</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="heroPaises">0</div>
+                        <div class="hero-stat-label">Países Taurinos</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="hero-stat-number" id="heroCorridas">0</div>
+                        <div class="hero-stat-label">Corridas 2024</div>
+                    </div>
+                </div>
+                <div class="hero-actions">
+                    <button class="btn-gold" onclick="scrollToContent()">
+                        <span>Explorar Archivo</span>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                            <path d="M5 12h14M12 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="btn-ghost" onclick="openAboutModal()">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <path d="M12 16v-4M12 8h.01"/>
+                        </svg>
+                        <span>Acerca de</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="main-wrapper">
+        <div class="main-container">
+            
+            <!-- TICKER MUY LENTO JS -->
+            <div class="live-ticker-container">
+                <div class="live-indicator">
+                    <div class="live-dot"></div>
+                    <span class="live-label">En VIVO</span>
+                </div>
+                <div class="ticker-wrapper">
+                    <div class="ticker-track" id="tickerTrack">
+                        <!-- Generado por JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Stats -->
+            <div class="stats-section">
+                <div class="stats-grid" id="statsGrid"></div>
+            </div>
+
+            <!-- Layout Principal -->
+            <div class="main-layout">
+                
+                <!-- Sidebar -->
+                <aside class="sidebar">
+                    <div class="sidebar-card">
+                        <div class="sidebar-header">
+                            <div class="sidebar-icon">🌍</div>
+                            <div>
+                                <div class="sidebar-subtitle">Explorar por</div>
+                                <h3 class="sidebar-title">Países Taurinos</h3>
+                            </div>
+                        </div>
+                        <div class="country-list" id="countryList"></div>
+                    </div>
+                    
+                    <div class="sidebar-card">
+                        <div class="sidebar-header">
+                            <div class="sidebar-icon">🏟️</div>
+                            <div>
+                                <div class="sidebar-subtitle">En</div>
+                                <h3 class="sidebar-title">Plazas Destacadas</h3>
+                            </div>
+                        </div>
+                        <div class="plazas-mini-grid" id="plazasContainer"></div>
+                    </div>
+
+                    <div class="sidebar-card">
+                        <div class="sidebar-header">
+                            <div class="sidebar-icon">📊</div>
+                            <div>
+                                <div class="sidebar-subtitle">Top</div>
+                                <h3 class="sidebar-title">Ranking Toreros</h3>
+                            </div>
+                        </div>
+                        <div id="rankingContainer"></div>
+                    </div>
+                </aside>
+
+                <!-- Content -->
+                <div class="content-area">
+                    
+                    <!-- News Section -->
+                    <section class="section-block" id="noticias">
+                        <div class="section-header">
+                            <div>
+                                <div class="section-meta">
+                                    <div class="section-dot"></div>
+                                    <span class="section-tag">Última Hora</span>
+                                </div>
+                                <h2 class="section-title">Noticias <em>& Crónica</em></h2>
+                            </div>
+                            <a href="#" class="section-link">Ver todas <span>→</span></a>
+                        </div>
+                        <div class="news-filters">
+                            <button class="filter-btn active" onclick="filterNews('all')">Todas</button>
+                            <button class="filter-btn" onclick="filterNews('resultado')">Resultados</button>
+                            <button class="filter-btn" onclick="filterNews('entrevista')">Entrevistas</button>
+                            <button class="filter-btn" onclick="filterNews('analisis')">Análisis</button>
+                            <button class="filter-btn" onclick="filterNews('feria')">Ferias</button>
+                        </div>
+                        <div class="news-grid" id="newsGrid"></div>
+                    </section>
+
+                    <!-- Ad Space -->
+                    <div class="ad-space">
+                        <div class="ad-label">Espacio Publicitario</div>
+                        <div class="ad-content">📢 Tu marca aquí — Contacta para publicidad Premium</div>
+                    </div>
+
+                    <!-- Toreros Section -->
+                    <section class="section-block" id="toreros">
+                        <div class="section-header">
+                            <div>
+                                <div class="section-meta">
+                                    <div class="section-dot"></div>
+                                    <span class="section-tag">Figuras del Toreo</span>
+                                </div>
+                                <h2 class="section-title">Toreros <em>Top</em></h2>
+                            </div>
+                            <a href="#" class="section-link">Ver ranking completo <span>→</span></a>
+                        </div>
+                        <div class="toreros-grid" id="torerosGrid"></div>
+                    </section>
+
+                    <!-- Plazas Section -->
+                    <section class="section-block" id="plazas">
+                        <div class="section-header">
+                            <div>
+                                <div class="section-meta">
+                                    <div class="section-dot"></div>
+                                    <span class="section-tag">Arquitectura Taurina</span>
+                                </div>
+                                <h2 class="section-title">Plazas <em>Emblemáticas</em></h2>
+                            </div>
+                            <a href="#" class="section-link">Directorio completo <span>→</span></a>
+                        </div>
+                        <div class="plazas-grid" id="plazasGrid"></div>
+                    </section>
+
+                    <!-- Ganaderías Section -->
+                    <section class="section-block" id="ganaderias">
+                        <div class="section-header">
+                            <div>
+                                <div class="section-meta">
+                                    <div class="section-dot"></div>
+                                    <span class="section-tag">Criadores de Toros</span>
+                                </div>
+                                <h2 class="section-title">Ganaderías <em>Famosas</em></h2>
+                            </div>
+                            <a href="#" class="section-link">Directorio completo <span>→</span></a>
+                        </div>
+                        <div class="ganaderias-grid" id="ganaderiasGrid"></div>
+                    </section>
+
+                    <!-- Ad Space -->
+                    <div class="ad-space">
+                        <div class="ad-label">Espacio Publicitario</div>
+                        <div class="ad-content">📢 Tu marca aquí — Contacta para publicidad Premium</div>
+                    </div>
+
+                    <!-- Glossary Section -->
+                    <section class="section-block" id="glosario">
+                        <div class="section-header">
+                            <div>
+                                <div class="section-meta">
+                                    <div class="section-dot"></div>
+                                    <span class="section-tag">Diccionario</span>
+                                </div>
+                                <h2 class="section-title">Glosario <em>Taurino</em></h2>
+                            </div>
+                        </div>
+                        <div class="glossary-grid" id="glossaryGrid"></div>
+                    </section>
+
+                    <!-- Newsletter -->
+                    <div class="newsletter-section">
+                        <h3 class="newsletter-title">📬 Boletín Taurino</h3>
+                        <p class="newsletter-subtitle">
+                            Recibe las mejores crónicas, análisis y noticias del mundo del toreo 
+                            directamente en tu correo cada semana.
+                        </p>
+                        <form class="newsletter-form" onsubmit="handleNewsletter(event)">
+                            <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+                            <button type="submit" class="newsletter-btn">Suscribirse</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="footer-inner">
+                <div class="footer-grid">
+                    <div>
+                        <div class="footer-brand">
+                            <div class="footer-logo">🦊</div>
+                            <div class="footer-name">La Famosa Taurina</div>
+                        </div>
+                        <p class="footer-desc">
+                            El portal taurino más completo del mundo. Preservando y promoviendo 
+                            la cultura taurina desde 2020.
+                        </p>
+                        <div class="footer-social">
+                            <a href="#" class="social-link">𝕏</a>
+                            <a href="#" class="social-link">📘</a>
+                            <a href="#" class="social-link">📸</a>
+                            <a href="#" class="social-link">▶️</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="footer-title">Secciones</h4>
+                        <div class="footer-links">
+                            <a href="#toreros">Toreros</a>
+                            <a href="#noticias">Noticias</a>
+                            <a href="#plazas">Plazas</a>
+                            <a href="#ganaderias">Ganaderías</a>
+                            <a href="#glosario">Glosario</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="footer-title">Plazas</h4>
+                        <div class="footer-links">
+                            <a href="#">Las Ventas</a>
+                            <a href="#">La Maestranza</a>
+                            <a href="#">Plaza México</a>
+                            <a href="#">Arènes de Nîmes</a>
+                            <a href="#">Plaza de Acho</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="footer-title">Legal</h4>
+                        <div class="footer-links">
+                            <a href="#">Términos</a>
+                            <a href="#">Privacidad</a>
+                            <a href="#">Cookies</a>
+                            <a href="#">Contacto</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p class="footer-copy">© 2024 La Famosa Taurina. Todos los derechos reservados.</p>
+                    <div class="footer-legal">
+                        <a href="#">Privacidad</a>
+                        <a href="#">Términos</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal-backdrop" id="modalBackdrop">
+        <div class="modal-container">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalTitle">Título</h2>
+                <button class="modal-close" onclick="closeModal()" aria-label="Cerrar">×</button>
+            </div>
+            <div class="modal-body" id="modalBody"></div>
+        </div>
+    </div>
+
+    <script>
+        // ==================== BASE DE DATOS COMPLETA ====================
+        
+        const countries = [
+            { id: 'espana', name: 'España', flag: '🇪🇸', count: 12 },
+            { id: 'mexico', name: 'México', flag: '🇲🇽', count: 8 },
+            { id: 'francia', name: 'Francia', flag: '🇫🇷', count: 5 },
+            { id: 'colombia', name: 'Colombia', flag: '🇨🇴', count: 4 },
+            { id: 'peru', name: 'Perú', flag: '🇵🇪', count: 3 },
+            { id: 'venezuela', name: 'Venezuela', flag: '🇻🇪', count: 3 },
+            { id: 'ecuador', name: 'Ecuador', flag: '🇪🇨', count: 2 },
+            { id: 'portugal', name: 'Portugal', flag: '🇵🇹', count: 2 },
+            { id: 'argentina', name: 'Argentina', flag: '🇦🇷', count: 2 },
+            { id: 'costa-rica', name: 'Costa Rica', flag: '🇨🇷', count: 1 }
+        ];
+
+        // ==================== TICKER DATA ====================
+        const tickerNews = [
+            { icon: '🔴', title: 'LAS VENTAS - Madrid', description: 'Morante de la Puebla cortó dos orejas ante el cuarto de Jandilla en una faena épica que duró 25 minutos', time: 'Hace 2 horas' },
+            { icon: '🏟️', title: 'REAL MAESTRANZA - Sevilla', description: 'La plaza más antigua de España celebra 263 años de historia taurina con una corrida extraordinaria', time: 'Hace 3 horas' },
+            { icon: '🇲🇽', title: 'PLAZA MÉXICO - CDMX', description: 'El coso más grande del mundo cumple 78 años con una temporada histórica de 45 corridas programadas', time: 'Ayer' },
+            { icon: '🎪', title: 'FERIA DE SAN ISIDRO 2024', description: 'Se esperan más de 500,000 espectadores durante los 30 días de la feria más importante del mundo', time: 'Hace 1 día' },
+            { icon: '⚔️', title: 'ANDRÉS ROCA REY', description: 'El torero peruano confirma su liderazgo como el número 1 del ranking mundial tras su triunfal paso por Sevilla', time: 'Hace 1 día' },
+            { icon: '🌹', title: 'ALEJANDRO TALAVANTE', description: 'El extremeño realizó una faena de 30 minutos al segundo toro de San Mateo, cortando dos orejas y rabo', time: 'Hace 2 días' },
+            { icon: '🐂', title: 'INDULTO HISTÓRICO', description: 'José María Manzanares indultó al toro Pañol de Juan Pedro Domecq por su extraordinaria bravura', time: 'Hace 3 días' },
+            { icon: '🇫🇷', title: 'ARÈNES DE NÎMES', description: 'La plaza romana celebra su Bicentenario con una corrida de gala presencia de las principales figuras', time: 'Hace 4 días' },
+            { icon: '🏆', title: 'TORNEO DEL ALBA', description: 'Juan Ortega se clasificó para la final del torneo tras cortar tres orejas en la plaza de Bilbao', time: 'Hace 5 días' },
+            { icon: '🎭', title: 'FERIA DE ABRIL - Sevilla', description: 'La Maestranza agotará las entradas para los seis días de corrida con los mejores toreros', time: 'Hace 6 días' }
+        ];
+
+        // ==================== PLAZAS COMPLETAS POR PAÍS ====================
+        const plazasDB = {
+            espana: [
+                { id: 'ventas', nombre: 'Plaza de Toros de Las Ventas', ciudad: 'Madrid', pais: 'España', inauguracion: '17 de junio de 1931', capacidad: '23,798 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José Espelius', estilo: 'Neomudéjar', historia: 'Inaugurada el 17 de junio de 1931, Las Ventas es considerada la catedral del toreo mundial. Diseñada por José Espelius en estilo neomudéjar, su construcción respondió a la necesidad de dotar a Madrid de un coso acorde a su capitalidad. La Feria de San Isidro, que se celebra cada año en mayo, es el evento taurino más importante del calendario mundial.', curiosidad: 'Su capilla alberga la Virgen de la Paloma, patrona de Madrid. El albero se importa específicamente desde las canteras de Almería. Cuenta con un museo taurino con más de 12,000 piezas.' },
+                { id: 'maestranza', nombre: 'Real Maestranza de Sevilla', ciudad: 'Sevilla', pais: 'España', inauguracion: '1761', capacidad: '12,500 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Varios', estilo: 'Barroco Sevillano', historia: 'La Real Maestranza de Sevilla es la plaza de toros más antigua de España en funcionamiento continuo. Su forma ovalada es única en el mundo taurino. Situada en El Arenal de Sevilla, ha sido testigo de la evolución del toreo desde el siglo XVIII.', curiosidad: 'Es la única plaza del mundo donde el presidente no preside desde el palco principal, sino desde La Montura. En su museo se conserva el traje de Manolete de su última corrida.' },
+                { id: 'malagueta', nombre: 'Plaza de Toros de La Malagueta', ciudad: 'Málaga', pais: 'España', inauguracion: '1876', capacidad: '9,032 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Joaquín de Rucoba', estilo: 'Neomudéjar', historia: 'Inaugurada en 1876 frente al Mediterráneo, La Malagueta es una de las plazas más fotografiadas del mundo por su ubicación junto al mar. Fue construida sobre el antiguo picadero de la ciudad.', curiosidad: 'Es la única plaza de toros del mundo ubicada frente a una playa. Tiene un pasadizo secreto que comunica con el antiguo cuartel de caballería. La Feria de Málaga en agosto es una de las más animadas de España.' },
+                { id: 'pamplona', nombre: 'Plaza de Toros de Pamplona', ciudad: 'Pamplona', pais: 'España', inauguracion: '1922', capacidad: '19,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Fernando Redón', estilo: 'Neoclásico', historia: 'La plaza de Pamplona, conocida como El bullring, fue construida entre 1919 y 1922. Es famosa por los encierros de San Fermín, pero también alberga corridas durante las fiestas.', curiosidad: 'El callejón tiene una anchura de 4 metros para permitir los recortes de los corredores. El primer toro que saltó al redil fue Coincido en 1851. La corrida más larga duró 4 horas.' }
+            ],
+            mexico: [
+                { id: 'plaza-mexico', nombre: 'Plaza México', ciudad: 'Ciudad de México', pais: 'México', inauguracion: '5 de febrero de 1946', capacidad: '41,262 espectadores', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', arquitecto: 'Manuel de la Colina', estilo: 'Art Déco Mexicano', historia: 'La Plaza México es la plaza de toros más grande del mundo. Inaugurada el 5 de febrero de 1946, se convirtió en el templo del toreo americano. Fue construida en el terreno que ocupaba el hipódromo de la capital.', curiosidad: 'Posee el Récord Guinness como la plaza de toros más grande del mundo. Durante los Juegos Olímpicos de 1968, albergó competiciones de gimnasia. La Temporada Grande va de noviembre a marzo.' },
+                { id: 'aguascalientes', nombre: 'Monumental de Aguascalientes', ciudad: 'Aguascalientes', pais: 'México', inauguracion: '1974', capacidad: '9,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Pedro R. Moctezuma', estilo: 'Funcional', historia: 'Aguascalientes es tierra de toreros por excelencia. Durante la Feria Nacional de San Marcos, que se celebra en abril, la plaza se viste de gala con los mejores toreros del mundo.', curiosidad: 'Tiene un altar dedicado a la Virgen de la Asunción donde los toreros dejan sus capas antes de salir. El redil tiene forma hexagonal. La ganadería que más ha toreado aquí es Los Huizar.' }
+            ],
+            francia: [
+                { id: 'bayona', nombre: 'Plaza de Toros de Bayona', ciudad: 'Bayona', pais: 'Francia', inauguracion: '1854', capacidad: '10,200 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Vasca', historia: 'El centro taurino más importante de Francia. Durante las Fêtes de Bayonne en julio, la ciudad se transforma con miles de aficionados que acuden a las corridas y encierros.', curiosidad: 'Es la única plaza de Francia donde se mantiene viva la tradición del encierro popular por las calles. Ernest Hemingway asistió a corridas aquí durante los años 20. El primer toro estoqueado fue Moro en 1854.' },
+                { id: 'nimes', nombre: 'Arènes de Nîmes', ciudad: 'Nîmes', pais: 'Francia', inauguracion: 'Año 90 d.C.', capacidad: '24,000 espectadores', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', arquitecto: 'Arquitectos Romanos', estilo: 'Arquitectura Romana', historia: 'Uno de los anfiteatros romanos mejor conservados del mundo. Construido alrededor del año 90 d.C., fue levantado para albergar combates de gladiadores. Hoy es el escenario de corridas durante la FERIA de Nîmes.', curiosidad: 'Napoleón ordenó su restauración en 1812. Los toreros que toman la alternativa aquí reciben un diploma especial. En 2024 celebra su Bicentenario taurino con una corrida de gala.' }
+            ],
+            colombia: [
+                { id: 'manizales', nombre: 'Plaza de Toros de Manizales', ciudad: 'Manizales', pais: 'Colombia', inauguracion: '1929', capacidad: '16,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'François Joseph Lalo', estilo: 'Art Déco', historia: 'Conocida como La Catedral del Toreo en Colombia, es el escenario más emblemático de la tauromaquia colombiana. Se encuentra a 2,160 metros sobre el nivel del mar.', curiosidad: 'Es la única ciudad donde la feria taurina se celebra con el reinado de belleza más importante de Colombia. La altura afecta el comportamiento de los toros, que suelen ser más activos.' },
+                { id: 'bogota', nombre: 'Plaza de Toros La Santamaría', ciudad: 'Bogotá', pais: 'Colombia', inauguracion: '1931', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Domingo Cortés', estilo: 'Neoclásico', historia: 'La Santamaría es la plaza de toros más importante de Bogotá y una de las más antiguas de Colombia. Durante la Feria de Bogotá en enero, recibe a las principales figuras del toreo mundial.', curiosidad: 'Fue declarada Monumento Nacional de Colombia en 1994. Su arquitectura neoclásica la convierte en una de las plazas más bellas de América.' }
+            ],
+            peru: [
+                { id: 'acho', nombre: 'Plaza de Acho', ciudad: 'Lima', pais: 'Perú', inauguracion: '1766', capacidad: '13,700 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Colonial', historia: 'La plaza de toros más antigua de América y la segunda más antigua del mundo en funcionamiento continuo. Fue construida durante el virreinato español.', curiosidad: 'Posee el museo taurino más antiguo de América. Ha resistido más de 20 terremotos mayores. Durante la temporada se celebran corridas en honor al Señor de los Milagros.' }
+            ],
+            venezuela: [
+                { id: 'san-cristobal', nombre: 'Plaza de Toros de San Cristóbal', ciudad: 'San Cristóbal', pais: 'Venezuela', inauguracion: '1952', capacidad: '15,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Carlos Raúl Villanueva', estilo: 'Funcional', historia: 'Conocida como La Casa de la Fiesta Brava en Venezuela, es el templo taurino más importante del país. Durante la Feria de San Sebastián en enero, recibe a las principales figuras del toreo mundial.', curiosidad: 'La imagen de San Sebastián preside el ruedo desde un altar en el tendido de honor. Se convirtió en símbolo de resistencia cultural durante la crisis venezolana.' },
+                { id: 'merida', nombre: 'Plaza de Toros de Mérida', ciudad: 'Mérida', pais: 'Venezuela', inauguracion: '1947', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Desconocido', estilo: 'Colonial Andino', historia: 'Situada en los Andes venezolanos a 1,600 metros de altitud, ofrece una experiencia taurina única en un entorno montañoso sin igual. La Feria del Sol en febrero trae a Mérida a los mejores toreros del mundo.', curiosidad: 'Es la única plaza de toros del mundo situada junto a un sistema de teleférico. Los visitantes pueden llegar directamente desde las montañas.' }
+            ],
+            ecuador: [
+                { id: 'quito', nombre: 'Plaza de Toros de Quito', ciudad: 'Quito', pais: 'Ecuador', inauguracion: '1959', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', arquitecto: 'Gonzalo Zaldumbide', estilo: 'Republicano Quiteño', historia: 'Situada a 2,850 metros sobre el nivel del mar, es una de las plazas más altas del mundo. Durante la Feria de Quito en noviembre y diciembre, la ciudad se viste de gala taurina.', curiosidad: 'El aire tiene un 30% menos de oxígeno que a nivel del mar, lo que afecta el comportamiento de los toros y la resistencia de los toreros. Posee la tradición del toro de pueblo en las calles del centro histórico.' },
+                { id: 'ambato', nombre: 'Plaza de Toros de Ambato', ciudad: 'Ambato', pais: 'Ecuador', inauguracion: '1945', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'Desconocido', estilo: 'Colonial', historia: 'Ambato es conocida como la ciudad de las flores y las frutas. Durante la Feria de las Flores y las Frutas en febrero, la plaza recibe a toreros de todo el mundo.', curiosidad: 'Es una de las plazas más antiguas de Ecuador. La feria combina tradición taurina con celebración de la agricultura local.' }
+            ],
+            portugal: [
+                { id: 'campo-pequeno', nombre: 'Campo Pequeno', ciudad: 'Lisboa', pais: 'Portugal', inauguracion: '1892', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'António José Dias da Silva', estilo: 'Neomudéjar Portugués', historia: 'Monumento a la tradición taurina portuguesa. En Portugal, no se mata al toro en el ruedo, siendo una tradición única en el mundo taurino. Es la única plaza donde se puede presenciar la pegada tradicional portuguesa.', curiosidad: 'Existe un sistema de túneles del siglo XIX debajo de la plaza. Fue completamente restaurada en 2006 y hoy funciona también como centro de espectáculos.' },
+                { id: 'porto', nombre: 'Praça de Touros do Porto', ciudad: 'Oporto', pais: 'Portugal', inauguracion: '1863', capacidad: '8,500 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'José António Gaspar', estilo: 'Neoclásico', historia: 'La plaza de toros más antigua de Portugal en funcionamiento. Durante la temporada, recibe a los mejores rejoneadores y forcados del país.', curiosidad: 'Es conocida por sus espectáculos de rejoneo, una especialidad portuguesa. La arquitectura neoclásica la convierte en un monumento histórico.' }
+            ],
+            argentina: [
+                { id: 'liniers', nombre: 'Plaza de Toros de Liniers', ciudad: 'Buenos Aires', pais: 'Argentina', inauguracion: '1918', capacidad: '12,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José María Cortés', estilo: 'Ecléctico Porteño', historia: 'Fue el centro taurino de Argentina hasta su cierre en 1977. Durante décadas, Buenos Aires fue una de las capitales taurinas de América del Sur.', curiosidad: 'Fue la primera plaza de Sudamérica en tener un sistema de riego moderno. Tras su cierre, el terreno se convirtió en un centro comercial. Hoy existe un proyecto para su restauración.' },
+                { id: 'rosario', nombre: 'Plaza de Toros de Rosario', ciudad: 'Rosario', pais: 'Argentina', inauguracion: '1925', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Desconocido', estilo: 'Colonial', historia: 'Rosario fue durante décadas un importante centro taurino argentino. La plaza albergó a figuras legendarias del toreo argentino e internacional.', curiosidad: 'Aunque el toreo en Argentina está actualmente prohibido, la plaza se mantiene como monumento histórico y se usa para otros espectáculos culturales.' }
+            ],
+            'costa-rica': [
+                { id: 'zapote', nombre: 'Plaza de Toros de Zapote', ciudad: 'San José', pais: 'Costa Rica', inauguracion: '1960', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Estructura Temporal', estilo: 'Temporal', historia: 'El epicentro de las fiestas populares costarricenses. Las montas de toros son una celebración nacional que atrae a miles de visitantes durante las Fiestas de Zapote en diciembre y enero.', curiosidad: 'Famosa por la monta de toros a la criolla donde más de 300 improvisados intentan montar cada año. El récord de permanencia es de 48 segundos sobre un toro de 500kg. Es una estructura temporal que se monta cada año.' }
+            ]
+        };
+
+        // ==================== TOREROS ====================
+        const torerosDB = [
+            { nombre: 'Morante de la Puebla', nombreCompleto: 'Manuel Martínez Morante', pais: 'España', ciudadNacimiento: 'Sevilla', fechaNacimiento: '7 de noviembre de 1979', orejas: 156, rabos: 12, indultos: 5, faenas: 342, alternativa: '14 de abril de 2003, Sevilla', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', bio: 'Considerado por muchos críticos y aficionados como el mejor torero de su generación, Morante de la Puebla ha revolucionado el toreo contemporáneo con un estilo único que combina la tradición más pura del clasicismo sevilla con movimientos de una vanguardia sin precedentes. Su capacidad para crear arte con el capote y la muleta lo ha convertido en una figura legendaria. Sus faenas son memorables por la belleza plática y la profundidad emocional que transmite al público. Ha cortado orejas en las plazas más importantes del mundo: Las Ventas, Sevilla, México, Nîmes, Pamplona y Bogotá.', estilo: 'Clasicismo sevilla con detalles de vanguardia. Especialmente famoso por sus manoletinas y sus trincherazos.', fraseCelebre: 'El toreo no es un oficio, es una forma de vida que se lleva en la sangre.', rank: 1, status: 'Activo' },
+            { nombre: 'Andrés Roca Rey', nombreCompleto: 'Andrés Alejandro Roca Rey', pais: 'Perú', ciudadNacimiento: 'Lima', fechaNacimiento: '31 de diciembre de 1996', orejas: 124, rabos: 8, indultos: 3, faenas: 256, alternativa: '26 de octubre de 2014, Lima', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', bio: 'Nacido en Lima, Perú, Roca Rey llegó al panorama taurino mundial para quedarse. Su compromiso total con el toro y su valentía excepcional lo han convertido en el torero más mediático y popular de la actualidad. Con apenas 18 años tomó la alternativa en Lima y rápidamente conquistó las plazas europeas. Su toreo se caracteriza por el poderío físico, la madurez en la ejecución de las suertes y una conexión especial con el público.', estilo: 'Poderío físico, madurez en la ejecución, valor total. Especialmente destacado en el cambio de terreno.', fraseCelebre: 'Cada corrida es una nueva historia que escribir con el toro.', rank: 2, status: 'Activo' },
+            { nombre: 'Alejandro Talavante', nombreCompleto: 'Alejandro Talavante Díaz', pais: 'España', ciudadNacimiento: 'Badajoz', fechaNacimiento: '8 de marzo de 1988', orejas: 142, rabos: 9, indultos: 4, faenas: 298, alternativa: '7 de octubre de 2007, Dax, Francia', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', bio: 'El purista del toreo extremeño. Talavante representa la esencia del clasicismo en su máxima expresión. Nacido en la tierra del toro bravo, ha forjado un estilo propio que combina la técnica más depurada con una sensibilidad artística poco común. Sus faenas son consideradas obras de arte en el mundo del toreo.', estilo: 'Clasicismo extremeño puro. Maestro del toreo de naturales y de la distancia con el toro.', fraseCelebre: 'El toreo es sentir y hacer sentir.', rank: 3, status: 'Activo' },
+            { nombre: 'José María Manzanares', nombreCompleto: 'José María Manzanero Rodríguez', pais: 'España', ciudadNacimiento: 'Alicante', fechaNacimiento: '11 de mayo de 1984', orejas: 118, rabos: 6, indultos: 2, faenas: 287, alternativa: '29 de mayo de 2004, Valencia', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', bio: 'Herencia y destino. Hijo de una dinastía taurina, Manzanares ha forjado su propia leyenda con una carrera sólida construida sobre la base del trabajo y la constancia. Su toreo elegante y depurado le ha conquistado a crítica y público.', estilo: 'Elegancia y depuración técnica. Especialmente destacar en el toreo de redondo.', fraseCelebre: 'El toreo se lleva en la sangre y se demuestra en el redil.', rank: 4, status: 'Activo' },
+            { nombre: 'Juan Ortega', nombreCompleto: 'Juan Ortega Ruiz', pais: 'España', ciudadNacimiento: 'Cádiz', fechaNacimiento: '14 de febrero de 1991', orejas: 89, rabos: 4, indultos: 2, faenas: 156, alternativa: '8 de abril de 2017, Sevilla', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', bio: 'La nueva ola del toreo. Ortega representa la generación que une tradición con modernidad. Su toreo Natural ha cautivado a crítica y público por igual. Gaditano de nacimiento, lleva el arte del toreo en la sangre.', estilo: 'Toreo Natural con mucho arte. Innovador dentro de la tradición.', fraseCelebre: 'El toreo es un arte que evoluciona sin perder su esencia.', rank: 5, status: 'Activo' },
+            { nombre: 'El Fandi', nombreCompleto: 'David Fernández Ortega', pais: 'España', ciudadNacimiento: 'Granada', fechaNacimiento: '18 de mayo de 1977', orejas: 98, rabos: 5, indultos: 1, faenas: 234, alternativa: '28 de mayo de 2000, Granada', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', bio: 'Carisma y espectáculo. El Fandi ha revolucionado la lidia de reventones con sus Monkey y sus habilidades únicas con el capote. Su conexión especial con el público lo ha convertido en uno de los toreros más populares.', estilo: 'Espectáculo y contact con el público. Maestro del toreo de reventones.', fraseCelebre: 'El público es el mejor premio que puede tener un torero.', rank: 6, status: 'Activo' }
+        ];
+
+        // ==================== NOTICIAS ====================
+        const newsDB = [
+            { id: 1, titulo: 'Morante de la Puebla Triunfa con Dos Orejas en una Faena Épica de 25 Minutos', resumen: 'El maestro sevillano cuajó una faena de máximo calibre artístico ante el cuarto toro de la ganadería de Jandilla, cortando dos orejas y saliendo a hombros entre el delirio de los 23,000 espectadores que abarrotaban Las Ventas.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'Morante de la Puebla', ganaderia: 'Jandilla', plaza: 'Plaza de Toros de Las Ventas, Madrid', resultado: '2 Orejas', tiempo: 'Hace 2 horas', detalles: 'La faena duró exactamente 25 minutos y 38 segundos, tiempo durante el cual Morante desplegó todo su arsenal artístico. El público ovacionó de pie durante más de 15 minutos ininterrumpidos. El toro, de nombre Relámpago, pesó 560 kilos y fue premio en el arrastre.', quote: 'Una faena para la historia del toreo. Morante demostró una vez más que es el artista indiscutible de su generación.', tipoArticulo: 'CRÓNICA OFICIAL' },
+            { id: 2, titulo: 'Roca Rey Consolida su Liderazgo en el Ranking Mundial con Triunfo en Sevilla', resumen: 'El peruano demostró una vez más su poderío ante los victorianos del Río, logrando una faena de campeonato que pasará a los anales de la Maestranza como una de las más recordadas de la temporada.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', torero: 'Andrés Roca Rey', ganaderia: 'Victoriano del Río', plaza: 'Real Maestranza, Sevilla', resultado: 'Puerta Grande', tiempo: 'Ayer', detalles: 'Con una faena de 28 minutos al segundo toro de la tarde, Roca Rey cerró su actuación con dos orejas de gran mérito. El toro Duende fue ovacionado en el arrastre tras demostrar una bravura extraordinaria durante toda la lidia. La Mestranza registró un lleno absoluto.', quote: 'El mejor torero del mundo en la actualidad. Roca Rey no tiene rival.', tipoArticulo: 'CRÓNICA OFICIAL' },
+            { id: 3, titulo: 'Talavante Celebra su Alternativa en la Plaza Más Grande del Mundo ante 41,000 Espectadores', resumen: 'El extremeño confirmó su alternativa en la Monumental Plaza México en una tarde histórica que pasará a formar parte de las crónicas más brillantes del toreo universal.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', torero: 'Alejandro Talavante', ganaderia: 'San Mateo', plaza: 'Plaza México, Ciudad de México', resultado: '1 Oreja', tiempo: 'Hace 2 días', detalles: 'La alternativa se enmarca en la celebración del 78 aniversario de la plaza. El padrino fue el mexicano Josélito y el testigo el español Sebastián Castella. La corrida registró un lleno total con espectadores de todo el mundo.', quote: 'Una alternativa de Cine. Talavante demostró que es uno de los grandes del toreo actual.', tipoArticulo: 'ALTERNATIVA HISTÓRICA' },
+            { id: 4, titulo: 'Entrevista Exclusiva: Manzanares Repasa 20 Años de Carrera Taurina', resumen: 'En conversación exclusiva con La Famosa Taurina, José María Manzanares habla con emoción y profundidad sobre su trayectoria, desde aquella alternativa en Valencia hasta sus mejores faenas, siempre con la humildad que le caracteriza.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', torero: 'José María Manzanares', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 3 días', detalles: 'Manzanares repasa su trayectoria con una honestidad conmovedora. Habla de los momentos más emotivos de su carrera, su relación con las grandes ganaderías y cómo ve el futuro del toreo. Una conversación íntima que revela al hombre detrás del torero.', preguntas: ['¿Cómo ha evolucionado el toreo en los últimos 20 años?', '¿Cuál ha sido el momento más emotivo de su carrera?', '¿Qué consejos daría a los jóvenes toreros?'], tipoArticulo: 'ENTREVISTA EXCLUSIVA' },
+            { id: 5, titulo: 'Análisis: La Feria de San Isidro Consolidada como el Referente Taurino Universal', resumen: 'Un análisis exhaustivo sobre por qué la Feria de San Isidro se ha consolidado como el evento taurino más importante del mundo, atrayendo a las mejores figuras, las ganaderías más codiciadas y al público más exigente del orbe taurino.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', plaza: 'Plaza de Toros de Las Ventas, Madrid', tiempo: 'Hace 4 días', detalles: 'La feria, que se celebra del 10 de mayo al 8 de junio, reúne a los mejores toreros del mundo, las ganaderías más prestigiosas y al público más exigente. Este año se esperan más de 500,000 espectadores durante los 30 días de competición.', puntosClave: ['30 días de corridas de primera categoría', 'Mejores ganaderías de España y del mundo', 'Las mejores figuras del toreo mundial', 'Más de 500,000 espectadores esperados', 'Tradición y vanguardia taurina'], tipoArticulo: 'ANÁLISIS ESPECIAL' },
+            { id: 6, titulo: 'Feria de Abril 2024: Sevilla se Prepara para una Semana Histórica', resumen: 'La Real Maestranza se viste de gala para celebrar su semana grande con los mejores toreros del momento, ganaderías de primera y un público que agotará las entradas para cada uno de los seis días de corrida.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', plaza: 'Real Maestranza, Sevilla', tiempo: 'Hace 5 días', detalles: 'La Feria de Abril 2024 promete ser una de las más concurridas de la historia reciente. Las entradas para los seis días de corrida se han agotado en tiempo récord. Las ganaderías confirmadas son de primera categoría.', ganaderiasConfirmadas: ['Victoriano del Río', 'Jandilla', 'Núñez del Cuvillo', 'Juan Pedro Domecq', 'Alcurrucén'], tipoArticulo: 'ESPECIAL FERIA' },
+            { id: 7, titulo: 'Juan Ortega Consolida su Posición en el Escalafón con Faena de Arte Puro en Bilbao', resumen: 'El joven diestro gaditano demostró una vez más su calidad excepcional al réalise una faena de arte puro ante los victorinos, saliendo a hombros entre el entusiasmo de un público que reconoció su valor y su arte.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', torero: 'Juan Ortega', ganaderia: 'Victorinos', plaza: 'Plaza de Bilbao, Vizcaya', resultado: '2 Orejas', tiempo: 'Hace 1 semana', detalles: 'La faena a los victorinos fue ovacionada por un público que reconoció el valor y el arte del gaditano. Ortega demostró una madurez impropia de su edad en un toreo de calidad excepcional.', tipoArticulo: 'CRÓNICA OFICIAL' },
+            { id: 8, titulo: 'Arènes de Nîmes Celebra su Bicentenario Taurino con Corrida de Gala', resumen: 'Las legendarias Arènes romanas preparan una celebración histórica para conmemear 200 años de tauromaquia en el Anfiteatro mejor conservado del mundo romano, con una corrida de gala que reunirá a las tres grandes figuras del toreo.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', plaza: 'Arènes de Nîmes, Francia', tiempo: 'Hace 1 semana', detalles: 'La corrida de gala incluirá a las tres principales figuras del toreo mundial: Morante de la Puebla, Andrés Roca Rey y Alejandro Talavante. Será una celebración única que marcará un antes y un después en la historia de la tauromaquia francesa.', tipoArticulo: 'ESPECIAL BICENTENARIO' },
+            { id: 9, titulo: 'El Fandi Ofrece una Exhibición de Arte y Valentía que Dejó al Público Mexicano sin Aliento', resumen: 'El matador granadino revolucionó la Monumental Plaza México con una actuación que combinó el arte más puro con el espectáculo más vibrante, cortando tres orejas y pasando como un torero para la historia.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', torero: 'El Fandi', ganaderia: 'Los Huizar', plaza: 'Plaza México, CDMX', resultado: '3 Orejas', tiempo: 'Hace 2 semanas', detalles: 'La actuación de El Fandi incluirá sus famosos monkey y una conexión con el público que demostró por qué es el torero más querido por los aficionados. El granadino demostró que el toreo puede ser arte y espectáculo al mismo tiempo.', tipoArticulo: 'CRÓNICA OFICIAL' },
+            { id: 10, titulo: 'Manzanares Indulta al Toro Pañol de Juan Pedro Domecq por su Excepcional Bravura', resumen: 'En una tarde que quedará grabada en la memoria de los aficionados, José María Manzanares realizó una faena de arte excepcional que le permitió salvar la vida del toro Pañol, convirtiéndose en el tercer indulto de su carrera.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'José María Manzanares', ganaderia: 'Juan Pedro Domecq', plaza: 'San Sebastián, Guipúzcoa', resultado: 'INDULTO', tiempo: 'Hace 3 semanas', detalles: 'El toro Pañol fue indultado tras una faena de 22 minutos en los que demostró una bravura extraordinaria. El público pidió el indulto de forma unánime y el presidente no tuvo más remedio que concederlo.', tipoArticulo: 'INDULTO' },
+            { id: 11, titulo: 'Reportaje: El Fascinante Proceso de Cria del Toro de Lidia desde la Dehesa hasta la Plaza', resumen: 'Un reportaje completo y exhaustivo sobre cómo se cría al toro bravo, desde la selección genética en la dehesa hasta su llegada al redil de las mejores plazas del mundo. Visitamos una de las ganaderías más prestigiosas de España.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', tiempo: 'Hace 2 semanas', detalles: 'Visitamos una de las ganaderías más prestigiosas de España para conocer en profundidad el proceso de cría del toro de lidia. Desde la selección genética hasta el transporte al coso, cada paso está cuidadosamente pensado para garantizar la calidad del toro bravo.', secciones: ['Selección genética y cría', 'La alimentación en la dehesa', 'El manejo del ganado', 'La selección para la plaza', 'El transporte al coso'], tipoArticulo: 'REPORTAJE ESPECIAL' },
+            { id: 12, titulo: 'Feria de Manizales 2024: Colombia Vibra con la Tauromaquia más Auténtica', resumen: 'La Feria de Manizales se consolida como el evento taurino más importante de América Latina, reuniendo a las principales figuras del toreo mundial en una de las plazas más emblemáticas del continente.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', plaza: 'Plaza de Toros de Manizales, Colombia', tiempo: 'Hace 3 semanas', detalles: 'La feria que se celebra en enero reúne a las principales figuras del toreo mundial y a los mejores toros de América. La plaza, situada a más de 2,000 metros sobre el nivel del mar, ofrece unas condiciones únicas para la lidia.', tipoArticulo: 'FERIA INTERNACIONAL' }
+        ];
+
+        // ==================== GANADERÍAS ====================
+        const ganaderiasDB = [
+            { nombre: 'Victoriano del Río', ubicacion: 'Titulancia, Madrid, España', founded: '1940', origen: 'Jijón', descripcion: 'Una de las ganaderías más codiciadas y respetadas del mundo taurino. Fundada por Victoriano del Río, ha mantenido un nivel de calidad excepcional a lo largo de las décadas, criando toros de extraordinaria presentación y bravura típica que han dado tardes memorables en las plazas más importantes del orbe.', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', toroFamoso: 'Barbés, Salti, Relámpago', colorGanado: 'Negro Bragado', encaste: 'Jijón', frase: 'La calidad nunca se negocia', torosDestacados: [{ nombre: 'Barbés', año: 2015, plaza: 'Las Ventas', torero: 'Morante' }, { nombre: 'Salti', año: 2018, plaza: 'Sevilla', torero: 'Roca Rey' }] },
+            { nombre: 'Jandilla', ubicacion: 'Berlanga, Badajoz, España', founded: '1913', origen: 'Vistahermosa', descripcion: 'Ganadería histórica que ha dado tardes memorables en las plazas más importantes del mundo. Sus toros se caracterizan por su poderío físico excepcional, su nobleza en la muleta y una bravura en el caballo que los convierte en animales espectaculares para la lidia.', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', toroFamoso: 'Cachupín, Jandillo', colorGanado: 'Negro y Colorado', encaste: 'Vistahermosa', frase: 'La bravura es nuestro legado', torosDestacados: [{ nombre: 'Cachupín', año: 2019, plaza: 'Las Ventas', torero: 'Talavante' }] },
+            { nombre: 'San Mateo', ubicacion: 'Adamuz, Córdoba, España', founded: '1910', origen: 'Marqués de Saltillo', descripcion: 'Ganadería decriana que cria toros de clase excepcional. Una de las preferidas por los grandes toreros por la calidad de sus reses y su comportamiento bravo y noble en la plaza. Sus toros combinan potencia y trapío con una categoría innata.', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', toroFamoso: 'Pijotero, Saltador', colorGanado: 'Castaño y Negro', encaste: 'Marqués de Saltillo', frase: 'Clase y Trapío' },
+            { nombre: 'Juan Pedro Domecq', ubicacion: 'Jerez de los Caballeros, Badajoz, España', founded: '1870', origen: 'Villabrille', descripcion: 'La ganadería más importante del siglo XX y una de las más influyentes en la cría del toro bravo moderno. Ha marcado estilo y bravura en la selección ganadera, criando toros que han dado tardes legendarias en todas las ferias del mundo.', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', toroFamoso: 'Mañol, Soetero, Pañol', colorGanado: 'Colorao y Negro', encaste: 'Domecq', frase: 'Tradición y bravura desde 1870' },
+            { nombre: 'Núñez del Cuvillo', ubicacion: 'Vejer de la Frontera, Cádiz, España', founded: '1900', origen: 'Carlos Núñez', descripcion: 'Ganadería gaditana de elite cuyos toros combinan nobleza y potencia en un binomio perfecto. Son animales que embisten con clase y permiten al torero desarrollar su arte con la garantía de un comportamiento bravo y generoso.', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', toroFamoso: 'Rebelde, Soetero', colorGanado: 'Negro y Castaño', encaste: 'Núñez', frase: 'Elegancia gaditana' },
+            { nombre: 'Los Huizar', ubicacion: 'Ciudad Juárez, Chihuahua, México', founded: '1890', origen: 'Padilla', descripcion: 'Una de las ganaderías mexicanas más prestigiosas y antiguas del país. Cria el toro americano por excelencia, con un nivel de bravura que ha conquistado las plazas de México, España y Francia, convirtiéndose en referencia del toreo en América.', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', toroFamoso: 'Capolítico, Halcón', colorGanado: 'Negro', encaste: 'Padilla', frase: 'Bravura mexicana' }
+        ];
+
+        // ==================== GLOSARIO ====================
+        const glossaryDB = [
+            { term: 'Albero', def: 'La arena o tierra blonde que cubre el suelo del redil. Se importa específicamente desde las canteras de Almería por su calidad única. Debe tener un grosor específico para absorber la sangre y permitir el deslizamiento del torero durante las suertes.' },
+            { term: 'Burladero', def: 'Cada uno de los tabiques que protegen a los toreros en el callejón de la plaza. Generalmente de madera o metal, permiten al torero guarecerse del toro de forma segura durante los tercios de varas y muleta.' },
+            { term: 'Capote', def: 'Utensilio de tela utilizado para la lidia de reses en el tercio de varas y para los quites. Mide aproximadamente 125 cm de largo y 75 cm de ancho. El color tradicional es vary de amarillo y rojo.' },
+            { term: 'Chiqueros', def: 'Los establos donde se encerrar los toros antes de la corrida. Están conectados con el redil por un pasillo estrecho llamado temeguillo. Cada toro tiene su propio chiquero.' },
+            { term: 'Curro', def: 'Plaza de toros cubierta, generalmente de madera. Este tipo de plaza es típico de España y Portugal. Los curros más famous incluyen el de Ronda y el de Chipiona.' },
+            { term: 'Descabello', def: 'Golpe mortal en la nuca del toro con la punta de la espada cuando el estoque no ha entrado correctamente. Es la forma de rematar la lidia cuando la muerte no ha sido limpia.' },
+            { term: 'Empalomar', def: 'Situación en la que el toro se clava la tela del capote o muleta entre los pitones, generalmente por un mal cite o pase. Puede ser peligroso para el torero.' },
+            { term: 'Estoque', def: 'La espada lata y rectangular con la que se da muerte al toro. Debe entrar entre las paletillas hasta la cruz del animal para una muerte limpia. El estoque de regalo es tradicional en las bodas.' },
+            { term: 'Farolillo', def: 'Premio que se otorga cuando el toro no ha sido lanceado ni ha embestido con continuidad. Es considerado un fracaso del animal y una mancha en la lidia.' },
+            { term: 'Gaonachón', def: 'Golpe con la punta de la espada en el morrillo del toro durante lamontería. Se realiza para asegurar la entrada del estoque en el segundo intento.' },
+            { term: 'Hidalgo', def: 'Toro que no responde a la convocatoria del capote o la muleta, faltando a su obligación de embestir. Es un defecto de bravura muy penalizado por la legislación taurina.' },
+            { term: 'Indulto', def: 'Perdón de la vida del toro por parte del presidente de la corrida, concedido por su bravura excepcional. Es el máximo premio que puede recibir un toro. El toro indultado vuelve a la ganadería.' },
+            { term: 'Junco', def: 'Pase de muleta ejecutado con el torero de espaldas al toro, mirando hacia el tendido. Es uno de los pases más difíciles y espectaculares del toreo.' },
+            { term: 'Kiries', def: 'Pases ejecutados en paralelo sin mover los pies, generalmente de naturales. Requieren una sincronización perfecta entre el torero y el toro.' },
+            { term: 'Lidia', def: 'El arte de torear, desde que el toro sale del chiquero hasta que es estoqueado. Incluye tres tercios: varas, banderillas y muerte.' },
+            { term: 'Muleta', def: 'Tela roja plegada sujeta a un palo usada en el último tercio de la lidia. Con ella se ejecutan los pases más espectaculares y artísticos del toreo.' },
+            { term: 'Nobel', def: 'Toro de cuatro a cinco años que torea por primera vez en una plaza. Es más difícil de torear que el utrero pero menos experimentado que el cinqueño.' },
+            { term: 'Oreja', def: 'Trofeo que se corta al toro como premio por la calidad de la faena. Dos orejas y rabo equivale a la salida a hombros del torero.' },
+            { term: 'Pase', def: 'Cada una de las suertes realizadas con el capote o la muleta. Los más importantes son el pase natural, el pase de pecho y el trincherazo.' },
+            { term: 'Quite', def: 'Intervención del torero que no está lidando al toro para arrancar al compañero de un aprieto. Es una muestra de solidaridad y valor.' },
+            { term: 'Rabo', def: 'Premio adicional a las orejas que se concede cuando la faena ha sido excepcional. Cortar rabo requiere generalmente un indulto o dos orejas de extraordinario mérito.' },
+            { term: 'Redil', def: 'La arena de la plaza de toros. Debe estar nivelada y compactada. El encargado de prepararla se llama albeiter.' },
+            { term: 'Sobresaliente', def: 'Torero que está en la plaza para sustituir a cualquiera de los matadores de alternativa si estos no pueden actuar por cualquier motivo.' },
+            { term: 'Suerte', def: 'Cada una de las partes de la lidia: varas, banderillas y muerte. También se refiere a los pases individuales.' },
+            { term: 'Tercio', def: 'Cada una de las tres partes de la corrida: entrada a caballo (varas), puyas y banderillas (segundo tercio), y muleta y muerte (tercer tercio).' },
+            { term: 'Utro', def: 'Toro que torea por primera vez con más de cuatro años. El utrero tiene más edad y experiencia que el nobil pero menos que el cinqueño.' },
+            { term: 'Varas', def: 'Lanceta con la que el picador punza al toro en el morrillo para comprobar su bravura y rebajar su fuerza. Es el primer tercio de la lidia.' }
+        ];
+
+        // ==================== ESTADO ====================
+        let currentCountry = 'espana';
+        let navbar, themeToggle, modalBackdrop, modalTitle, modalBody;
+        let tickerAnimationId;
+
+        // ==================== INICIALIZACIÓN ====================
+        document.addEventListener('DOMContentLoaded', () => {
+            navbar = document.getElementById('navbar');
+            themeToggle = document.getElementById('themeToggle');
+            modalBackdrop = document.getElementById('modalBackdrop');
+            modalTitle = document.getElementById('modalTitle');
+            modalBody = document.getElementById('modalBody');
+
+            loadHeroImage();
+            animateHeroStats();
+            initTicker();
+            renderCountries();
+            renderPlazas();
+            renderStats();
+            renderNews();
+            renderToreros();
+            renderPlazasContent();
+            renderGanaderias();
+            renderGlossary();
+            renderRanking();
+            initScrollObserver();
+            initNavScroll();
+            initThemeToggle();
+            initModalClose();
+        });
+
+        function loadHeroImage() {
+            const heroImg = document.getElementById('heroBgImage');
+            heroImg.src = `https://picsum.photos/seed/bullfighting/1920/1080`;
+        }
+
+        function animateHeroStats() {
+            const targets = [
+                { id: 'heroPlazas', end: 43 },
+                { id: 'heroToreros', end: 128 },
+                { id: 'heroPaises', end: 10 },
+                { id: 'heroCorridas', end: 89 }
+            ];
+
+            targets.forEach(target => {
+                const element = document.getElementById(target.id);
+                if (!element) return;
+                
+                let current = 0;
+                const increment = target.end / 50;
+                const timer = setInterval(() => {
+                    current += increment;
+                    if (current >= target.end) {
+                        current = target.end;
+                        clearInterval(timer);
+                    }
+                    element.textContent = Math.floor(current);
+                }, 30);
+            });
+        }
+
+        // ==================== TICKER MUY LENTO CON JS ====================
+        function initTicker() {
+            const track = document.getElementById('tickerTrack');
+            if (!track) return;
+            
+            let tickerHTML = '';
+            // Duplicar 4 veces para efecto continuo fluido
+            for (let j = 0; j < 4; j++) {
+                tickerNews.forEach(news => {
+                    tickerHTML += `
+                        <div class="ticker-item">
+                            <span class="ticker-icon">${news.icon}</span>
+                            <div class="ticker-content-inner">
+                                <span class="ticker-title">${news.title}</span>
+                                <span class="ticker-description">${news.description}</span>
+                                <span class="ticker-time">${news.time}</span>
+                            </div>
+                        </div>
+                    `;
+                });
+            }
+            track.innerHTML = tickerHTML;
+
+            // Animación manual MUY LENTA con JavaScript
+            let position = 0;
+            const speed = 1; // Píxeles por frame - EXTREMADAMENTE LENTO
+            
+            function animate() {
+                position -= speed;
+                const totalWidth = track.scrollWidth / 2;
+                
+                if (Math.abs(position) >= totalWidth) {
+                    position = 0;
+                }
+                
+                track.style.transform = `translateX(${position}px)`;
+                tickerAnimationId = requestAnimationFrame(animate);
+            }
+            
+            animate();
+
+            // Pausar al hover
+            const wrapper = document.querySelector('.ticker-wrapper');
+            if (wrapper) {
+                wrapper.addEventListener('mouseenter', () => {
+                    cancelAnimationFrame(tickerAnimationId);
+                });
+                
+                wrapper.addEventListener('mouseleave', () => {
+                    animate();
+                });
+            }
+        }
+
+        // ==================== RENDERIZADOS ====================
+        function renderCountries() {
+            const container = document.getElementById('countryList');
+            if (!container) return;
+            container.innerHTML = countries.map(c => `
+                <button class="country-item ${c.id === currentCountry ? 'active' : ''}" onclick="selectCountry('${c.id}')">
+                    <span class="country-flag">${c.flag}</span>
+                    <span class="country-name">${c.name}</span>
+                    <span class="country-count">${c.count}</span>
+                </button>
+            `).join('');
+        }
+
+        function selectCountry(countryId) {
+            currentCountry = countryId;
+            renderCountries();
+            renderPlazas();
+        }
+
+        function renderPlazas() {
+            const container = document.getElementById('plazasContainer');
+            if (!container) return;
+            const plazas = plazasDB[currentCountry] || [];
+            if (plazas.length === 0) {
+                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 1rem; font-size: 0.85rem;">No hay plazas disponibles.</p>';
+                return;
+            }
+            container.innerHTML = plazas.slice(0, 6).map(p => `
+                <div class="plaza-mini-card" onclick="openPlazaModal('${p.id}')">
+                    <img src="${p.imagen}" class="plaza-mini-img" alt="${p.nombre}" onerror="this.src='https://picsum.photos/200/200?random=${p.id}'">
+                    <div class="plaza-mini-info">
+                        <h4>${p.nombre.split(' ').slice(0, 3).join(' ')}</h4>
+                        <span>${p.ciudad} • ${p.inauguracion}</span>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderStats() {
+            const container = document.getElementById('statsGrid');
+            if (!container) return;
+            const stats = [
+                { icon: '🏟️', number: '43', label: 'Plazas Históricas' },
+                { icon: '⚔️', number: '128', label: 'Toreros Activos' },
+                { icon: '🎪', number: '89', label: 'Corridas 2024' },
+                { icon: '🌍', number: '10', label: 'Países Taurinos' },
+                { icon: '🏆', number: '24', label: 'Ferias Major' }
+            ];
+            container.innerHTML = stats.map(s => `
+                <div class="stat-card">
+                    <div class="stat-icon">${s.icon}</div>
+                    <div class="stat-number">${s.number}</div>
+                    <div class="stat-label">${s.label}</div>
+                </div>
+            `).join('');
+        }
+
+        function renderNews() {
+            const container = document.getElementById('newsGrid');
+            if (!container) return;
+            container.innerHTML = newsDB.map(n => `
+                <div class="news-card" data-tipo="${n.tipo}" onclick="openNewsModal(${n.id})">
+                    <div class="news-visual">
+                        <img src="${n.imagen}" alt="${n.titulo}" onerror="this.src='https://picsum.photos/600/400?random=${n.id}'">
+                        <div class="news-badge ${n.tipo}">${n.tipoArticulo || n.tipo}</div>
+                    </div>
+                    <div class="news-body">
+                        <h3 class="news-title">${n.titulo}</h3>
+                        <p class="news-excerpt">${n.resumen}</p>
+                        <div class="news-details">
+                            ${n.torero ? `<div class="news-detail-item"><span class="news-detail-label">Torero:</span><span class="news-detail-value">${n.torero}</span></div>` : ''}
+                            ${n.ganaderia ? `<div class="news-detail-item"><span class="news-detail-label">Ganadería:</span><span class="news-detail-value">${n.ganaderia}</span></div>` : ''}
+                            <div class="news-detail-item"><span class="news-detail-label">Plaza:</span><span class="news-detail-value">${n.plaza?.split(',')[0] || 'Varias plazas'}</span></div>
+                        </div>
+                        <div class="news-footer">
+                            <span class="news-time">${n.tiempo}</span>
+                            ${n.resultado ? `<span class="news-result">${n.resultado}</span>` : ''}
+                        </div>
+                        ${n.quote ? `<div class="news-quote">"${n.quote}"</div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterNews(tipo) {
+            document.querySelectorAll('.filter-btn').forEach(btn => {
+                btn.classList.toggle('active', btn.textContent.toLowerCase().includes(tipo) || (tipo === 'all' && btn.textContent === 'Todas'));
+            });
+            document.querySelectorAll('.news-card').forEach(card => {
+                card.style.display = tipo === 'all' || card.dataset.tipo === tipo ? '' : 'none';
+            });
+        }
+
+        function renderToreros() {
+            const container = document.getElementById('torerosGrid');
+            if (!container) return;
+            container.innerHTML = torerosDB.map(t => `
+                <div class="torero-card" onclick="openToreroModal('${t.nombre}')">
+                    <div class="torero-visual">
+                        <img src="${t.imagen}" alt="${t.nombre}" onerror="this.src='https://picsum.photos/400/300?random=${t.rank}'">
+                        <div class="torero-rank">${t.rank}</div>
+                        <div class="torero-status">● ${t.status}</div>
+                    </div>
+                    <div class="torero-body">
+                        <h3 class="torero-name">${t.nombre}</h3>
+                        <p class="torero-fullname">${t.nombreCompleto}</p>
+                        <p class="torero-origin">📍 ${t.ciudadNacimiento}, ${t.pais}</p>
+                        <p class="torero-bio">${t.bio.substring(0, 250)}...</p>
+                        <div class="torero-stats">
+                            <div class="torero-stat"><div class="torero-stat-value">${t.orejas}</div><div class="torero-stat-label">Orejas</div></div>
+                            <div class="torero-stat"><div class="torero-stat-value">${t.rabos}</div><div class="torero-stat-label">Rabos</div></div>
+                            <div class="torero-stat"><div class="torero-stat-value">${t.indultos}</div><div class="torero-stat-label">Indultos</div></div>
+                            <div class="torero-stat"><div class="torero-stat-value">${t.faenas}</div><div class="torero-stat-label">Faenas</div></div>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderPlazasContent() {
+            const container = document.getElementById('plazasGrid');
+            if (!container) return;
+            
+            let allPlazas = [];
+            Object.values(plazasDB).forEach(plazas => {
+                allPlazas = [...allPlazas, ...plazas];
+            });
+            
+            container.innerHTML = allPlazas.map(p => `
+                <div class="plaza-card" onclick="openPlazaModal('${p.id}')">
+                    <div class="plaza-visual">
+                        <img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='https://picsum.photos/600/400?random=${p.id}'">
+                        <span class="plaza-country">${p.pais === 'España' ? '🇪🇸' : p.pais === 'México' ? '🇲🇽' : p.pais === 'Francia' ? '🇫🇷' : p.pais === 'Colombia' ? '🇨🇴' : p.pais === 'Perú' ? '🇵🇪' : p.pais === 'Venezuela' ? '🇻🇪' : p.pais === 'Ecuador' ? '🇪🇨' : p.pais === 'Portugal' ? '🇵🇹' : p.pais === 'Argentina' ? '🇦🇷' : p.pais === 'Costa Rica' ? '🇨🇷' : '🌍'}</span>
+                    </div>
+                    <div class="plaza-body">
+                        <h3 class="plaza-name">${p.nombre}</h3>
+                        <p class="plaza-location">📍 ${p.ciudad}, ${p.pais}</p>
+                        <div class="plaza-info">
+                            <div class="plaza-info-item"><span class="plaza-info-label">Inaugurada</span><span class="plaza-info-value">${p.inauguracion}</span></div>
+                            <div class="plaza-info-item"><span class="plaza-info-label">Capacidad</span><span class="plaza-info-value">${p.capacidad}</span></div>
+                            <div class="plaza-info-item"><span class="plaza-info-label">Arquitecto</span><span class="plaza-info-value">${p.arquitecto || 'Desconocido'}</span></div>
+                            <div class="plaza-info-item"><span class="plaza-info-label">Estilo</span><span class="plaza-info-value">${p.estilo}</span></div>
+                        </div>
+                        <p class="plaza-desc">${p.historia}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderGanaderias() {
+            const container = document.getElementById('ganaderiasGrid');
+            if (!container) return;
+            container.innerHTML = ganaderiasDB.map(g => `
+                <div class="ganaderia-card" onclick="openGanaderiaModal('${g.nombre}')">
+                    <div class="ganaderia-visual">
+                        <img src="${g.imagen}" alt="${g.nombre}" onerror="this.src='https://picsum.photos/400/250?random=${g.nombre}'">
+                        <span class="ganaderia-badge">Desde ${g.founded}</span>
+                    </div>
+                    <div class="ganaderia-body">
+                        <h3 class="ganaderia-name">${g.nombre}</h3>
+                        <p class="ganaderia-location">📍 ${g.ubicacion}</p>
+                        <p class="ganaderia-desc">${g.descripcion}</p>
+                        ${g.toroFamoso ? `<div class="ganaderia-toro"><span class="ganaderia-toro-label">Toro famoso:</span><span class="ganaderia-toro-name">${g.toroFamoso}</span></div>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function renderGlossary() {
+            const container = document.getElementById('glossaryGrid');
+            if (!container) return;
+            container.innerHTML = glossaryDB.map(g => `
+                <div class="glossary-card">
+                    <h4 class="glossary-term">${g.term}</h4>
+                    <p class="glossary-def">${g.def}</p>
+                </div>
+            `).join('');
+        }
+
+        function renderRanking() {
+            const container = document.getElementById('rankingContainer');
+            if (!container) return;
+            container.innerHTML = torerosDB.slice(0, 5).map((t, i) => {
+                let posClass = 'default';
+                if (i === 0) posClass = 'gold';
+                else if (i === 1) posClass = 'silver';
+                else if (i === 2) posClass = 'bronze';
+                
+                return `
+                    <div class="ranking-item" onclick="openToreroModal('${t.nombre}')">
+                        <div class="ranking-position ${posClass}">${i + 1}</div>
+                        <div class="ranking-info">
+                            <div class="ranking-name">${t.nombre}</div>
+                            <div class="ranking-stats">${t.orejas} orejas • ${t.faenas} faenas</div>
+                        </div>
+                    </div>
+                `;
+            }).join('');
+        }
+
+        // ==================== MODALES ====================
+        function openModal(title, content) {
+            if (!modalTitle || !modalBody || !modalBackdrop) return;
+            modalTitle.textContent = title;
+            modalBody.innerHTML = content;
+            modalBackdrop.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            if (!modalBackdrop) return;
+            modalBackdrop.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        function openAboutModal() {
+            openModal('La Famosa Taurina', `
+                <img src="https://images.unsplash.com/photo-1550931267-336712061453?w=800" class="modal-visual" alt="Tauromaquia">
+                <span class="modal-badge">Portal Taurino #1</span>
+                <p class="modal-text">La Famosa Taurina es el portal taurino más completo del mundo hispanohablante. Nacimos con la misión de preservar, promover y celebrar el arte del toreo en todas sus expresiones.</p>
+                <p class="modal-text">Nuestro archivo incluye información de más de 43 plazas históricas, 128 toreros activos, y cobertura de 10 países taurinos. Cada día trabajamos para bring las últimas noticias, análisis profundos y contenido histórico a miles de aficionados.</p>
+                <div class="modal-highlight">
+                    <h4>Nuestra Misión</h4>
+                    <p>Ser el referente digital definitivo para la comunidad taurina mundial, preservando la tradición mientras abrazamos la innovación tecnológica.</p>
+                </div>
+            `);
+        }
+
+        function openPlazaModal(id) {
+            let plaza = null;
+            Object.values(plazasDB).forEach(plazas => {
+                const found = plazas.find(p => p.id === id);
+                if (found) plaza = found;
+            });
+            
+            if (!plaza) return;
+            openModal(plaza.nombre, `
+                <img src="${plaza.imagen}" class="modal-visual" alt="${plaza.nombre}" onerror="this.src='https://picsum.photos/800/400'">
+                <span class="modal-badge">${plaza.pais}</span>
+                <div class="modal-grid">
+                    <div class="modal-grid-item"><strong>Ciudad</strong><span>${plaza.ciudad}</span></div>
+                    <div class="modal-grid-item"><strong>Inauguración</strong><span>${plaza.inauguracion}</span></div>
+                    <div class="modal-grid-item"><strong>Capacidad</strong><span>${plaza.capacidad}</span></div>
+                    <div class="modal-grid-item"><strong>Arquitecto</strong><span>${plaza.arquitecto || 'Desconocido'}</span></div>
+                    <div class="modal-grid-item"><strong>Estilo</strong><span>${plaza.estilo}</span></div>
+                    <div class="modal-grid-item"><strong>País</strong><span>${plaza.pais}</span></div>
+                </div>
+                <h3 class="modal-section-title">Historia</h3>
+                <p class="modal-text">${plaza.historia}</p>
+                <div class="modal-highlight">
+                    <h4>Dato Curioso</h4>
+                    <p>${plaza.curiosidad}</p>
+                </div>
+            `);
+        }
+
+        function openToreroModal(nombre) {
+            const torero = torerosDB.find(t => t.nombre === nombre);
+            if (!torero) return;
+            openModal(torero.nombre, `
+                <img src="${torero.imagen}" class="modal-visual" alt="${torero.nombre}" onerror="this.src='https://picsum.photos/800/400'">
+                <span class="modal-badge">Ranking #${torero.rank} — ${torero.pais}</span>
+                <div class="modal-grid">
+                    <div class="modal-grid-item"><strong>Nombre Completo</strong><span>${torero.nombreCompleto}</span></div>
+                    <div class="modal-grid-item"><strong>Nacimiento</strong><span>${torero.fechaNacimiento}</span></div>
+                    <div class="modal-grid-item"><strong>Ciudad</strong><span>${torero.ciudadNacimiento}</span></div>
+                    <div class="modal-grid-item"><strong>Alternativa</strong><span>${torero.alternativa}</span></div>
+                    <div class="modal-grid-item"><strong>Orejas</strong><span>${torero.orejas}</span></div>
+                    <div class="modal-grid-item"><strong>Rabos</strong><span>${torero.rabos}</span></div>
+                    <div class="modal-grid-item"><strong>Indultos</strong><span>${torero.indultos}</span></div>
+                    <div class="modal-grid-item"><strong>Faenas</strong><span>${torero.faenas}</span></div>
+                </div>
+                <h3 class="modal-section-title">Biografía</h3>
+                <p class="modal-text">${torero.bio}</p>
+                <h3 class="modal-section-title">Estilo</h3>
+                <p class="modal-text">${torero.estilo}</p>
+                ${torero.fraseCelebre ? `<div class="modal-highlight"><h4>Frase Célebre</h4><p>"${torero.fraseCelebre}"</p></div>` : ''}
+            `);
+        }
+
+        function openNewsModal(id) {
+            const news = newsDB.find(n => n.id === id);
+            if (!news) return;
+            openModal(news.titulo, `
+                <img src="${news.imagen}" class="modal-visual" alt="${news.titulo}" onerror="this.src='https://picsum.photos/800/400'">
+                <span class="modal-badge">${news.tipoArticulo || news.tipo}</span>
+                <p class="modal-text">${news.detalles || news.resumen}</p>
+                <div class="modal-grid">
+                    ${news.torero ? `<div class="modal-grid-item"><strong>Torero</strong><span>${news.torero}</span></div>` : ''}
+                    ${news.ganaderia ? `<div class="modal-grid-item"><strong>Ganadería</strong><span>${news.ganaderia}</span></div>` : ''}
+                    <div class="modal-grid-item"><strong>Plaza</strong><span>${news.plaza}</span></div>
+                    <div class="modal-grid-item"><strong>Fecha</strong><span>${news.tiempo}</span></div>
+                    ${news.resultado ? `<div class="modal-grid-item"><strong>Resultado</strong><span>${news.resultado}</span></div>` : ''}
+                </div>
+                ${news.quote ? `<div class="modal-highlight"><h4>Opinión de la Crítica</h4><p>${news.quote}</p></div>` : ''}
+            `);
+        }
+
+        function openGanaderiaModal(nombre) {
+            const ganaderia = ganaderiasDB.find(g => g.nombre === nombre);
+            if (!ganaderia) return;
+            openModal(ganaderia.nombre, `
+                <img src="${ganaderia.imagen}" class="modal-visual" alt="${ganaderia.nombre}" onerror="this.src='https://picsum.photos/800/400'">
+                <span class="modal-badge">Desde ${ganaderia.founded}</span>
+                <div class="modal-grid">
+                    <div class="modal-grid-item"><strong>Ubicación</strong><span>${ganaderia.ubicacion}</span></div>
+                    <div class="modal-grid-item"><strong>Fundada</strong><span>${ganaderia.founded}</span></div>
+                    <div class="modal-grid-item"><strong>Origen</strong><span>${ganaderia.origen}</span></div>
+                    <div class="modal-grid-item"><strong>Color</strong><span>${ganaderia.colorGanado}</span></div>
+                    <div class="modal-grid-item"><strong>Encaste</strong><span>${ganaderia.encaste}</span></div>
+                    ${ganaderia.toroFamoso ? `<div class="modal-grid-item"><strong>Toro Famoso</strong><span>${ganaderia.toroFamoso}</span></div>` : ''}
+                </div>
+                <h3 class="modal-section-title">Descripción</h3>
+                <p class="modal-text">${ganaderia.descripcion}</p>
+                ${ganaderia.frase ? `<div class="modal-highlight"><h4>Lema de la Ganadería</h4><p>"${ganaderia.frase}"</p></div>` : ''}
+                ${ganaderia.torosDestacados ? `<h3 class="modal-section-title">Toros Más Famosos</h3>${ganaderia.torosDestacados.map(t => `<p class="modal-text"><strong>${t.nombre}</strong> (${t.año}) - ${t.plaza} con ${t.torero}</p>`).join('')}` : ''}
+            `);
+        }
+
+        // ==================== UTILIDADES ====================
+        function initScrollObserver() {
+            const sections = document.querySelectorAll('.section-block');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('visible');
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+            sections.forEach(section => observer.observe(section));
+        }
+
+        function initNavScroll() {
+            if (!navbar) return;
+            window.addEventListener('scroll', () => {
+                const heroHeight = window.innerHeight;
+                if (window.pageYOffset > heroHeight - 200) navbar.classList.add('visible');
+                else navbar.classList.remove('visible');
+            });
+        }
+
+        function initThemeToggle() {
+            if (!themeToggle) return;
+            themeToggle.addEventListener('click', () => {
+                document.body.classList.toggle('light-mode');
+                themeToggle.textContent = document.body.classList.contains('light-mode') ? '☀️' : '🌙';
+            });
+        }
+
+        function initModalClose() {
+            if (!modalBackdrop) return;
+            modalBackdrop.addEventListener('click', (e) => {
+                if (e.target === modalBackdrop) closeModal();
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && modalBackdrop.classList.contains('active')) closeModal();
+            });
+        }
+
+        function scrollToContent() {
+            const main = document.querySelector('.main-wrapper');
+            if (main) main.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function handleNewsletter(e) {
+            e.preventDefault();
+            const input = e.target.querySelector('input');
+            alert(`¡Gracias por suscribirte! Te enviaremos las mejores noticias taurinas a: ${input.value}`);
+            input.value = '';
+        }
+    </script>
+</body>
+</html>
