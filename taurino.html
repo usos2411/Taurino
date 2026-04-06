@@ -2538,64 +2538,66 @@
         // ==================== PLAZAS COMPLETAS POR PAÍS ====================
         const plazasDB = {
             espana: [
-                { id: 'ventas', nombre: 'Plaza de Toros de Las Ventas', ciudad: 'Madrid', pais: 'España', inauguracion: '17 de junio de 1931', capacidad: '23,798 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José Espelius', estilo: 'Neomudéjar', historia: 'Inaugurada el 17 de junio de 1931, Las Ventas es considerada la catedral del toreo mundial.', curiosidad: 'Su capilla alberga la Virgen de la Paloma, patrona de Madrid.' },
-                { id: 'maestranza', nombre: 'Real Maestranza de Sevilla', ciudad: 'Sevilla', pais: 'España', inauguracion: '1761', capacidad: '12,500 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Varios', estilo: 'Barroco Sevillano', historia: 'La Real Maestranza de Sevilla es la plaza de toros más antigua de España.', curiosidad: 'Es la única plaza del mundo donde el presidente no preside desde el palco principal.' },
-                { id: 'malagueta', nombre: 'Plaza de Toros de La Malagueta', ciudad: 'Málaga', pais: 'España', inauguracion: '1876', capacidad: '9,032 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Joaquín de Rucoba', estilo: 'Neomudéjar', historia: 'Inaugurada en 1876 frente al Mediterráneo.', curiosidad: 'Es la única plaza de toros del mundo ubicada frente a una playa.' },
-                { id: 'pamplona', nombre: 'Plaza de Toros de Pamplona', ciudad: 'Pamplona', pais: 'España', inauguracion: '1922', capacidad: '19,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Fernando Redón', estilo: 'Neoclásico', historia: 'La plaza de Pamplona fue construida entre 1919 y 1922.', curiosidad: 'El callejón tiene una anchura de 4 metros para permitir los recortes de los corredores.' }
+                { id: 'ventas', nombre: 'Plaza de Toros de Las Ventas', ciudad: 'Madrid', pais: 'España', inauguracion: '17 de junio de 1931', capacidad: '23,798 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José Espelius', estilo: 'Neomudéjar', historia: 'Inaugurada en 1931, Las Ventas es la catedral del toreo mundial y epicentro de la Feria de San Isidro.', curiosidad: 'Su fachada de ladrillo rojo y cerámica es el símbolo más icónico de la plaza.', temporada: 'Mayo - Junio', evento: 'Feria de San Isidro' },
+                { id: 'maestranza', nombre: 'Real Maestranza de Sevilla', ciudad: 'Sevilla', pais: 'España', inauguracion: '1761', capacidad: '12,500 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Varios', estilo: 'Barroco Sevillano', historia: 'La plaza más antigua de España, donde la Feria de Abril define la temporada taurina sevillana.', curiosidad: 'Su grada de sombra es la más codiciada por la aristocracia y la realeza.', temporada: 'Abril - Mayo', evento: 'Feria de Abril' },
+                { id: 'malagueta', nombre: 'Plaza de Toros de La Malagueta', ciudad: 'Málaga', pais: 'España', inauguracion: '1876', capacidad: '9,032 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Joaquín de Rucoba', estilo: 'Neomudéjar', historia: 'Situada frente al Mediterráneo, es el corazón taurino de la Costa del Sol.', curiosidad: 'Es la única plaza de toros del mundo ubicada frente a una playa.', temporada: 'Agosto', evento: 'Feria de Málaga' },
+                { id: 'pamplona', nombre: 'Plaza de Toros de Pamplona', ciudad: 'Pamplona', pais: 'España', inauguracion: '1922', capacidad: '19,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Fernando Redón', estilo: 'Neoclásico', historia: 'El escenario central de los encierros de San Fermín y las corridas de toros de julio.', curiosidad: 'El callejón tiene una anchura de 4 metros para permitir los recortes y las suertes.', temporada: 'Julio', evento: 'San Fermín' }
             ],
             mexico: [
-                { id: 'plaza-mexico', nombre: 'Plaza México', ciudad: 'Ciudad de México', pais: 'México', inauguracion: '5 de febrero de 1946', capacidad: '41,262 espectadores', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', arquitecto: 'Manuel de la Colina', estilo: 'Art Déco Mexicano', historia: 'La Plaza México es la plaza de toros más grande del mundo.', curiosidad: 'Posee el Récord Guinness como la plaza de toros más grande del mundo.' },
-                { id: 'aguascalientes', nombre: 'Monumental de Aguascalientes', ciudad: 'Aguascalientes', pais: 'México', inauguracion: '1974', capacidad: '9,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Pedro R. Moctezuma', estilo: 'Funcional', historia: 'Aguascalientes es tierra de toreros por excelencia.', curiosidad: 'Tiene un altar dedicado a la Virgen de la Asunción.' }
+                { id: 'plaza-mexico', nombre: 'Plaza México', ciudad: 'Ciudad de México', pais: 'México', inauguracion: '5 de febrero de 1946', capacidad: '41,262 espectadores', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', arquitecto: 'Manuel de la Colina', estilo: 'Art Déco Mexicano', historia: 'La plaza más grande del mundo, sede de la mejor temporada azteca.', curiosidad: 'Su ruedo ha sido testigo de algunas de las corridas más memorables de la historia.', temporada: 'Febrero - Marzo', evento: 'Temporada Grande' },
+                { id: 'aguascalientes', nombre: 'Monumental de Aguascalientes', ciudad: 'Aguascalientes', pais: 'México', inauguracion: '1974', capacidad: '9,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Pedro R. Moctezuma', estilo: 'Funcional', historia: 'La plaza del Estado donde se celebra la Feria Nacional de San Marcos.', curiosidad: 'Tiene un altar dedicado a la Virgen de la Asunción en su interior.', temporada: 'Abril - Mayo', evento: 'Feria de San Marcos' }
             ],
             francia: [
-                { id: 'bayona', nombre: 'Plaza de Toros de Bayona', ciudad: 'Bayona', pais: 'Francia', inauguracion: '1854', capacidad: '10,200 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Vasca', historia: 'El centro taurino más importante de Francia.', curiosidad: 'Es la única plaza de Francia donde se mantiene viva la tradición del encierro.' },
-                { id: 'nimes', nombre: 'Arènes de Nîmes', ciudad: 'Nîmes', pais: 'Francia', inauguracion: 'Año 90 d.C.', capacidad: '24,000 espectadores', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', arquitecto: 'Arquitectos Romanos', estilo: 'Arquitectura Romana', historia: 'Uno de los anfiteatros romanos mejor conservados del mundo.', curiosidad: 'Napoleón ordenó su restauración en 1812.' }
+                { id: 'bayona', nombre: 'Plaza de Toros de Bayona', ciudad: 'Bayona', pais: 'Francia', inauguracion: '1854', capacidad: '10,200 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Vasca', historia: 'El epicentro taurino del suroeste francés durante las Fêtes de Bayonne.', curiosidad: 'Su tradición de encierros y corridas recuerda a la tauromaquia española.', temporada: 'Julio', evento: 'Fêtes de Bayonne' },
+                { id: 'nimes', nombre: 'Arènes de Nîmes', ciudad: 'Nîmes', pais: 'Francia', inauguracion: 'Año 90 d.C.', capacidad: '24,000 espectadores', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', arquitecto: 'Arquitectos Romanos', estilo: 'Arquitectura Romana', historia: 'Uno de los anfiteatros romanos mejor conservados del mundo.', curiosidad: 'Napoleón ordenó su restauración en 1812.', temporada: 'Mayo', evento: 'Feria de Nîmes' }
             ],
             colombia: [
-                { id: 'manizales', nombre: 'Plaza de Toros de Manizales', ciudad: 'Manizales', pais: 'Colombia', inauguracion: '1929', capacidad: '16,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'François Joseph Lalo', estilo: 'Art Déco', historia: 'Conocida como La Catedral del Toreo en Colombia.', curiosidad: 'Es la única ciudad donde la feria taurina se celebra con el reinado de belleza más importante.' },
-                { id: 'bogota', nombre: 'Plaza de Toros La Santamaría', ciudad: 'Bogotá', pais: 'Colombia', inauguracion: '1931', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Domingo Cortés', estilo: 'Neoclásico', historia: 'La Santamaría es la plaza de toros más importante de Bogotá.', curiosidad: 'Fue declarada Monumento Nacional de Colombia en 1994.' }
+                { id: 'manizales', nombre: 'Plaza de Toros de Manizales', ciudad: 'Manizales', pais: 'Colombia', inauguracion: '1929', capacidad: '16,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'François Joseph Lalo', estilo: 'Art Déco', historia: 'Conocida como la Catedral del Toreo en Colombia, sede de la feria más prestigiosa del país.', curiosidad: 'Su temporada se celebra al ritmo del Festival de Manizales.', temporada: 'Enero', evento: 'Feria de Manizales' },
+                { id: 'bogota', nombre: 'Plaza de Toros La Santamaría', ciudad: 'Bogotá', pais: 'Colombia', inauguracion: '1931', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Domingo Cortés', estilo: 'Neoclásico', historia: 'La Santamaría es el símbolo taurino de la capital colombiana.', curiosidad: 'Fue declarada Monumento Nacional de Colombia en 1994.', temporada: 'Julio', evento: 'Corrida del 20 de Julio' }
             ],
             peru: [
-                { id: 'acho', nombre: 'Plaza de Acho', ciudad: 'Lima', pais: 'Perú', inauguracion: '1766', capacidad: '13,700 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Colonial', historia: 'La plaza de toros más antigua de América.', curiosidad: 'Posee el museo taurino más antiguo de América.' }
+                { id: 'acho', nombre: 'Plaza de Acho', ciudad: 'Lima', pais: 'Perú', inauguracion: '1766', capacidad: '13,700 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Colonial', historia: 'La plaza de toros más antigua de América, referente histórico del continente.', curiosidad: 'Posee el museo taurino más antiguo de América.', temporada: 'Octubre', evento: 'Señor de los Milagros' }
             ],
             venezuela: [
-                { id: 'san-cristobal', nombre: 'Plaza de Toros de San Cristóbal', ciudad: 'San Cristóbal', pais: 'Venezuela', inauguracion: '1952', capacidad: '15,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Carlos Raúl Villanueva', estilo: 'Funcional', historia: 'Conocida como La Casa de la Fiesta Brava en Venezuela.', curiosidad: 'La imagen de San Sebastián preside el redil.' },
-                { id: 'merida', nombre: 'Plaza de Toros de Mérida', ciudad: 'Mérida', pais: 'Venezuela', inauguracion: '1947', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Desconocido', estilo: 'Colonial Andino', historia: 'Situada en los Andes venezolanos.', curiosidad: 'Es la única plaza de toros del mundo situada junto a un teleférico.' }
+                { id: 'san-cristobal', nombre: 'Plaza de Toros de San Cristóbal', ciudad: 'San Cristóbal', pais: 'Venezuela', inauguracion: '1952', capacidad: '15,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Carlos Raúl Villanueva', estilo: 'Funcional', historia: 'La casa de la feria taurina de San Sebastián.', curiosidad: 'La imagen de San Sebastián preside el redil.', temporada: 'Enero', evento: 'Feria de San Sebastián' },
+                { id: 'merida', nombre: 'Plaza de Toros de Mérida', ciudad: 'Mérida', pais: 'Venezuela', inauguracion: '1947', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Desconocido', estilo: 'Colonial Andino', historia: 'Ubicada en los Andes, es única por su paisaje montañoso.', curiosidad: 'Es la única plaza de toros del mundo situada junto a un teleférico.', temporada: 'Enero - Febrero', evento: 'Feria de San Sebastián' }
             ],
             ecuador: [
-                { id: 'quito', nombre: 'Plaza de Toros de Quito', ciudad: 'Quito', pais: 'Ecuador', inauguracion: '1959', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', arquitecto: 'Gonzalo Zaldumbide', estilo: 'Republicano Quiteño', historia: 'Situada a 2,850 metros sobre el nivel del mar.', curiosidad: 'El aire tiene un 30% menos de oxígeno.' }
+                { id: 'quito', nombre: 'Plaza de Toros de Quito', ciudad: 'Quito', pais: 'Ecuador', inauguracion: '1959', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', arquitecto: 'Gonzalo Zaldumbide', estilo: 'Republicano Quiteño', historia: 'Situada a 2,850 metros de altura, es la plaza más alta de América.', curiosidad: 'El aire tiene un 30% menos de oxígeno.', temporada: 'Diciembre', evento: 'Fiestas de Quito' }
             ],
             portugal: [
-                { id: 'campo-pequeno', nombre: 'Campo Pequeno', ciudad: 'Lisboa', pais: 'Portugal', inauguracion: '1892', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'António José Dias da Silva', estilo: 'Neomudéjar Portugués', historia: 'Monumento a la tradición taurina portuguesa.', curiosidad: 'Fue completamente restaurada en 2006.' }
+                { id: 'campo-pequeno', nombre: 'Campo Pequeno', ciudad: 'Lisboa', pais: 'Portugal', inauguracion: '1892', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'António José Dias da Silva', estilo: 'Neomudéjar Portugués', historia: 'Monumento a la tradición taurina portuguesa y sede de corridas a cavalo.', curiosidad: 'Fue completamente restaurada en 2006.', temporada: 'Diciembre', evento: 'Corrida de la Patria' }
             ],
             argentina: [
-                { id: 'liniers', nombre: 'Plaza de Toros de Liniers', ciudad: 'Buenos Aires', pais: 'Argentina', inauguracion: '1918', capacidad: '12,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José María Cortés', estilo: 'Ecléctico Porteño', historia: 'Fue el centro taurino de Argentina hasta su cierre en 1977.', curiosidad: 'Fue la primera plaza de Sudamérica en tener riego moderno.' }
+                { id: 'liniers', nombre: 'Plaza de Toros de Liniers', ciudad: 'Buenos Aires', pais: 'Argentina', inauguracion: '1918', capacidad: '12,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José María Cortés', estilo: 'Ecléctico Porteño', historia: 'Centro histórico del toreo argentino hasta su cierre en 1977.', curiosidad: 'Fue la primera plaza de Sudamérica en tener riego moderno.', temporada: 'Diciembre', evento: 'Festejos Criollos' }
             ],
             'costa-rica': [
-                { id: 'zapote', nombre: 'Plaza de Toros de Zapote', ciudad: 'San José', pais: 'Costa Rica', inauguracion: '1960', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Estructura Temporal', estilo: 'Temporal', historia: 'El epicentro de las fiestas populares costarricenses.', curiosidad: 'El récord de permanencia es de 48 segundos.' }
+                { id: 'zapote', nombre: 'Plaza de Toros de Zapote', ciudad: 'San José', pais: 'Costa Rica', inauguracion: '1960', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Estructura Temporal', estilo: 'Temporal', historia: 'El epicentro de las fiestas populares costarricenses.', curiosidad: 'El récord de permanencia es de 48 segundos.', temporada: 'Diciembre', evento: 'Fiestas de Zapote' }
             ]
         };
 
         // ==================== TOREROS ====================
         const torerosDB = [
-            { nombre: 'Morante de la Puebla', nombreCompleto: 'Manuel Martínez Morante', pais: 'España', ciudadNacimiento: 'Sevilla', fechaNacimiento: '7 de noviembre de 1979', orejas: 156, rabos: 12, indultos: 5, faenas: 342, alternativa: '14 de abril de 2003, Sevilla', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', bio: 'Considerado por muchos como el mejor torero de su generación.', estilo: 'Clasicismo sevilla con detalles de vanguardia.', fraseCelebre: 'El toreo no es un oficio.', rank: 1, status: 'Activo' },
-            { nombre: 'Andrés Roca Rey', nombreCompleto: 'Andrés Alejandro Roca Rey', pais: 'Perú', ciudadNacimiento: 'Lima', fechaNacimiento: '31 de diciembre de 1996', orejas: 124, rabos: 8, indultos: 3, faenas: 256, alternativa: '26 de octubre de 2014, Lima', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', bio: 'El peruano se ha convertido en el torero más mediático.', estilo: 'Poderío físico y valentía.', fraseCelebre: 'Cada corrida es una nueva historia.', rank: 2, status: 'Activo' },
-            { nombre: 'Alejandro Talavante', nombreCompleto: 'Alejandro Talavante Díaz', pais: 'España', ciudadNacimiento: 'Badajoz', fechaNacimiento: '8 de marzo de 1988', orejas: 142, rabos: 9, indultos: 4, faenas: 298, alternativa: '7 de octubre de 2007, Dax', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', bio: 'El purista del toreo extremeño.', estilo: 'Clasicismo puro.', fraseCelebre: 'El toreo es sentir.', rank: 3, status: 'Activo' },
-            { nombre: 'José María Manzanares', nombreCompleto: 'José María Manzanero Rodríguez', pais: 'España', ciudadNacimiento: 'Alicante', fechaNacimiento: '11 de mayo de 1984', orejas: 118, rabos: 6, indultos: 2, faenas: 287, alternativa: '29 de mayo de 2004, Valencia', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', bio: 'Hijo de una dinastía taurina.', estilo: 'Elegancia técnica.', fraseCelebre: 'El toreo se lleva en la sangre.', rank: 4, status: 'Activo' },
-            { nombre: 'Juan Ortega', nombreCompleto: 'Juan Ortega Ruiz', pais: 'España', ciudadNacimiento: 'Cádiz', fechaNacimiento: '14 de febrero de 1991', orejas: 89, rabos: 4, indultos: 2, faenas: 156, alternativa: '8 de abril de 2017, Sevilla', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', bio: 'La nueva ola del toreo gaditano.', estilo: 'Toreo Natural.', fraseCelebre: 'El toreo evoluciona.', rank: 5, status: 'Activo' },
-            { nombre: 'El Fandi', nombreCompleto: 'David Fernández Ortega', pais: 'España', ciudadNacimiento: 'Granada', fechaNacimiento: '18 de mayo de 1977', orejas: 98, rabos: 5, indultos: 1, faenas: 234, alternativa: '28 de mayo de 2000, Granada', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', bio: 'Carisma y espectáculo.', estilo: 'Reventones.', fraseCelebre: 'El público es el mejor premio.', rank: 6, status: 'Activo' }
+            { nombre: 'Morante de la Puebla', nombreCompleto: 'Manuel Martínez Morante', pais: 'España', ciudadNacimiento: 'Sevilla', fechaNacimiento: '7 de noviembre de 1979', orejas: 156, rabos: 12, indultos: 5, faenas: 342, alternativa: '14 de abril de 2003, Sevilla', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', bio: 'Considerado por muchos como el torero más influyente de su generación.', estilo: 'Clasicismo sevillano con detalles de vanguardia.', fraseCelebre: 'El toreo no es un oficio.', rank: 1, status: 'Activo', mejorFaena: 'Faena de 2017 a Jandilla en Las Ventas', logros: '5 puertas grandes y 3 temporadas de oro' },
+            { nombre: 'Andrés Roca Rey', nombreCompleto: 'Andrés Alejandro Roca Rey', pais: 'Perú', ciudadNacimiento: 'Lima', fechaNacimiento: '31 de diciembre de 1996', orejas: 124, rabos: 8, indultos: 3, faenas: 256, alternativa: '26 de octubre de 2014, Lima', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', bio: 'El peruano se ha convertido en el torero más mediático del siglo XXI.', estilo: 'Poderío físico y valentía extrema.', fraseCelebre: 'Cada corrida es una nueva historia.', rank: 2, status: 'Activo', mejorFaena: 'Cuatro orejas en Madrid 2022', logros: 'Récord de orejas en Madrid y varias Puertas Grandes' },
+            { nombre: 'Alejandro Talavante', nombreCompleto: 'Alejandro Talavante Díaz', pais: 'España', ciudadNacimiento: 'Badajoz', fechaNacimiento: '8 de marzo de 1988', orejas: 142, rabos: 9, indultos: 4, faenas: 298, alternativa: '7 de octubre de 2007, Dax', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', bio: 'El purista extremeño que busca el toreo del temple y la profundidad.', estilo: 'Clasicismo puro con sobriedad.', fraseCelebre: 'El toreo es sentir.', rank: 3, status: 'Activo', mejorFaena: 'Puebla 2015 con toro de Giovanni', logros: '3 temporadas de oro y 4 indultos' },
+            { nombre: 'José María Manzanares', nombreCompleto: 'José María Manzanero Rodríguez', pais: 'España', ciudadNacimiento: 'Alicante', fechaNacimiento: '11 de mayo de 1984', orejas: 118, rabos: 6, indultos: 2, faenas: 287, alternativa: '29 de mayo de 2004, Valencia', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', bio: 'Hijo de una dinastía taurina, combina técnica y elegancia en el ruedo.', estilo: 'Elegancia técnica con sobriedad.', fraseCelebre: 'El toreo se lleva en la sangre.', rank: 4, status: 'Activo', mejorFaena: 'Maximino 2016 en Valencia', logros: '3 indultos y 7 Puertas Grandes' },
+            { nombre: 'Juan Ortega', nombreCompleto: 'Juan Ortega Ruiz', pais: 'España', ciudadNacimiento: 'Cádiz', fechaNacimiento: '14 de febrero de 1991', orejas: 89, rabos: 4, indultos: 2, faenas: 156, alternativa: '8 de abril de 2017, Sevilla', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', bio: 'La nueva ola del toreo gaditano, con mando y toreo natural.', estilo: 'Toreo natural y mando.', fraseCelebre: 'El toreo evoluciona.', rank: 5, status: 'Activo', mejorFaena: 'Sevilla 2023 contra bravo de Victoriano del Río', logros: 'Ascenso meteórico con varias Puertas Grandes' },
+            { nombre: 'El Fandi', nombreCompleto: 'David Fernández Ortega', pais: 'España', ciudadNacimiento: 'Granada', fechaNacimiento: '18 de mayo de 1977', orejas: 98, rabos: 5, indultos: 1, faenas: 234, alternativa: '28 de mayo de 2000, Granada', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', bio: 'Carisma, público y espectáculo en cada corrida.', estilo: 'Reventones y pase de pecho.', fraseCelebre: 'El público es el mejor premio.', rank: 6, status: 'Activo', mejorFaena: 'Granadinos 2008 frente a un toro de San Mateo', logros: 'Referente del espectáculo taurino' }
         ];
 
         // ==================== NOTICIAS ====================
         const newsDB = [
-            { id: 1, titulo: 'Morante Triunfa con Dos Orejas en Faena Épica', resumen: 'El maestro sevillano cuajó una faena de máximo calibre.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'Morante de la Puebla', pais: 'espana', plaza: 'Las Ventas, Madrid', resultado: '2 Orejas', tiempo: 'Hace 2 horas' },
-            { id: 2, titulo: 'Roca Rey Consolida su Liderazgo en Sevilla', resumen: 'El peruano demostró su poderío ante los victorianos.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', torero: 'Andrés Roca Rey', pais: 'peru', plaza: 'Real Maestranza, Sevilla', resultado: 'Puerta Grande', tiempo: 'Ayer' },
-            { id: 3, titulo: 'Talavante Celebra Alternativa en Plaza México', resumen: 'El extremeño confirmó su alternativa en la Monumental.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', torero: 'Alejandro Talavante', pais: 'espana', plaza: 'Plaza México, CDMX', resultado: '1 Oreja', tiempo: 'Hace 2 días' },
-            { id: 4, titulo: 'Entrevista: Manzanares Repasa su Carrera', resumen: 'El alicantino habla de sus 20 años de trayectoria.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', torero: 'José María Manzanares', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 3 días' },
-            { id: 5, titulo: 'Análisis: La Feria de San Isidro Consolidada', resumen: 'La feria más importante del mundo taurino.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 4 días' },
-            { id: 6, titulo: 'Feria de Abril 2024: Sevilla se Prepara', resumen: 'La Real Maestranza se viste de gala.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', pais: 'espana', plaza: 'Real Maestranza, Sevilla', tiempo: 'Hace 5 días' },
-            { id: 7, titulo: 'Plaza México Cumple 78 Años', resumen: 'El coso más grande del mundo celebra su aniversario.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', pais: 'mexico', plaza: 'Plaza México, CDMX', tiempo: 'Hace 1 semana' },
-            { id: 8, titulo: 'Arènes de Nîmes Celebra Bicentenario', resumen: 'La plaza romana más emblemática del mundo.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', pais: 'francia', plaza: 'Arènes de Nîmes', tiempo: 'Hace 1 semana' }
+            { id: 1, titulo: 'Morante Triunfa con Dos Orejas en Faena Épica', resumen: 'El maestro sevillano cuajó una faena de máximo calibre.', detalle: 'Morante dominó el toro con temple y pureza, dejando momentos inolvidables en los tendidos.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'Morante de la Puebla', pais: 'espana', plaza: 'Las Ventas, Madrid', resultado: '2 Orejas', tiempo: 'Hace 2 horas', impacto: 'Aumenta su favoritismo para la próxima feria.' },
+            { id: 2, titulo: 'Roca Rey Consolida su Liderazgo en Sevilla', resumen: 'El peruano demostró su poderío ante los victorianos.', detalle: 'Sus muletazos al natural y su valentía frente al quinto toro dejaron boquiabiertos a los sevillanos.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', torero: 'Andrés Roca Rey', pais: 'peru', plaza: 'Real Maestranza, Sevilla', resultado: 'Puerta Grande', tiempo: 'Ayer', impacto: 'Se posiciona como favorito para la temporada internacional.' },
+            { id: 3, titulo: 'Talavante Enciende Plaza México con Clasicismo', resumen: 'El extremeño firmó una corrida llena de temple y profundidad.', detalle: 'Talavante encontró la distancia perfecta y logró un triunfo que resonará en sus próximas temporadas.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', torero: 'Alejandro Talavante', pais: 'espana', plaza: 'Plaza México, CDMX', resultado: '1 Oreja', tiempo: 'Hace 2 días', impacto: 'Refuerza su imagen como artista del toreo.' },
+            { id: 4, titulo: 'Entrevista: Manzanares Repasa su Carrera', resumen: 'El alicantino habla de sus 20 años de trayectoria.', detalle: 'Manzanares recuerda sus inicios, sus valores y los momentos que definieron su estilo.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', torero: 'José María Manzanares', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 3 días', impacto: 'Refuerza la conexión con su público.' },
+            { id: 5, titulo: 'Análisis: La Feria de San Isidro Consolidada', resumen: 'La feria más importante del mundo taurino sigue marcando tendencia.', detalle: 'El análisis destaca el papel de las nuevas figuras y la recuperación del público tras la pandemia.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 4 días', impacto: 'Predice un crecimiento de ventas del 15%.' },
+            { id: 6, titulo: 'Feria de Abril 2024: Sevilla se Prepara', resumen: 'La Real Maestranza se viste de gala para su temporada más esperada.', detalle: 'La programación incluye figuras clásicas y nuevas promesas que atraerán a aficionados de todo el mundo.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', pais: 'espana', plaza: 'Real Maestranza, Sevilla', tiempo: 'Hace 5 días', impacto: 'Aumentan las expectativas de asistencia.' },
+            { id: 7, titulo: 'Plaza México Cumple 78 Años', resumen: 'El coso más grande del mundo celebra su aniversario.', detalle: 'La histórica plaza sigue siendo un referente global del toreo por su tamaño y tradición.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', pais: 'mexico', plaza: 'Plaza México, CDMX', tiempo: 'Hace 1 semana', impacto: 'La conmemoración refuerza su legado.' },
+            { id: 8, titulo: 'Arènes de Nîmes Celebra Bicentenario', resumen: 'La plaza romana más emblemática del mundo cumple 200 años de presencia taurina.', detalle: 'El evento combina historia, cultura y corridas que honran la herencia romana.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', pais: 'francia', plaza: 'Arènes de Nîmes', tiempo: 'Hace 1 semana', impacto: 'Ofrece una temporada de lujo en Europa.' },
+            { id: 9, titulo: 'San Fermín 2024 Abre con Corridas de Primera', resumen: 'Pamplona estrena su semana grande con toros de alta categoría.', detalle: 'Encierros, peñas y triunfos se combinan en una jornada histórica en Navarra.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', pais: 'espana', plaza: 'Pamplona, Navarra', tiempo: 'Hace 1 semana', impacto: 'Esperado récord de asistencia en los encierros.' },
+            { id: 10, titulo: 'Entrevista: El Fandi Cuenta su Receta de Valor', resumen: 'El granadino repasa sus temporadas más espectaculares.', detalle: 'El Fandi revela cómo mantiene al público al filo del asiento y qué busca en cada toro.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', torero: 'El Fandi', pais: 'espana', plaza: 'Granada, Andalucía', tiempo: 'Hace 8 días', impacto: 'Refuerza su vínculo con los aficionados del espectáculo.' }
         ];
 
         // ==================== GANADERÍAS ====================
@@ -2952,25 +2954,37 @@
             `).join('');
         }
 
+        function detailRow(label, value) {
+            return value ? `<div class="news-detail-item"><span class="news-detail-label">${label}</span><span class="news-detail-value">${value}</span></div>` : '';
+        }
+
+        function gridRow(label, value) {
+            return value ? `<div class="modal-grid-item"><strong>${label}</strong><span>${value}</span></div>` : '';
+        }
+
+        function flagEmoji(pais) {
+            return {
+                'España': '🇪🇸',
+                'México': '🇲🇽',
+                'Francia': '🇫🇷',
+                'Colombia': '🇨🇴',
+                'Perú': '🇵🇪',
+                'Venezuela': '🇻🇪',
+                'Ecuador': '🇪🇨',
+                'Portugal': '🇵🇹',
+                'Argentina': '🇦🇷',
+                'Costa Rica': '🇨🇷'
+            }[pais] || '🌍';
+        }
+
         function renderNews() {
             const container = document.getElementById('newsGrid');
             if (!container) return;
-            
-            let news;
-            if (currentCountry) {
-                news = newsDB.filter(n => n.pais === currentCountry);
-                // También mostrar noticias de toreros de ese país
-                const country = countries.find(c => c.id === currentCountry);
-                const toreroNews = newsDB.filter(n => {
-                    const torero = torerosDB.find(t => t.nombre === n.torero);
-                    return torero && torero.pais.toLowerCase() === country?.name.toLowerCase();
-                });
-                news = [...news, ...toreroNews.filter(n => !news.find(existing => existing.id === n.id))];
-            } else {
-                news = newsDB;
-            }
-            
-            if (news.length === 0) {
+            const countryName = countries.find(c => c.id === currentCountry)?.name;
+            const news = currentCountry
+                ? newsDB.filter(n => n.pais === currentCountry || (n.torero && torerosDB.some(t => t.nombre === n.torero && t.pais === countryName)))
+                : newsDB;
+            if (!news.length) {
                 container.innerHTML = `
                     <div class="empty-state">
                         <div class="empty-state-icon">📰</div>
@@ -2980,7 +2994,6 @@
                 `;
                 return;
             }
-            
             container.innerHTML = news.map(n => `
                 <div class="news-card" data-tipo="${n.tipo}" onclick="openNewsModal(${n.id})">
                     <div class="news-visual">
@@ -2991,8 +3004,8 @@
                         <h3 class="news-title">${n.titulo}</h3>
                         <p class="news-excerpt">${n.resumen}</p>
                         <div class="news-details">
-                            ${n.torero ? `<div class="news-detail-item"><span class="news-detail-label">Torero:</span><span class="news-detail-value">${n.torero}</span></div>` : ''}
-                            <div class="news-detail-item"><span class="news-detail-label">Plaza:</span><span class="news-detail-value">${n.plaza?.split(',')[0] || 'Varias'}</span></div>
+                            ${detailRow('Torero', n.torero)}
+                            ${detailRow('Plaza', n.plaza?.split(',')[0] || 'Varias')}
                         </div>
                         <div class="news-footer">
                             <span class="news-time">${n.tiempo}</span>
@@ -3015,16 +3028,9 @@
         function renderToreros() {
             const container = document.getElementById('torerosGrid');
             if (!container) return;
-            
-            let toreros;
-            if (currentCountry) {
-                const country = countries.find(c => c.id === currentCountry);
-                toreros = torerosDB.filter(t => t.pais.toLowerCase() === country?.name.toLowerCase());
-            } else {
-                toreros = torerosDB;
-            }
-            
-            if (toreros.length === 0) {
+            const countryName = countries.find(c => c.id === currentCountry)?.name;
+            const toreros = countryName ? torerosDB.filter(t => t.pais === countryName) : torerosDB;
+            if (!toreros.length) {
                 container.innerHTML = `
                     <div class="empty-state" style="grid-column: 1 / -1;">
                         <div class="empty-state-icon">⚔️</div>
@@ -3034,7 +3040,6 @@
                 `;
                 return;
             }
-            
             container.innerHTML = toreros.map(t => `
                 <div class="torero-card" onclick="openToreroModal('${t.nombre}')">
                     <div class="torero-visual">
@@ -3044,9 +3049,9 @@
                     </div>
                     <div class="torero-body">
                         <h3 class="torero-name">${t.nombre}</h3>
-                        <p class="torero-fullname">${t.nombreCompleto}</p>
+                        <p class="torero-fullname">${t.nombreCompleto} · ${t.alternativa}</p>
                         <p class="torero-origin">📍 ${t.ciudadNacimiento}, ${t.pais}</p>
-                        <p class="torero-bio">${t.bio}</p>
+                        <p class="torero-bio">${t.bio} ${t.logros ? `<strong>${t.logros}</strong>` : ''}</p>
                         <div class="torero-stats">
                             <div class="torero-stat"><div class="torero-stat-value">${t.orejas}</div><div class="torero-stat-label">Orejas</div></div>
                             <div class="torero-stat"><div class="torero-stat-value">${t.rabos}</div><div class="torero-stat-label">Rabos</div></div>
@@ -3061,15 +3066,8 @@
         function renderPlazasContent() {
             const container = document.getElementById('plazasGrid');
             if (!container) return;
-            
-            let plazas;
-            if (currentCountry) {
-                plazas = plazasDB[currentCountry] || [];
-            } else {
-                plazas = Object.values(plazasDB).flat();
-            }
-            
-            if (plazas.length === 0) {
+            const plazas = currentCountry ? plazasDB[currentCountry] || [] : Object.values(plazasDB).flat();
+            if (!plazas.length) {
                 container.innerHTML = `
                     <div class="empty-state" style="grid-column: 1 / -1;">
                         <div class="empty-state-icon">🏟️</div>
@@ -3079,12 +3077,11 @@
                 `;
                 return;
             }
-            
             container.innerHTML = plazas.map(p => `
                 <div class="plaza-card" onclick="openPlazaModal('${p.id}')">
                     <div class="plaza-visual">
                         <img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='https://picsum.photos/600/400?random=${p.id}'">
-                        <span class="plaza-country">${p.pais === 'España' ? '🇪🇸' : p.pais === 'México' ? '🇲🇽' : p.pais === 'Francia' ? '🇫🇷' : p.pais === 'Colombia' ? '🇨🇴' : p.pais === 'Perú' ? '🇵🇪' : p.pais === 'Venezuela' ? '🇻🇪' : p.pais === 'Ecuador' ? '🇪🇨' : p.pais === 'Portugal' ? '🇵🇹' : p.pais === 'Argentina' ? '🇦🇷' : p.pais === 'Costa Rica' ? '🇨🇷' : '🌍'}</span>
+                        <span class="plaza-country">${flagEmoji(p.pais)}</span>
                     </div>
                     <div class="plaza-body">
                         <h3 class="plaza-name">${p.nombre}</h3>
@@ -3093,7 +3090,7 @@
                             <div class="plaza-info-item"><span class="plaza-info-label">Inaugurada</span><span class="plaza-info-value">${p.inauguracion}</span></div>
                             <div class="plaza-info-item"><span class="plaza-info-label">Capacidad</span><span class="plaza-info-value">${p.capacidad}</span></div>
                         </div>
-                        <p class="plaza-desc">${p.historia}</p>
+                        <p class="plaza-desc"><strong>${p.evento}</strong> · ${p.temporada}. ${p.historia}</p>
                     </div>
                 </div>
             `).join('');
@@ -3205,15 +3202,18 @@
                 const found = plazas.find(p => p.id === id);
                 if (found) plaza = found;
             });
-            
             if (!plaza) return;
             openModal(plaza.nombre, `
                 <img src="${plaza.imagen}" class="modal-visual" alt="${plaza.nombre}" onerror="this.src='https://picsum.photos/800/400'">
-                <span class="modal-badge">${plaza.pais}</span>
+                <span class="modal-badge">${flagEmoji(plaza.pais)} ${plaza.pais}</span>
                 <div class="modal-grid">
-                    <div class="modal-grid-item"><strong>Ciudad</strong><span>${plaza.ciudad}</span></div>
-                    <div class="modal-grid-item"><strong>Inauguración</strong><span>${plaza.inauguracion}</span></div>
-                    <div class="modal-grid-item"><strong>Capacidad</strong><span>${plaza.capacidad}</span></div>
+                    ${gridRow('Ciudad', plaza.ciudad)}
+                    ${gridRow('Inauguración', plaza.inauguracion)}
+                    ${gridRow('Capacidad', plaza.capacidad)}
+                    ${gridRow('Arquitecto', plaza.arquitecto)}
+                    ${gridRow('Estilo', plaza.estilo)}
+                    ${gridRow('Temporada', plaza.temporada)}
+                    ${gridRow('Evento', plaza.evento)}
                 </div>
                 <h3 class="modal-section-title">Historia</h3>
                 <p class="modal-text">${plaza.historia}</p>
@@ -3231,12 +3231,16 @@
                 <img src="${torero.imagen}" class="modal-visual" alt="${torero.nombre}" onerror="this.src='https://picsum.photos/800/400'">
                 <span class="modal-badge">Ranking #${torero.rank} — ${torero.pais}</span>
                 <div class="modal-grid">
-                    <div class="modal-grid-item"><strong>Nombre Completo</strong><span>${torero.nombreCompleto}</span></div>
-                    <div class="modal-grid-item"><strong>Nacimiento</strong><span>${torero.fechaNacimiento}</span></div>
-                    <div class="modal-grid-item"><strong>Ciudad</strong><span>${torero.ciudadNacimiento}</span></div>
-                    <div class="modal-grid-item"><strong>Orejas</strong><span>${torero.orejas}</span></div>
-                    <div class="modal-grid-item"><strong>Rabos</strong><span>${torero.rabos}</span></div>
-                    <div class="modal-grid-item"><strong>Faenas</strong><span>${torero.faenas}</span></div>
+                    ${gridRow('Nombre Completo', torero.nombreCompleto)}
+                    ${gridRow('Nacimiento', torero.fechaNacimiento)}
+                    ${gridRow('Ciudad', torero.ciudadNacimiento)}
+                    ${gridRow('Alternativa', torero.alternativa)}
+                    ${gridRow('Orejas', torero.orejas)}
+                    ${gridRow('Rabos', torero.rabos)}
+                    ${gridRow('Indultos', torero.indultos)}
+                    ${gridRow('Faenas', torero.faenas)}
+                    ${gridRow('Mejor Faena', torero.mejorFaena)}
+                    ${gridRow('Logros', torero.logros)}
                 </div>
                 <h3 class="modal-section-title">Biografía</h3>
                 <p class="modal-text">${torero.bio}</p>
@@ -3252,10 +3256,14 @@
                 <span class="modal-badge">${news.tipo}</span>
                 <p class="modal-text">${news.resumen}</p>
                 <div class="modal-grid">
-                    ${news.torero ? `<div class="modal-grid-item"><strong>Torero</strong><span>${news.torero}</span></div>` : ''}
-                    <div class="modal-grid-item"><strong>Plaza</strong><span>${news.plaza}</span></div>
-                    <div class="modal-grid-item"><strong>Fecha</strong><span>${news.tiempo}</span></div>
+                    ${gridRow('Torero', news.torero)}
+                    ${gridRow('Plaza', news.plaza)}
+                    ${gridRow('Fecha', news.tiempo)}
+                    ${gridRow('Resultado', news.resultado)}
+                    ${gridRow('Impacto', news.impacto)}
                 </div>
+                <h3 class="modal-section-title">Detalle</h3>
+                <p class="modal-text">${news.detalle}</p>
             `);
         }
 
