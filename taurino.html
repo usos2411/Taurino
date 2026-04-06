@@ -3,12 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="La Famosa Taurina - El portal taurino más completo del mundo. Noticias, toreros, plazas, ganaderías y todo sobre tauromaquia.">
-    <meta name="keywords" content="tauromaquia, corridas de toros, toreros, plazas de toros, noticias taurinas, ferias taurinas">
-    <meta name="author" content="La Famosa Taurina">
-    <meta property="og:title" content="La Famosa Taurina | El Santuario del Toreo Mundial">
-    <meta property="og:description" content="El portal taurino más completo del mundo. Noticias, análisis, archivos históricos y todo sobre el arte del toreo.">
-    <meta property="og:type" content="website">
+    <meta name="description" content="La Famosa Taurina - El portal taurino más completo del mundo.">
     <title>LA FAMOSA TAURINA | El Santuario del Toreo Mundial</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -404,11 +399,11 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
-        /* ==================== TICKER MUY LENTO JS ==================== */
+        /* ==================== TICKER ==================== */
         .live-ticker-container {
             background: var(--bg-card);
             border-bottom: 1px solid var(--border-subtle);
-            padding: 1rem 0;
+            padding: 1.25rem 0;
             margin-bottom: 2rem;
             overflow: hidden;
             position: relative;
@@ -420,7 +415,7 @@
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 100px;
+            width: 120px;
             z-index: 2;
             pointer-events: none;
         }
@@ -443,7 +438,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            padding: 8px 16px;
+            padding: 10px 18px;
             background: var(--gradient-rust);
             border-radius: 25px;
             z-index: 3;
@@ -459,7 +454,7 @@
 
         .live-label {
             font-weight: 700;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             color: white;
@@ -467,35 +462,44 @@
         }
 
         .ticker-wrapper {
-            margin-left: 180px;
+            margin-left: 160px;
             overflow: hidden;
         }
 
         .ticker-track {
             display: flex;
-            gap: 0;
             width: max-content;
+            will-change: transform;
         }
 
         .ticker-item {
             display: flex;
             align-items: center;
             gap: 1rem;
-            padding: 12px 50px;
+            padding: 16px 60px;
             border-right: 1px solid var(--border-subtle);
             white-space: nowrap;
             flex-shrink: 0;
+            min-width: 520px;
+            max-width: 520px;
+            height: auto;
         }
 
         .ticker-icon {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             flex-shrink: 0;
+            width: 40px;
+            text-align: center;
         }
 
         .ticker-content-inner {
             display: flex;
             flex-direction: column;
-            gap: 2px;
+            justify-content: center;
+            gap: 4px;
+            flex-shrink: 0;
+            min-width: 350px;
+            max-width: 380px;
         }
 
         .ticker-title {
@@ -503,18 +507,24 @@
             font-size: 1rem;
             font-weight: 600;
             color: var(--cream);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .ticker-description {
             font-size: 0.85rem;
-            color: var(--text-muted);
-            max-width: 400px;
+            color: var(--text-secondary);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
 
         .ticker-time {
             font-size: 0.7rem;
             color: var(--gold-primary);
             font-weight: 600;
+            white-space: nowrap;
         }
 
         /* ==================== MAIN CONTENT ==================== */
@@ -527,6 +537,84 @@
         .main-container {
             max-width: 1600px;
             margin: 0 auto;
+        }
+
+        /* ==================== COUNTRY FILTER HEADER ==================== */
+        .country-filter-bar {
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 16px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .country-filter-info {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .country-filter-flag {
+            font-size: 2.5rem;
+        }
+
+        .country-filter-text h2 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.25rem;
+        }
+
+        .country-filter-text p {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .country-filter-stats {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .country-filter-stat {
+            text-align: center;
+        }
+
+        .country-filter-stat-number {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--gold-primary);
+        }
+
+        .country-filter-stat-label {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+        }
+
+        .back-to-world {
+            padding: 10px 20px;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-gold);
+            border-radius: 8px;
+            color: var(--gold-primary);
+            font-weight: 600;
+            font-size: 0.85rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .back-to-world:hover {
+            background: var(--gold-primary);
+            color: var(--bg-void);
         }
 
         /* ==================== STATS ==================== */
@@ -639,7 +727,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* Countries List CON SCROLL */
         .country-list {
             display: flex;
             flex-direction: column;
@@ -929,12 +1016,6 @@
         }
 
         .news-card:hover .news-visual img { transform: scale(1.1); }
-
-        .news-overlay {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 60%);
-        }
 
         .news-badge {
             position: absolute;
@@ -1395,6 +1476,32 @@
             line-height: 1.7;
         }
 
+        /* ==================== EMPTY STATE ==================== */
+        .empty-state {
+            padding: 3rem;
+            text-align: center;
+            background: var(--bg-card);
+            border: 1px solid var(--border-subtle);
+            border-radius: 20px;
+        }
+
+        .empty-state-icon {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+        }
+
+        .empty-state-title {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            color: var(--cream);
+            margin-bottom: 0.5rem;
+        }
+
+        .empty-state-text {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+        }
+
         /* ==================== AD SPACE ==================== */
         .ad-space {
             padding: 2rem;
@@ -1811,14 +1918,236 @@
         .share-btn.whatsapp { background: #25d366; color: white; }
 
         /* ==================== RESPONSIVE ==================== */
+        @media (max-width: 1200px) {
+            .nav-inner {
+                padding: 14px 18px;
+            }
+            .hero-section {
+                padding: 5.5rem 1.75rem 3rem;
+            }
+            .hero-actions {
+                flex-wrap: wrap;
+                justify-content: flex-start;
+            }
+            .main-wrapper {
+                padding: 0 1.5rem;
+            }
+            .footer {
+                padding: 3.5rem 1.5rem 2rem;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .nav-inner {
+                flex-direction: column;
+                align-items: stretch;
+                gap: 14px;
+            }
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 0.75rem;
+                width: 100%;
+                padding-top: 6px;
+            }
+            .nav-actions {
+                justify-content: center;
+                width: 100%;
+                gap: 10px;
+            }
+            .hero-title {
+                font-size: clamp(2.8rem, 9vw, 5rem);
+            }
+            .hero-subtitle {
+                max-width: 100%;
+            }
+            .ticker-item {
+                min-width: 260px;
+                max-width: 260px;
+                padding: 12px 24px;
+            }
+            .ticker-content-inner {
+                min-width: 0;
+                max-width: 100%;
+            }
+            .country-filter-bar,
+            .sidebar-card,
+            .newsletter-section,
+            .modal-container {
+                padding: 1.25rem;
+            }
+            .country-filter-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+            .country-filter-info {
+                flex-direction: column;
+                align-items: center;
+            }
+            .country-filter-stats {
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 0.75rem;
+            }
+            .main-layout {
+                grid-template-columns: 1fr;
+            }
+            .sidebar {
+                position: static;
+                top: auto;
+            }
+        }
+
         @media (max-width: 768px) {
-            .nav-links { display: none; }
-            .hero-stats { gap: 1.5rem; flex-wrap: wrap; }
-            .hero-section { padding: 5rem 1.5rem 3rem; }
-            .main-wrapper { padding: 0 1rem; }
-            .section-header { flex-direction: column; align-items: flex-start; }
-            .live-indicator { display: none; }
-            .ticker-wrapper { margin-left: 0; }
+            .hero-section {
+                padding: 4.5rem 1.2rem 2.5rem;
+            }
+            .hero-badge {
+                margin-bottom: 1rem;
+            }
+            .hero-title {
+                font-size: clamp(2.3rem, 10vw, 4.2rem);
+            }
+            .hero-stats {
+                gap: 1.5rem;
+                flex-direction: column;
+            }
+            .hero-actions {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            .btn-gold,
+            .btn-ghost {
+                width: 100%;
+                justify-content: center;
+            }
+            .ticker-wrapper {
+                margin-left: 0;
+            }
+            .ticker-item {
+                min-width: 280px;
+                max-width: 280px;
+            }
+            .ticker-content-inner {
+                min-width: 0;
+                max-width: 100%;
+            }
+            .country-filter-bar {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            .country-filter-text,
+            .country-filter-stats {
+                width: 100%;
+            }
+            .main-wrapper {
+                padding: 0 1rem;
+            }
+            .footer {
+                padding: 3rem 1rem 2rem;
+            }
+            .newsletter-form {
+                flex-direction: column;
+            }
+            .newsletter-input {
+                width: 100%;
+            }
+            .footer-bottom {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .share-row {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-inner {
+                padding: 12px 14px;
+            }
+            .nav-links {
+                gap: 0.5rem;
+                justify-content: center;
+            }
+            .nav-link {
+                font-size: 0.8rem;
+            }
+            .nav-actions {
+                gap: 8px;
+            }
+            .hero-section {
+                padding: 4rem 0.9rem 2rem;
+            }
+            .hero-title {
+                font-size: clamp(2rem, 12vw, 3.6rem);
+            }
+            .hero-subtitle {
+                font-size: 1rem;
+            }
+            .ticker-item {
+                min-width: 100%;
+                max-width: 100%;
+                padding: 14px 18px;
+            }
+            .country-filter-bar {
+                padding: 1rem;
+            }
+            .country-filter-stats {
+                gap: 0.65rem;
+            }
+            .modal-container {
+                width: 100%;
+                max-width: 100%;
+                margin: 1rem 0;
+            }
+            .modal-body {
+                padding: 1rem;
+                max-height: calc(100vh - 80px);
+            }
+            .modal-grid {
+                grid-template-columns: 1fr;
+            }
+            .newsletter-btn {
+                width: 100%;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-badge {
+                padding: 6px 12px;
+            }
+            .hero-title {
+                font-size: 2.5rem;
+                line-height: 1.05;
+            }
+            .hero-subtitle {
+                font-size: 0.95rem;
+            }
+            .nav-brand {
+                justify-content: center;
+            }
+            .nav-inner {
+                gap: 10px;
+            }
+            .nav-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .hero-actions {
+                gap: 0.75rem;
+            }
+            .modal-container {
+                border-radius: 16px;
+            }
+            .modal-section-title {
+                font-size: 1.15rem;
+            }
         }
 
         *:focus-visible {
@@ -1920,24 +2249,37 @@
     </section>
 
     <!-- Main Content -->
-    <div class="main-wrapper">
+    <div class="main-wrapper" id="mainWrapper">
         <div class="main-container">
             
-            <!-- TICKER MUY LENTO JS -->
+            <!-- TICKER -->
             <div class="live-ticker-container">
                 <div class="live-indicator">
                     <div class="live-dot"></div>
                     <span class="live-label">En VIVO</span>
                 </div>
                 <div class="ticker-wrapper">
-                    <div class="ticker-track" id="tickerTrack">
-                        <!-- Generado por JavaScript -->
-                    </div>
+                    <div class="ticker-track" id="tickerTrack"></div>
                 </div>
             </div>
 
+            <!-- COUNTRY FILTER BAR (aparece cuando se selecciona un país) -->
+            <div class="country-filter-bar" id="countryFilterBar" style="display: none;">
+                <div class="country-filter-info">
+                    <span class="country-filter-flag" id="selectedCountryFlag"></span>
+                    <div class="country-filter-text">
+                        <h2 id="selectedCountryName">País</h2>
+                        <p id="selectedCountryDesc">Contenido taurino de este país</p>
+                    </div>
+                </div>
+                <div class="country-filter-stats" id="countryFilterStats"></div>
+                <button class="back-to-world" onclick="clearCountryFilter()">
+                    <span>←</span> Ver Todo el Mundo
+                </button>
+            </div>
+
             <!-- Stats -->
-            <div class="stats-section">
+            <div class="stats-section" id="statsSection">
                 <div class="stats-grid" id="statsGrid"></div>
             </div>
 
@@ -1989,9 +2331,9 @@
                             <div>
                                 <div class="section-meta">
                                     <div class="section-dot"></div>
-                                    <span class="section-tag">Última Hora</span>
+                                    <span class="section-tag" id="newsSectionTag">Última Hora</span>
                                 </div>
-                                <h2 class="section-title">Noticias <em>& Crónica</em></h2>
+                                <h2 class="section-title" id="newsSectionTitle">Noticias <em>& Crónica</em></h2>
                             </div>
                             <a href="#" class="section-link">Ver todas <span>→</span></a>
                         </div>
@@ -2017,9 +2359,9 @@
                             <div>
                                 <div class="section-meta">
                                     <div class="section-dot"></div>
-                                    <span class="section-tag">Figuras del Toreo</span>
+                                    <span class="section-tag" id="torerosSectionTag">Figuras del Toreo</span>
                                 </div>
-                                <h2 class="section-title">Toreros <em>Top</em></h2>
+                                <h2 class="section-title" id="torerosSectionTitle">Toreros <em>Top</em></h2>
                             </div>
                             <a href="#" class="section-link">Ver ranking completo <span>→</span></a>
                         </div>
@@ -2032,9 +2374,9 @@
                             <div>
                                 <div class="section-meta">
                                     <div class="section-dot"></div>
-                                    <span class="section-tag">Arquitectura Taurina</span>
+                                    <span class="section-tag" id="plazasSectionTag">Arquitectura Taurina</span>
                                 </div>
-                                <h2 class="section-title">Plazas <em>Emblemáticas</em></h2>
+                                <h2 class="section-title" id="plazasSectionTitle">Plazas <em>Emblemáticas</em></h2>
                             </div>
                             <a href="#" class="section-link">Directorio completo <span>→</span></a>
                         </div>
@@ -2047,9 +2389,9 @@
                             <div>
                                 <div class="section-meta">
                                     <div class="section-dot"></div>
-                                    <span class="section-tag">Criadores de Toros</span>
+                                    <span class="section-tag" id="ganaderiasSectionTag">Criadores de Toros</span>
                                 </div>
-                                <h2 class="section-title">Ganaderías <em>Famosas</em></h2>
+                                <h2 class="section-title" id="ganaderiasSectionTitle">Ganaderías <em>Famosas</em></h2>
                             </div>
                             <a href="#" class="section-link">Directorio completo <span>→</span></a>
                         </div>
@@ -2169,145 +2511,121 @@
         // ==================== BASE DE DATOS COMPLETA ====================
         
         const countries = [
-            { id: 'espana', name: 'España', flag: '🇪🇸', count: 12 },
-            { id: 'mexico', name: 'México', flag: '🇲🇽', count: 8 },
-            { id: 'francia', name: 'Francia', flag: '🇫🇷', count: 5 },
-            { id: 'colombia', name: 'Colombia', flag: '🇨🇴', count: 4 },
-            { id: 'peru', name: 'Perú', flag: '🇵🇪', count: 3 },
-            { id: 'venezuela', name: 'Venezuela', flag: '🇻🇪', count: 3 },
-            { id: 'ecuador', name: 'Ecuador', flag: '🇪🇨', count: 2 },
-            { id: 'portugal', name: 'Portugal', flag: '🇵🇹', count: 2 },
-            { id: 'argentina', name: 'Argentina', flag: '🇦🇷', count: 2 },
-            { id: 'costa-rica', name: 'Costa Rica', flag: '🇨🇷', count: 1 }
+            { id: 'espana', name: 'España', flag: '🇪🇸', count: 12, desc: 'La cuna del toreo mundial', plazasCount: 4, torerosCount: 4 },
+            { id: 'mexico', name: 'México', flag: '🇲🇽', count: 8, desc: 'El toreo americano en su máxima expresión', plazasCount: 2, torerosCount: 0 },
+            { id: 'francia', name: 'Francia', flag: '🇫🇷', count: 5, desc: 'Tradición taurina europea', plazasCount: 2, torerosCount: 0 },
+            { id: 'colombia', name: 'Colombia', flag: '🇨🇴', count: 4, desc: 'Tauromaquia colombiana de élite', plazasCount: 2, torerosCount: 0 },
+            { id: 'peru', name: 'Perú', flag: '🇵🇪', count: 3, desc: 'Tierra del toro bravo americano', plazasCount: 1, torerosCount: 1 },
+            { id: 'venezuela', name: 'Venezuela', flag: '🇻🇪', count: 3, desc: 'Feria del Sol y tradición brava', plazasCount: 2, torerosCount: 0 },
+            { id: 'ecuador', name: 'Ecuador', flag: '🇪🇨', count: 2, desc: 'Plazas en los Andes', plazasCount: 1, torerosCount: 0 },
+            { id: 'portugal', name: 'Portugal', flag: '🇵🇹', count: 2, desc: 'El arte de la corsa a cavalo', plazasCount: 2, torerosCount: 0 },
+            { id: 'argentina', name: 'Argentina', flag: '🇦🇷', count: 2, desc: 'Historia taurina pampeana', plazasCount: 2, torerosCount: 0 },
+            { id: 'costa-rica', name: 'Costa Rica', flag: '🇨🇷', count: 1, desc: 'Fiestas de Zapote', plazasCount: 1, torerosCount: 0 }
         ];
 
         // ==================== TICKER DATA ====================
         const tickerNews = [
-            { icon: '🔴', title: 'LAS VENTAS - Madrid', description: 'Morante de la Puebla cortó dos orejas ante el cuarto de Jandilla en una faena épica que duró 25 minutos', time: 'Hace 2 horas' },
-            { icon: '🏟️', title: 'REAL MAESTRANZA - Sevilla', description: 'La plaza más antigua de España celebra 263 años de historia taurina con una corrida extraordinaria', time: 'Hace 3 horas' },
-            { icon: '🇲🇽', title: 'PLAZA MÉXICO - CDMX', description: 'El coso más grande del mundo cumple 78 años con una temporada histórica de 45 corridas programadas', time: 'Ayer' },
-            { icon: '🎪', title: 'FERIA DE SAN ISIDRO 2024', description: 'Se esperan más de 500,000 espectadores durante los 30 días de la feria más importante del mundo', time: 'Hace 1 día' },
-            { icon: '⚔️', title: 'ANDRÉS ROCA REY', description: 'El torero peruano confirma su liderazgo como el número 1 del ranking mundial tras su triunfal paso por Sevilla', time: 'Hace 1 día' },
-            { icon: '🌹', title: 'ALEJANDRO TALAVANTE', description: 'El extremeño realizó una faena de 30 minutos al segundo toro de San Mateo, cortando dos orejas y rabo', time: 'Hace 2 días' },
-            { icon: '🐂', title: 'INDULTO HISTÓRICO', description: 'José María Manzanares indultó al toro Pañol de Juan Pedro Domecq por su extraordinaria bravura', time: 'Hace 3 días' },
-            { icon: '🇫🇷', title: 'ARÈNES DE NÎMES', description: 'La plaza romana celebra su Bicentenario con una corrida de gala presencia de las principales figuras', time: 'Hace 4 días' },
-            { icon: '🏆', title: 'TORNEO DEL ALBA', description: 'Juan Ortega se clasificó para la final del torneo tras cortar tres orejas en la plaza de Bilbao', time: 'Hace 5 días' },
-            { icon: '🎭', title: 'FERIA DE ABRIL - Sevilla', description: 'La Maestranza agotará las entradas para los seis días de corrida con los mejores toreros', time: 'Hace 6 días' }
+            { icon: '🔴', title: 'LAS VENTAS - Madrid', description: 'Morante de la Puebla cortó dos orejas ante el cuarto de Jandilla', time: 'Hace 2 horas' },
+            { icon: '🏟️', title: 'REAL MAESTRANZA - Sevilla', description: 'La plaza más antigua de España celebra 263 años', time: 'Hace 3 horas' },
+            { icon: '🇲🇽', title: 'PLAZA MÉXICO - CDMX', description: 'El coso más grande del mundo cumple 78 años', time: 'Ayer' },
+            { icon: '🎪', title: 'FERIA DE SAN ISIDRO 2024', description: 'Más de 500,000 espectadores esperados', time: 'Hace 1 día' },
+            { icon: '⚔️', title: 'ANDRÉS ROCA REY', description: 'El peruano confirma su liderazgo en el ranking', time: 'Hace 1 día' },
+            { icon: '🌹', title: 'ALEJANDRO TALAVANTE', description: 'Faena de 30 minutos al segundo toro', time: 'Hace 2 días' },
+            { icon: '🐂', title: 'INDULTO HISTÓRICO', description: 'Manzanares indultó al toro Pañol', time: 'Hace 3 días' },
+            { icon: '🇫🇷', title: 'ARÈNES DE NÎMES', description: 'Celebración del Bicentenario taurino', time: 'Hace 4 días' }
         ];
 
         // ==================== PLAZAS COMPLETAS POR PAÍS ====================
         const plazasDB = {
             espana: [
-                { id: 'ventas', nombre: 'Plaza de Toros de Las Ventas', ciudad: 'Madrid', pais: 'España', inauguracion: '17 de junio de 1931', capacidad: '23,798 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José Espelius', estilo: 'Neomudéjar', historia: 'Inaugurada el 17 de junio de 1931, Las Ventas es considerada la catedral del toreo mundial. Diseñada por José Espelius en estilo neomudéjar, su construcción respondió a la necesidad de dotar a Madrid de un coso acorde a su capitalidad. La Feria de San Isidro, que se celebra cada año en mayo, es el evento taurino más importante del calendario mundial.', curiosidad: 'Su capilla alberga la Virgen de la Paloma, patrona de Madrid. El albero se importa específicamente desde las canteras de Almería. Cuenta con un museo taurino con más de 12,000 piezas.' },
-                { id: 'maestranza', nombre: 'Real Maestranza de Sevilla', ciudad: 'Sevilla', pais: 'España', inauguracion: '1761', capacidad: '12,500 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Varios', estilo: 'Barroco Sevillano', historia: 'La Real Maestranza de Sevilla es la plaza de toros más antigua de España en funcionamiento continuo. Su forma ovalada es única en el mundo taurino. Situada en El Arenal de Sevilla, ha sido testigo de la evolución del toreo desde el siglo XVIII.', curiosidad: 'Es la única plaza del mundo donde el presidente no preside desde el palco principal, sino desde La Montura. En su museo se conserva el traje de Manolete de su última corrida.' },
-                { id: 'malagueta', nombre: 'Plaza de Toros de La Malagueta', ciudad: 'Málaga', pais: 'España', inauguracion: '1876', capacidad: '9,032 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Joaquín de Rucoba', estilo: 'Neomudéjar', historia: 'Inaugurada en 1876 frente al Mediterráneo, La Malagueta es una de las plazas más fotografiadas del mundo por su ubicación junto al mar. Fue construida sobre el antiguo picadero de la ciudad.', curiosidad: 'Es la única plaza de toros del mundo ubicada frente a una playa. Tiene un pasadizo secreto que comunica con el antiguo cuartel de caballería. La Feria de Málaga en agosto es una de las más animadas de España.' },
-                { id: 'pamplona', nombre: 'Plaza de Toros de Pamplona', ciudad: 'Pamplona', pais: 'España', inauguracion: '1922', capacidad: '19,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Fernando Redón', estilo: 'Neoclásico', historia: 'La plaza de Pamplona, conocida como El bullring, fue construida entre 1919 y 1922. Es famosa por los encierros de San Fermín, pero también alberga corridas durante las fiestas.', curiosidad: 'El callejón tiene una anchura de 4 metros para permitir los recortes de los corredores. El primer toro que saltó al redil fue Coincido en 1851. La corrida más larga duró 4 horas.' }
+                { id: 'ventas', nombre: 'Plaza de Toros de Las Ventas', ciudad: 'Madrid', pais: 'España', inauguracion: '17 de junio de 1931', capacidad: '23,798 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José Espelius', estilo: 'Neomudéjar', historia: 'Inaugurada el 17 de junio de 1931, Las Ventas es considerada la catedral del toreo mundial.', curiosidad: 'Su capilla alberga la Virgen de la Paloma, patrona de Madrid.' },
+                { id: 'maestranza', nombre: 'Real Maestranza de Sevilla', ciudad: 'Sevilla', pais: 'España', inauguracion: '1761', capacidad: '12,500 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Varios', estilo: 'Barroco Sevillano', historia: 'La Real Maestranza de Sevilla es la plaza de toros más antigua de España.', curiosidad: 'Es la única plaza del mundo donde el presidente no preside desde el palco principal.' },
+                { id: 'malagueta', nombre: 'Plaza de Toros de La Malagueta', ciudad: 'Málaga', pais: 'España', inauguracion: '1876', capacidad: '9,032 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Joaquín de Rucoba', estilo: 'Neomudéjar', historia: 'Inaugurada en 1876 frente al Mediterráneo.', curiosidad: 'Es la única plaza de toros del mundo ubicada frente a una playa.' },
+                { id: 'pamplona', nombre: 'Plaza de Toros de Pamplona', ciudad: 'Pamplona', pais: 'España', inauguracion: '1922', capacidad: '19,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Fernando Redón', estilo: 'Neoclásico', historia: 'La plaza de Pamplona fue construida entre 1919 y 1922.', curiosidad: 'El callejón tiene una anchura de 4 metros para permitir los recortes de los corredores.' }
             ],
             mexico: [
-                { id: 'plaza-mexico', nombre: 'Plaza México', ciudad: 'Ciudad de México', pais: 'México', inauguracion: '5 de febrero de 1946', capacidad: '41,262 espectadores', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', arquitecto: 'Manuel de la Colina', estilo: 'Art Déco Mexicano', historia: 'La Plaza México es la plaza de toros más grande del mundo. Inaugurada el 5 de febrero de 1946, se convirtió en el templo del toreo americano. Fue construida en el terreno que ocupaba el hipódromo de la capital.', curiosidad: 'Posee el Récord Guinness como la plaza de toros más grande del mundo. Durante los Juegos Olímpicos de 1968, albergó competiciones de gimnasia. La Temporada Grande va de noviembre a marzo.' },
-                { id: 'aguascalientes', nombre: 'Monumental de Aguascalientes', ciudad: 'Aguascalientes', pais: 'México', inauguracion: '1974', capacidad: '9,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Pedro R. Moctezuma', estilo: 'Funcional', historia: 'Aguascalientes es tierra de toreros por excelencia. Durante la Feria Nacional de San Marcos, que se celebra en abril, la plaza se viste de gala con los mejores toreros del mundo.', curiosidad: 'Tiene un altar dedicado a la Virgen de la Asunción donde los toreros dejan sus capas antes de salir. El redil tiene forma hexagonal. La ganadería que más ha toreado aquí es Los Huizar.' }
+                { id: 'plaza-mexico', nombre: 'Plaza México', ciudad: 'Ciudad de México', pais: 'México', inauguracion: '5 de febrero de 1946', capacidad: '41,262 espectadores', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', arquitecto: 'Manuel de la Colina', estilo: 'Art Déco Mexicano', historia: 'La Plaza México es la plaza de toros más grande del mundo.', curiosidad: 'Posee el Récord Guinness como la plaza de toros más grande del mundo.' },
+                { id: 'aguascalientes', nombre: 'Monumental de Aguascalientes', ciudad: 'Aguascalientes', pais: 'México', inauguracion: '1974', capacidad: '9,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Pedro R. Moctezuma', estilo: 'Funcional', historia: 'Aguascalientes es tierra de toreros por excelencia.', curiosidad: 'Tiene un altar dedicado a la Virgen de la Asunción.' }
             ],
             francia: [
-                { id: 'bayona', nombre: 'Plaza de Toros de Bayona', ciudad: 'Bayona', pais: 'Francia', inauguracion: '1854', capacidad: '10,200 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Vasca', historia: 'El centro taurino más importante de Francia. Durante las Fêtes de Bayonne en julio, la ciudad se transforma con miles de aficionados que acuden a las corridas y encierros.', curiosidad: 'Es la única plaza de Francia donde se mantiene viva la tradición del encierro popular por las calles. Ernest Hemingway asistió a corridas aquí durante los años 20. El primer toro estoqueado fue Moro en 1854.' },
-                { id: 'nimes', nombre: 'Arènes de Nîmes', ciudad: 'Nîmes', pais: 'Francia', inauguracion: 'Año 90 d.C.', capacidad: '24,000 espectadores', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', arquitecto: 'Arquitectos Romanos', estilo: 'Arquitectura Romana', historia: 'Uno de los anfiteatros romanos mejor conservados del mundo. Construido alrededor del año 90 d.C., fue levantado para albergar combates de gladiadores. Hoy es el escenario de corridas durante la FERIA de Nîmes.', curiosidad: 'Napoleón ordenó su restauración en 1812. Los toreros que toman la alternativa aquí reciben un diploma especial. En 2024 celebra su Bicentenario taurino con una corrida de gala.' }
+                { id: 'bayona', nombre: 'Plaza de Toros de Bayona', ciudad: 'Bayona', pais: 'Francia', inauguracion: '1854', capacidad: '10,200 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Vasca', historia: 'El centro taurino más importante de Francia.', curiosidad: 'Es la única plaza de Francia donde se mantiene viva la tradición del encierro.' },
+                { id: 'nimes', nombre: 'Arènes de Nîmes', ciudad: 'Nîmes', pais: 'Francia', inauguracion: 'Año 90 d.C.', capacidad: '24,000 espectadores', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', arquitecto: 'Arquitectos Romanos', estilo: 'Arquitectura Romana', historia: 'Uno de los anfiteatros romanos mejor conservados del mundo.', curiosidad: 'Napoleón ordenó su restauración en 1812.' }
             ],
             colombia: [
-                { id: 'manizales', nombre: 'Plaza de Toros de Manizales', ciudad: 'Manizales', pais: 'Colombia', inauguracion: '1929', capacidad: '16,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'François Joseph Lalo', estilo: 'Art Déco', historia: 'Conocida como La Catedral del Toreo en Colombia, es el escenario más emblemático de la tauromaquia colombiana. Se encuentra a 2,160 metros sobre el nivel del mar.', curiosidad: 'Es la única ciudad donde la feria taurina se celebra con el reinado de belleza más importante de Colombia. La altura afecta el comportamiento de los toros, que suelen ser más activos.' },
-                { id: 'bogota', nombre: 'Plaza de Toros La Santamaría', ciudad: 'Bogotá', pais: 'Colombia', inauguracion: '1931', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Domingo Cortés', estilo: 'Neoclásico', historia: 'La Santamaría es la plaza de toros más importante de Bogotá y una de las más antiguas de Colombia. Durante la Feria de Bogotá en enero, recibe a las principales figuras del toreo mundial.', curiosidad: 'Fue declarada Monumento Nacional de Colombia en 1994. Su arquitectura neoclásica la convierte en una de las plazas más bellas de América.' }
+                { id: 'manizales', nombre: 'Plaza de Toros de Manizales', ciudad: 'Manizales', pais: 'Colombia', inauguracion: '1929', capacidad: '16,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'François Joseph Lalo', estilo: 'Art Déco', historia: 'Conocida como La Catedral del Toreo en Colombia.', curiosidad: 'Es la única ciudad donde la feria taurina se celebra con el reinado de belleza más importante.' },
+                { id: 'bogota', nombre: 'Plaza de Toros La Santamaría', ciudad: 'Bogotá', pais: 'Colombia', inauguracion: '1931', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Domingo Cortés', estilo: 'Neoclásico', historia: 'La Santamaría es la plaza de toros más importante de Bogotá.', curiosidad: 'Fue declarada Monumento Nacional de Colombia en 1994.' }
             ],
             peru: [
-                { id: 'acho', nombre: 'Plaza de Acho', ciudad: 'Lima', pais: 'Perú', inauguracion: '1766', capacidad: '13,700 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Colonial', historia: 'La plaza de toros más antigua de América y la segunda más antigua del mundo en funcionamiento continuo. Fue construida durante el virreinato español.', curiosidad: 'Posee el museo taurino más antiguo de América. Ha resistido más de 20 terremotos mayores. Durante la temporada se celebran corridas en honor al Señor de los Milagros.' }
+                { id: 'acho', nombre: 'Plaza de Acho', ciudad: 'Lima', pais: 'Perú', inauguracion: '1766', capacidad: '13,700 espectadores', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', arquitecto: 'Desconocido', estilo: 'Arquitectura Colonial', historia: 'La plaza de toros más antigua de América.', curiosidad: 'Posee el museo taurino más antiguo de América.' }
             ],
             venezuela: [
-                { id: 'san-cristobal', nombre: 'Plaza de Toros de San Cristóbal', ciudad: 'San Cristóbal', pais: 'Venezuela', inauguracion: '1952', capacidad: '15,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Carlos Raúl Villanueva', estilo: 'Funcional', historia: 'Conocida como La Casa de la Fiesta Brava en Venezuela, es el templo taurino más importante del país. Durante la Feria de San Sebastián en enero, recibe a las principales figuras del toreo mundial.', curiosidad: 'La imagen de San Sebastián preside el ruedo desde un altar en el tendido de honor. Se convirtió en símbolo de resistencia cultural durante la crisis venezolana.' },
-                { id: 'merida', nombre: 'Plaza de Toros de Mérida', ciudad: 'Mérida', pais: 'Venezuela', inauguracion: '1947', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Desconocido', estilo: 'Colonial Andino', historia: 'Situada en los Andes venezolanos a 1,600 metros de altitud, ofrece una experiencia taurina única en un entorno montañoso sin igual. La Feria del Sol en febrero trae a Mérida a los mejores toreros del mundo.', curiosidad: 'Es la única plaza de toros del mundo situada junto a un sistema de teleférico. Los visitantes pueden llegar directamente desde las montañas.' }
+                { id: 'san-cristobal', nombre: 'Plaza de Toros de San Cristóbal', ciudad: 'San Cristóbal', pais: 'Venezuela', inauguracion: '1952', capacidad: '15,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Carlos Raúl Villanueva', estilo: 'Funcional', historia: 'Conocida como La Casa de la Fiesta Brava en Venezuela.', curiosidad: 'La imagen de San Sebastián preside el redil.' },
+                { id: 'merida', nombre: 'Plaza de Toros de Mérida', ciudad: 'Mérida', pais: 'Venezuela', inauguracion: '1947', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'Desconocido', estilo: 'Colonial Andino', historia: 'Situada en los Andes venezolanos.', curiosidad: 'Es la única plaza de toros del mundo situada junto a un teleférico.' }
             ],
             ecuador: [
-                { id: 'quito', nombre: 'Plaza de Toros de Quito', ciudad: 'Quito', pais: 'Ecuador', inauguracion: '1959', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', arquitecto: 'Gonzalo Zaldumbide', estilo: 'Republicano Quiteño', historia: 'Situada a 2,850 metros sobre el nivel del mar, es una de las plazas más altas del mundo. Durante la Feria de Quito en noviembre y diciembre, la ciudad se viste de gala taurina.', curiosidad: 'El aire tiene un 30% menos de oxígeno que a nivel del mar, lo que afecta el comportamiento de los toros y la resistencia de los toreros. Posee la tradición del toro de pueblo en las calles del centro histórico.' },
-                { id: 'ambato', nombre: 'Plaza de Toros de Ambato', ciudad: 'Ambato', pais: 'Ecuador', inauguracion: '1945', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'Desconocido', estilo: 'Colonial', historia: 'Ambato es conocida como la ciudad de las flores y las frutas. Durante la Feria de las Flores y las Frutas en febrero, la plaza recibe a toreros de todo el mundo.', curiosidad: 'Es una de las plazas más antiguas de Ecuador. La feria combina tradición taurina con celebración de la agricultura local.' }
+                { id: 'quito', nombre: 'Plaza de Toros de Quito', ciudad: 'Quito', pais: 'Ecuador', inauguracion: '1959', capacidad: '14,000 espectadores', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', arquitecto: 'Gonzalo Zaldumbide', estilo: 'Republicano Quiteño', historia: 'Situada a 2,850 metros sobre el nivel del mar.', curiosidad: 'El aire tiene un 30% menos de oxígeno.' }
             ],
             portugal: [
-                { id: 'campo-pequeno', nombre: 'Campo Pequeno', ciudad: 'Lisboa', pais: 'Portugal', inauguracion: '1892', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'António José Dias da Silva', estilo: 'Neomudéjar Portugués', historia: 'Monumento a la tradición taurina portuguesa. En Portugal, no se mata al toro en el ruedo, siendo una tradición única en el mundo taurino. Es la única plaza donde se puede presenciar la pegada tradicional portuguesa.', curiosidad: 'Existe un sistema de túneles del siglo XIX debajo de la plaza. Fue completamente restaurada en 2006 y hoy funciona también como centro de espectáculos.' },
-                { id: 'porto', nombre: 'Praça de Touros do Porto', ciudad: 'Oporto', pais: 'Portugal', inauguracion: '1863', capacidad: '8,500 espectadores', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', arquitecto: 'José António Gaspar', estilo: 'Neoclásico', historia: 'La plaza de toros más antigua de Portugal en funcionamiento. Durante la temporada, recibe a los mejores rejoneadores y forcados del país.', curiosidad: 'Es conocida por sus espectáculos de rejoneo, una especialidad portuguesa. La arquitectura neoclásica la convierte en un monumento histórico.' }
+                { id: 'campo-pequeno', nombre: 'Campo Pequeno', ciudad: 'Lisboa', pais: 'Portugal', inauguracion: '1892', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', arquitecto: 'António José Dias da Silva', estilo: 'Neomudéjar Portugués', historia: 'Monumento a la tradición taurina portuguesa.', curiosidad: 'Fue completamente restaurada en 2006.' }
             ],
             argentina: [
-                { id: 'liniers', nombre: 'Plaza de Toros de Liniers', ciudad: 'Buenos Aires', pais: 'Argentina', inauguracion: '1918', capacidad: '12,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José María Cortés', estilo: 'Ecléctico Porteño', historia: 'Fue el centro taurino de Argentina hasta su cierre en 1977. Durante décadas, Buenos Aires fue una de las capitales taurinas de América del Sur.', curiosidad: 'Fue la primera plaza de Sudamérica en tener un sistema de riego moderno. Tras su cierre, el terreno se convirtió en un centro comercial. Hoy existe un proyecto para su restauración.' },
-                { id: 'rosario', nombre: 'Plaza de Toros de Rosario', ciudad: 'Rosario', pais: 'Argentina', inauguracion: '1925', capacidad: '8,000 espectadores', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', arquitecto: 'Desconocido', estilo: 'Colonial', historia: 'Rosario fue durante décadas un importante centro taurino argentino. La plaza albergó a figuras legendarias del toreo argentino e internacional.', curiosidad: 'Aunque el toreo en Argentina está actualmente prohibido, la plaza se mantiene como monumento histórico y se usa para otros espectáculos culturales.' }
+                { id: 'liniers', nombre: 'Plaza de Toros de Liniers', ciudad: 'Buenos Aires', pais: 'Argentina', inauguracion: '1918', capacidad: '12,000 espectadores', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', arquitecto: 'José María Cortés', estilo: 'Ecléctico Porteño', historia: 'Fue el centro taurino de Argentina hasta su cierre en 1977.', curiosidad: 'Fue la primera plaza de Sudamérica en tener riego moderno.' }
             ],
             'costa-rica': [
-                { id: 'zapote', nombre: 'Plaza de Toros de Zapote', ciudad: 'San José', pais: 'Costa Rica', inauguracion: '1960', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Estructura Temporal', estilo: 'Temporal', historia: 'El epicentro de las fiestas populares costarricenses. Las montas de toros son una celebración nacional que atrae a miles de visitantes durante las Fiestas de Zapote en diciembre y enero.', curiosidad: 'Famosa por la monta de toros a la criolla donde más de 300 improvisados intentan montar cada año. El récord de permanencia es de 48 segundos sobre un toro de 500kg. Es una estructura temporal que se monta cada año.' }
+                { id: 'zapote', nombre: 'Plaza de Toros de Zapote', ciudad: 'San José', pais: 'Costa Rica', inauguracion: '1960', capacidad: '10,000 espectadores', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', arquitecto: 'Estructura Temporal', estilo: 'Temporal', historia: 'El epicentro de las fiestas populares costarricenses.', curiosidad: 'El récord de permanencia es de 48 segundos.' }
             ]
         };
 
         // ==================== TOREROS ====================
         const torerosDB = [
-            { nombre: 'Morante de la Puebla', nombreCompleto: 'Manuel Martínez Morante', pais: 'España', ciudadNacimiento: 'Sevilla', fechaNacimiento: '7 de noviembre de 1979', orejas: 156, rabos: 12, indultos: 5, faenas: 342, alternativa: '14 de abril de 2003, Sevilla', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', bio: 'Considerado por muchos críticos y aficionados como el mejor torero de su generación, Morante de la Puebla ha revolucionado el toreo contemporáneo con un estilo único que combina la tradición más pura del clasicismo sevilla con movimientos de una vanguardia sin precedentes. Su capacidad para crear arte con el capote y la muleta lo ha convertido en una figura legendaria. Sus faenas son memorables por la belleza plática y la profundidad emocional que transmite al público. Ha cortado orejas en las plazas más importantes del mundo: Las Ventas, Sevilla, México, Nîmes, Pamplona y Bogotá.', estilo: 'Clasicismo sevilla con detalles de vanguardia. Especialmente famoso por sus manoletinas y sus trincherazos.', fraseCelebre: 'El toreo no es un oficio, es una forma de vida que se lleva en la sangre.', rank: 1, status: 'Activo' },
-            { nombre: 'Andrés Roca Rey', nombreCompleto: 'Andrés Alejandro Roca Rey', pais: 'Perú', ciudadNacimiento: 'Lima', fechaNacimiento: '31 de diciembre de 1996', orejas: 124, rabos: 8, indultos: 3, faenas: 256, alternativa: '26 de octubre de 2014, Lima', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', bio: 'Nacido en Lima, Perú, Roca Rey llegó al panorama taurino mundial para quedarse. Su compromiso total con el toro y su valentía excepcional lo han convertido en el torero más mediático y popular de la actualidad. Con apenas 18 años tomó la alternativa en Lima y rápidamente conquistó las plazas europeas. Su toreo se caracteriza por el poderío físico, la madurez en la ejecución de las suertes y una conexión especial con el público.', estilo: 'Poderío físico, madurez en la ejecución, valor total. Especialmente destacado en el cambio de terreno.', fraseCelebre: 'Cada corrida es una nueva historia que escribir con el toro.', rank: 2, status: 'Activo' },
-            { nombre: 'Alejandro Talavante', nombreCompleto: 'Alejandro Talavante Díaz', pais: 'España', ciudadNacimiento: 'Badajoz', fechaNacimiento: '8 de marzo de 1988', orejas: 142, rabos: 9, indultos: 4, faenas: 298, alternativa: '7 de octubre de 2007, Dax, Francia', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', bio: 'El purista del toreo extremeño. Talavante representa la esencia del clasicismo en su máxima expresión. Nacido en la tierra del toro bravo, ha forjado un estilo propio que combina la técnica más depurada con una sensibilidad artística poco común. Sus faenas son consideradas obras de arte en el mundo del toreo.', estilo: 'Clasicismo extremeño puro. Maestro del toreo de naturales y de la distancia con el toro.', fraseCelebre: 'El toreo es sentir y hacer sentir.', rank: 3, status: 'Activo' },
-            { nombre: 'José María Manzanares', nombreCompleto: 'José María Manzanero Rodríguez', pais: 'España', ciudadNacimiento: 'Alicante', fechaNacimiento: '11 de mayo de 1984', orejas: 118, rabos: 6, indultos: 2, faenas: 287, alternativa: '29 de mayo de 2004, Valencia', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', bio: 'Herencia y destino. Hijo de una dinastía taurina, Manzanares ha forjado su propia leyenda con una carrera sólida construida sobre la base del trabajo y la constancia. Su toreo elegante y depurado le ha conquistado a crítica y público.', estilo: 'Elegancia y depuración técnica. Especialmente destacar en el toreo de redondo.', fraseCelebre: 'El toreo se lleva en la sangre y se demuestra en el redil.', rank: 4, status: 'Activo' },
-            { nombre: 'Juan Ortega', nombreCompleto: 'Juan Ortega Ruiz', pais: 'España', ciudadNacimiento: 'Cádiz', fechaNacimiento: '14 de febrero de 1991', orejas: 89, rabos: 4, indultos: 2, faenas: 156, alternativa: '8 de abril de 2017, Sevilla', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', bio: 'La nueva ola del toreo. Ortega representa la generación que une tradición con modernidad. Su toreo Natural ha cautivado a crítica y público por igual. Gaditano de nacimiento, lleva el arte del toreo en la sangre.', estilo: 'Toreo Natural con mucho arte. Innovador dentro de la tradición.', fraseCelebre: 'El toreo es un arte que evoluciona sin perder su esencia.', rank: 5, status: 'Activo' },
-            { nombre: 'El Fandi', nombreCompleto: 'David Fernández Ortega', pais: 'España', ciudadNacimiento: 'Granada', fechaNacimiento: '18 de mayo de 1977', orejas: 98, rabos: 5, indultos: 1, faenas: 234, alternativa: '28 de mayo de 2000, Granada', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', bio: 'Carisma y espectáculo. El Fandi ha revolucionado la lidia de reventones con sus Monkey y sus habilidades únicas con el capote. Su conexión especial con el público lo ha convertido en uno de los toreros más populares.', estilo: 'Espectáculo y contact con el público. Maestro del toreo de reventones.', fraseCelebre: 'El público es el mejor premio que puede tener un torero.', rank: 6, status: 'Activo' }
+            { nombre: 'Morante de la Puebla', nombreCompleto: 'Manuel Martínez Morante', pais: 'España', ciudadNacimiento: 'Sevilla', fechaNacimiento: '7 de noviembre de 1979', orejas: 156, rabos: 12, indultos: 5, faenas: 342, alternativa: '14 de abril de 2003, Sevilla', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', bio: 'Considerado por muchos como el mejor torero de su generación.', estilo: 'Clasicismo sevilla con detalles de vanguardia.', fraseCelebre: 'El toreo no es un oficio.', rank: 1, status: 'Activo' },
+            { nombre: 'Andrés Roca Rey', nombreCompleto: 'Andrés Alejandro Roca Rey', pais: 'Perú', ciudadNacimiento: 'Lima', fechaNacimiento: '31 de diciembre de 1996', orejas: 124, rabos: 8, indultos: 3, faenas: 256, alternativa: '26 de octubre de 2014, Lima', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', bio: 'El peruano se ha convertido en el torero más mediático.', estilo: 'Poderío físico y valentía.', fraseCelebre: 'Cada corrida es una nueva historia.', rank: 2, status: 'Activo' },
+            { nombre: 'Alejandro Talavante', nombreCompleto: 'Alejandro Talavante Díaz', pais: 'España', ciudadNacimiento: 'Badajoz', fechaNacimiento: '8 de marzo de 1988', orejas: 142, rabos: 9, indultos: 4, faenas: 298, alternativa: '7 de octubre de 2007, Dax', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', bio: 'El purista del toreo extremeño.', estilo: 'Clasicismo puro.', fraseCelebre: 'El toreo es sentir.', rank: 3, status: 'Activo' },
+            { nombre: 'José María Manzanares', nombreCompleto: 'José María Manzanero Rodríguez', pais: 'España', ciudadNacimiento: 'Alicante', fechaNacimiento: '11 de mayo de 1984', orejas: 118, rabos: 6, indultos: 2, faenas: 287, alternativa: '29 de mayo de 2004, Valencia', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', bio: 'Hijo de una dinastía taurina.', estilo: 'Elegancia técnica.', fraseCelebre: 'El toreo se lleva en la sangre.', rank: 4, status: 'Activo' },
+            { nombre: 'Juan Ortega', nombreCompleto: 'Juan Ortega Ruiz', pais: 'España', ciudadNacimiento: 'Cádiz', fechaNacimiento: '14 de febrero de 1991', orejas: 89, rabos: 4, indultos: 2, faenas: 156, alternativa: '8 de abril de 2017, Sevilla', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', bio: 'La nueva ola del toreo gaditano.', estilo: 'Toreo Natural.', fraseCelebre: 'El toreo evoluciona.', rank: 5, status: 'Activo' },
+            { nombre: 'El Fandi', nombreCompleto: 'David Fernández Ortega', pais: 'España', ciudadNacimiento: 'Granada', fechaNacimiento: '18 de mayo de 1977', orejas: 98, rabos: 5, indultos: 1, faenas: 234, alternativa: '28 de mayo de 2000, Granada', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', bio: 'Carisma y espectáculo.', estilo: 'Reventones.', fraseCelebre: 'El público es el mejor premio.', rank: 6, status: 'Activo' }
         ];
 
         // ==================== NOTICIAS ====================
         const newsDB = [
-            { id: 1, titulo: 'Morante de la Puebla Triunfa con Dos Orejas en una Faena Épica de 25 Minutos', resumen: 'El maestro sevillano cuajó una faena de máximo calibre artístico ante el cuarto toro de la ganadería de Jandilla, cortando dos orejas y saliendo a hombros entre el delirio de los 23,000 espectadores que abarrotaban Las Ventas.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'Morante de la Puebla', ganaderia: 'Jandilla', plaza: 'Plaza de Toros de Las Ventas, Madrid', resultado: '2 Orejas', tiempo: 'Hace 2 horas', detalles: 'La faena duró exactamente 25 minutos y 38 segundos, tiempo durante el cual Morante desplegó todo su arsenal artístico. El público ovacionó de pie durante más de 15 minutos ininterrumpidos. El toro, de nombre Relámpago, pesó 560 kilos y fue premio en el arrastre.', quote: 'Una faena para la historia del toreo. Morante demostró una vez más que es el artista indiscutible de su generación.', tipoArticulo: 'CRÓNICA OFICIAL' },
-            { id: 2, titulo: 'Roca Rey Consolida su Liderazgo en el Ranking Mundial con Triunfo en Sevilla', resumen: 'El peruano demostró una vez más su poderío ante los victorianos del Río, logrando una faena de campeonato que pasará a los anales de la Maestranza como una de las más recordadas de la temporada.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', torero: 'Andrés Roca Rey', ganaderia: 'Victoriano del Río', plaza: 'Real Maestranza, Sevilla', resultado: 'Puerta Grande', tiempo: 'Ayer', detalles: 'Con una faena de 28 minutos al segundo toro de la tarde, Roca Rey cerró su actuación con dos orejas de gran mérito. El toro Duende fue ovacionado en el arrastre tras demostrar una bravura extraordinaria durante toda la lidia. La Mestranza registró un lleno absoluto.', quote: 'El mejor torero del mundo en la actualidad. Roca Rey no tiene rival.', tipoArticulo: 'CRÓNICA OFICIAL' },
-            { id: 3, titulo: 'Talavante Celebra su Alternativa en la Plaza Más Grande del Mundo ante 41,000 Espectadores', resumen: 'El extremeño confirmó su alternativa en la Monumental Plaza México en una tarde histórica que pasará a formar parte de las crónicas más brillantes del toreo universal.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', torero: 'Alejandro Talavante', ganaderia: 'San Mateo', plaza: 'Plaza México, Ciudad de México', resultado: '1 Oreja', tiempo: 'Hace 2 días', detalles: 'La alternativa se enmarca en la celebración del 78 aniversario de la plaza. El padrino fue el mexicano Josélito y el testigo el español Sebastián Castella. La corrida registró un lleno total con espectadores de todo el mundo.', quote: 'Una alternativa de Cine. Talavante demostró que es uno de los grandes del toreo actual.', tipoArticulo: 'ALTERNATIVA HISTÓRICA' },
-            { id: 4, titulo: 'Entrevista Exclusiva: Manzanares Repasa 20 Años de Carrera Taurina', resumen: 'En conversación exclusiva con La Famosa Taurina, José María Manzanares habla con emoción y profundidad sobre su trayectoria, desde aquella alternativa en Valencia hasta sus mejores faenas, siempre con la humildad que le caracteriza.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', torero: 'José María Manzanares', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 3 días', detalles: 'Manzanares repasa su trayectoria con una honestidad conmovedora. Habla de los momentos más emotivos de su carrera, su relación con las grandes ganaderías y cómo ve el futuro del toreo. Una conversación íntima que revela al hombre detrás del torero.', preguntas: ['¿Cómo ha evolucionado el toreo en los últimos 20 años?', '¿Cuál ha sido el momento más emotivo de su carrera?', '¿Qué consejos daría a los jóvenes toreros?'], tipoArticulo: 'ENTREVISTA EXCLUSIVA' },
-            { id: 5, titulo: 'Análisis: La Feria de San Isidro Consolidada como el Referente Taurino Universal', resumen: 'Un análisis exhaustivo sobre por qué la Feria de San Isidro se ha consolidado como el evento taurino más importante del mundo, atrayendo a las mejores figuras, las ganaderías más codiciadas y al público más exigente del orbe taurino.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', plaza: 'Plaza de Toros de Las Ventas, Madrid', tiempo: 'Hace 4 días', detalles: 'La feria, que se celebra del 10 de mayo al 8 de junio, reúne a los mejores toreros del mundo, las ganaderías más prestigiosas y al público más exigente. Este año se esperan más de 500,000 espectadores durante los 30 días de competición.', puntosClave: ['30 días de corridas de primera categoría', 'Mejores ganaderías de España y del mundo', 'Las mejores figuras del toreo mundial', 'Más de 500,000 espectadores esperados', 'Tradición y vanguardia taurina'], tipoArticulo: 'ANÁLISIS ESPECIAL' },
-            { id: 6, titulo: 'Feria de Abril 2024: Sevilla se Prepara para una Semana Histórica', resumen: 'La Real Maestranza se viste de gala para celebrar su semana grande con los mejores toreros del momento, ganaderías de primera y un público que agotará las entradas para cada uno de los seis días de corrida.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', plaza: 'Real Maestranza, Sevilla', tiempo: 'Hace 5 días', detalles: 'La Feria de Abril 2024 promete ser una de las más concurridas de la historia reciente. Las entradas para los seis días de corrida se han agotado en tiempo récord. Las ganaderías confirmadas son de primera categoría.', ganaderiasConfirmadas: ['Victoriano del Río', 'Jandilla', 'Núñez del Cuvillo', 'Juan Pedro Domecq', 'Alcurrucén'], tipoArticulo: 'ESPECIAL FERIA' },
-            { id: 7, titulo: 'Juan Ortega Consolida su Posición en el Escalafón con Faena de Arte Puro en Bilbao', resumen: 'El joven diestro gaditano demostró una vez más su calidad excepcional al réalise una faena de arte puro ante los victorinos, saliendo a hombros entre el entusiasmo de un público que reconoció su valor y su arte.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=800', torero: 'Juan Ortega', ganaderia: 'Victorinos', plaza: 'Plaza de Bilbao, Vizcaya', resultado: '2 Orejas', tiempo: 'Hace 1 semana', detalles: 'La faena a los victorinos fue ovacionada por un público que reconoció el valor y el arte del gaditano. Ortega demostró una madurez impropia de su edad en un toreo de calidad excepcional.', tipoArticulo: 'CRÓNICA OFICIAL' },
-            { id: 8, titulo: 'Arènes de Nîmes Celebra su Bicentenario Taurino con Corrida de Gala', resumen: 'Las legendarias Arènes romanas preparan una celebración histórica para conmemear 200 años de tauromaquia en el Anfiteatro mejor conservado del mundo romano, con una corrida de gala que reunirá a las tres grandes figuras del toreo.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1544976520-d4b5c8e1c2c5?w=800', plaza: 'Arènes de Nîmes, Francia', tiempo: 'Hace 1 semana', detalles: 'La corrida de gala incluirá a las tres principales figuras del toreo mundial: Morante de la Puebla, Andrés Roca Rey y Alejandro Talavante. Será una celebración única que marcará un antes y un después en la historia de la tauromaquia francesa.', tipoArticulo: 'ESPECIAL BICENTENARIO' },
-            { id: 9, titulo: 'El Fandi Ofrece una Exhibición de Arte y Valentía que Dejó al Público Mexicano sin Aliento', resumen: 'El matador granadino revolucionó la Monumental Plaza México con una actuación que combinó el arte más puro con el espectáculo más vibrante, cortando tres orejas y pasando como un torero para la historia.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', torero: 'El Fandi', ganaderia: 'Los Huizar', plaza: 'Plaza México, CDMX', resultado: '3 Orejas', tiempo: 'Hace 2 semanas', detalles: 'La actuación de El Fandi incluirá sus famosos monkey y una conexión con el público que demostró por qué es el torero más querido por los aficionados. El granadino demostró que el toreo puede ser arte y espectáculo al mismo tiempo.', tipoArticulo: 'CRÓNICA OFICIAL' },
-            { id: 10, titulo: 'Manzanares Indulta al Toro Pañol de Juan Pedro Domecq por su Excepcional Bravura', resumen: 'En una tarde que quedará grabada en la memoria de los aficionados, José María Manzanares realizó una faena de arte excepcional que le permitió salvar la vida del toro Pañol, convirtiéndose en el tercer indulto de su carrera.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'José María Manzanares', ganaderia: 'Juan Pedro Domecq', plaza: 'San Sebastián, Guipúzcoa', resultado: 'INDULTO', tiempo: 'Hace 3 semanas', detalles: 'El toro Pañol fue indultado tras una faena de 22 minutos en los que demostró una bravura extraordinaria. El público pidió el indulto de forma unánime y el presidente no tuvo más remedio que concederlo.', tipoArticulo: 'INDULTO' },
-            { id: 11, titulo: 'Reportaje: El Fascinante Proceso de Cria del Toro de Lidia desde la Dehesa hasta la Plaza', resumen: 'Un reportaje completo y exhaustivo sobre cómo se cría al toro bravo, desde la selección genética en la dehesa hasta su llegada al redil de las mejores plazas del mundo. Visitamos una de las ganaderías más prestigiosas de España.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', tiempo: 'Hace 2 semanas', detalles: 'Visitamos una de las ganaderías más prestigiosas de España para conocer en profundidad el proceso de cría del toro de lidia. Desde la selección genética hasta el transporte al coso, cada paso está cuidadosamente pensado para garantizar la calidad del toro bravo.', secciones: ['Selección genética y cría', 'La alimentación en la dehesa', 'El manejo del ganado', 'La selección para la plaza', 'El transporte al coso'], tipoArticulo: 'REPORTAJE ESPECIAL' },
-            { id: 12, titulo: 'Feria de Manizales 2024: Colombia Vibra con la Tauromaquia más Auténtica', resumen: 'La Feria de Manizales se consolida como el evento taurino más importante de América Latina, reuniendo a las principales figuras del toreo mundial en una de las plazas más emblemáticas del continente.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', plaza: 'Plaza de Toros de Manizales, Colombia', tiempo: 'Hace 3 semanas', detalles: 'La feria que se celebra en enero reúne a las principales figuras del toreo mundial y a los mejores toros de América. La plaza, situada a más de 2,000 metros sobre el nivel del mar, ofrece unas condiciones únicas para la lidia.', tipoArticulo: 'FERIA INTERNACIONAL' }
+            { id: 1, titulo: 'Morante Triunfa con Dos Orejas en Faena Épica', resumen: 'El maestro sevillano cuajó una faena de máximo calibre.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', torero: 'Morante de la Puebla', pais: 'espana', plaza: 'Las Ventas, Madrid', resultado: '2 Orejas', tiempo: 'Hace 2 horas' },
+            { id: 2, titulo: 'Roca Rey Consolida su Liderazgo en Sevilla', resumen: 'El peruano demostró su poderío ante los victorianos.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', torero: 'Andrés Roca Rey', pais: 'peru', plaza: 'Real Maestranza, Sevilla', resultado: 'Puerta Grande', tiempo: 'Ayer' },
+            { id: 3, titulo: 'Talavante Celebra Alternativa en Plaza México', resumen: 'El extremeño confirmó su alternativa en la Monumental.', tipo: 'resultado', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', torero: 'Alejandro Talavante', pais: 'espana', plaza: 'Plaza México, CDMX', resultado: '1 Oreja', tiempo: 'Hace 2 días' },
+            { id: 4, titulo: 'Entrevista: Manzanares Repasa su Carrera', resumen: 'El alicantino habla de sus 20 años de trayectoria.', tipo: 'entrevista', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', torero: 'José María Manzanares', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 3 días' },
+            { id: 5, titulo: 'Análisis: La Feria de San Isidro Consolidada', resumen: 'La feria más importante del mundo taurino.', tipo: 'analisis', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', pais: 'espana', plaza: 'Las Ventas, Madrid', tiempo: 'Hace 4 días' },
+            { id: 6, titulo: 'Feria de Abril 2024: Sevilla se Prepara', resumen: 'La Real Maestranza se viste de gala.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800', pais: 'espana', plaza: 'Real Maestranza, Sevilla', tiempo: 'Hace 5 días' },
+            { id: 7, titulo: 'Plaza México Cumple 78 Años', resumen: 'El coso más grande del mundo celebra su aniversario.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', pais: 'mexico', plaza: 'Plaza México, CDMX', tiempo: 'Hace 1 semana' },
+            { id: 8, titulo: 'Arènes de Nîmes Celebra Bicentenario', resumen: 'La plaza romana más emblemática del mundo.', tipo: 'feria', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', pais: 'francia', plaza: 'Arènes de Nîmes', tiempo: 'Hace 1 semana' }
         ];
 
         // ==================== GANADERÍAS ====================
         const ganaderiasDB = [
-            { nombre: 'Victoriano del Río', ubicacion: 'Titulancia, Madrid, España', founded: '1940', origen: 'Jijón', descripcion: 'Una de las ganaderías más codiciadas y respetadas del mundo taurino. Fundada por Victoriano del Río, ha mantenido un nivel de calidad excepcional a lo largo de las décadas, criando toros de extraordinaria presentación y bravura típica que han dado tardes memorables en las plazas más importantes del orbe.', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', toroFamoso: 'Barbés, Salti, Relámpago', colorGanado: 'Negro Bragado', encaste: 'Jijón', frase: 'La calidad nunca se negocia', torosDestacados: [{ nombre: 'Barbés', año: 2015, plaza: 'Las Ventas', torero: 'Morante' }, { nombre: 'Salti', año: 2018, plaza: 'Sevilla', torero: 'Roca Rey' }] },
-            { nombre: 'Jandilla', ubicacion: 'Berlanga, Badajoz, España', founded: '1913', origen: 'Vistahermosa', descripcion: 'Ganadería histórica que ha dado tardes memorables en las plazas más importantes del mundo. Sus toros se caracterizan por su poderío físico excepcional, su nobleza en la muleta y una bravura en el caballo que los convierte en animales espectaculares para la lidia.', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', toroFamoso: 'Cachupín, Jandillo', colorGanado: 'Negro y Colorado', encaste: 'Vistahermosa', frase: 'La bravura es nuestro legado', torosDestacados: [{ nombre: 'Cachupín', año: 2019, plaza: 'Las Ventas', torero: 'Talavante' }] },
-            { nombre: 'San Mateo', ubicacion: 'Adamuz, Córdoba, España', founded: '1910', origen: 'Marqués de Saltillo', descripcion: 'Ganadería decriana que cria toros de clase excepcional. Una de las preferidas por los grandes toreros por la calidad de sus reses y su comportamiento bravo y noble en la plaza. Sus toros combinan potencia y trapío con una categoría innata.', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', toroFamoso: 'Pijotero, Saltador', colorGanado: 'Castaño y Negro', encaste: 'Marqués de Saltillo', frase: 'Clase y Trapío' },
-            { nombre: 'Juan Pedro Domecq', ubicacion: 'Jerez de los Caballeros, Badajoz, España', founded: '1870', origen: 'Villabrille', descripcion: 'La ganadería más importante del siglo XX y una de las más influyentes en la cría del toro bravo moderno. Ha marcado estilo y bravura en la selección ganadera, criando toros que han dado tardes legendarias en todas las ferias del mundo.', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', toroFamoso: 'Mañol, Soetero, Pañol', colorGanado: 'Colorao y Negro', encaste: 'Domecq', frase: 'Tradición y bravura desde 1870' },
-            { nombre: 'Núñez del Cuvillo', ubicacion: 'Vejer de la Frontera, Cádiz, España', founded: '1900', origen: 'Carlos Núñez', descripcion: 'Ganadería gaditana de elite cuyos toros combinan nobleza y potencia en un binomio perfecto. Son animales que embisten con clase y permiten al torero desarrollar su arte con la garantía de un comportamiento bravo y generoso.', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', toroFamoso: 'Rebelde, Soetero', colorGanado: 'Negro y Castaño', encaste: 'Núñez', frase: 'Elegancia gaditana' },
-            { nombre: 'Los Huizar', ubicacion: 'Ciudad Juárez, Chihuahua, México', founded: '1890', origen: 'Padilla', descripcion: 'Una de las ganaderías mexicanas más prestigiosas y antiguas del país. Cria el toro americano por excelencia, con un nivel de bravura que ha conquistado las plazas de México, España y Francia, convirtiéndose en referencia del toreo en América.', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', toroFamoso: 'Capolítico, Halcón', colorGanado: 'Negro', encaste: 'Padilla', frase: 'Bravura mexicana' }
+            { nombre: 'Victoriano del Río', ubicacion: 'Titulancia, Madrid, España', pais: 'espana', founded: '1940', descripcion: 'Una de las ganaderías más codiciadas del mundo.', imagen: 'https://images.unsplash.com/photo-1599839619722-39751411883e?w=800', toroFamoso: 'Barbés, Salti', frase: 'La calidad nunca se negocia' },
+            { nombre: 'Jandilla', ubicacion: 'Berlanga, Badajoz, España', pais: 'espana', founded: '1913', descripcion: 'Ganadería histórica con toros de poderío.', imagen: 'https://images.unsplash.com/photo-1542385151-efd9000785a0?w=800', toroFamoso: 'Cachupín, Jandillo', frase: 'La bravura es nuestro legado' },
+            { nombre: 'San Mateo', ubicacion: 'Adamuz, Córdoba, España', pais: 'espana', founded: '1910', descripcion: 'Toros de clase excepcional.', imagen: 'https://images.unsplash.com/photo-1550931267-336712061453?w=800', toroFamoso: 'Pijotero', frase: 'Clase y Trapío' },
+            { nombre: 'Juan Pedro Domecq', ubicacion: 'Jerez, Badajoz, España', pais: 'espana', founded: '1870', descripcion: 'La ganadería más importante del siglo XX.', imagen: 'https://images.unsplash.com/photo-1590736969955-71cc94901144?w=800', toroFamoso: 'Mañol, Soetero', frase: 'Tradición y bravura' },
+            { nombre: 'Núñez del Cuvillo', ubicacion: 'Vejer, Cádiz, España', pais: 'espana', founded: '1900', descripcion: 'Ganadería gaditana de elite.', imagen: 'https://images.unsplash.com/photo-1563821035541-949f50f44923?w=800', toroFamoso: 'Rebelde', frase: 'Elegancia gaditana' },
+            { nombre: 'Los Huizar', ubicacion: 'Ciudad Juárez, México', pais: 'mexico', founded: '1890', descripcion: 'Ganadería mexicana más prestigiosa.', imagen: 'https://images.unsplash.com/photo-1589909202802-8f4aadce1849?w=800', toroFamoso: 'Capolítico', frase: 'Bravura mexicana' }
         ];
 
         // ==================== GLOSARIO ====================
         const glossaryDB = [
-            { term: 'Albero', def: 'La arena o tierra blonde que cubre el suelo del redil. Se importa específicamente desde las canteras de Almería por su calidad única. Debe tener un grosor específico para absorber la sangre y permitir el deslizamiento del torero durante las suertes.' },
-            { term: 'Burladero', def: 'Cada uno de los tabiques que protegen a los toreros en el callejón de la plaza. Generalmente de madera o metal, permiten al torero guarecerse del toro de forma segura durante los tercios de varas y muleta.' },
-            { term: 'Capote', def: 'Utensilio de tela utilizado para la lidia de reses en el tercio de varas y para los quites. Mide aproximadamente 125 cm de largo y 75 cm de ancho. El color tradicional es vary de amarillo y rojo.' },
-            { term: 'Chiqueros', def: 'Los establos donde se encerrar los toros antes de la corrida. Están conectados con el redil por un pasillo estrecho llamado temeguillo. Cada toro tiene su propio chiquero.' },
-            { term: 'Curro', def: 'Plaza de toros cubierta, generalmente de madera. Este tipo de plaza es típico de España y Portugal. Los curros más famous incluyen el de Ronda y el de Chipiona.' },
-            { term: 'Descabello', def: 'Golpe mortal en la nuca del toro con la punta de la espada cuando el estoque no ha entrado correctamente. Es la forma de rematar la lidia cuando la muerte no ha sido limpia.' },
-            { term: 'Empalomar', def: 'Situación en la que el toro se clava la tela del capote o muleta entre los pitones, generalmente por un mal cite o pase. Puede ser peligroso para el torero.' },
-            { term: 'Estoque', def: 'La espada lata y rectangular con la que se da muerte al toro. Debe entrar entre las paletillas hasta la cruz del animal para una muerte limpia. El estoque de regalo es tradicional en las bodas.' },
-            { term: 'Farolillo', def: 'Premio que se otorga cuando el toro no ha sido lanceado ni ha embestido con continuidad. Es considerado un fracaso del animal y una mancha en la lidia.' },
-            { term: 'Gaonachón', def: 'Golpe con la punta de la espada en el morrillo del toro durante lamontería. Se realiza para asegurar la entrada del estoque en el segundo intento.' },
-            { term: 'Hidalgo', def: 'Toro que no responde a la convocatoria del capote o la muleta, faltando a su obligación de embestir. Es un defecto de bravura muy penalizado por la legislación taurina.' },
-            { term: 'Indulto', def: 'Perdón de la vida del toro por parte del presidente de la corrida, concedido por su bravura excepcional. Es el máximo premio que puede recibir un toro. El toro indultado vuelve a la ganadería.' },
-            { term: 'Junco', def: 'Pase de muleta ejecutado con el torero de espaldas al toro, mirando hacia el tendido. Es uno de los pases más difíciles y espectaculares del toreo.' },
-            { term: 'Kiries', def: 'Pases ejecutados en paralelo sin mover los pies, generalmente de naturales. Requieren una sincronización perfecta entre el torero y el toro.' },
-            { term: 'Lidia', def: 'El arte de torear, desde que el toro sale del chiquero hasta que es estoqueado. Incluye tres tercios: varas, banderillas y muerte.' },
-            { term: 'Muleta', def: 'Tela roja plegada sujeta a un palo usada en el último tercio de la lidia. Con ella se ejecutan los pases más espectaculares y artísticos del toreo.' },
-            { term: 'Nobel', def: 'Toro de cuatro a cinco años que torea por primera vez en una plaza. Es más difícil de torear que el utrero pero menos experimentado que el cinqueño.' },
-            { term: 'Oreja', def: 'Trofeo que se corta al toro como premio por la calidad de la faena. Dos orejas y rabo equivale a la salida a hombros del torero.' },
-            { term: 'Pase', def: 'Cada una de las suertes realizadas con el capote o la muleta. Los más importantes son el pase natural, el pase de pecho y el trincherazo.' },
-            { term: 'Quite', def: 'Intervención del torero que no está lidando al toro para arrancar al compañero de un aprieto. Es una muestra de solidaridad y valor.' },
-            { term: 'Rabo', def: 'Premio adicional a las orejas que se concede cuando la faena ha sido excepcional. Cortar rabo requiere generalmente un indulto o dos orejas de extraordinario mérito.' },
-            { term: 'Redil', def: 'La arena de la plaza de toros. Debe estar nivelada y compactada. El encargado de prepararla se llama albeiter.' },
-            { term: 'Sobresaliente', def: 'Torero que está en la plaza para sustituir a cualquiera de los matadores de alternativa si estos no pueden actuar por cualquier motivo.' },
-            { term: 'Suerte', def: 'Cada una de las partes de la lidia: varas, banderillas y muerte. También se refiere a los pases individuales.' },
-            { term: 'Tercio', def: 'Cada una de las tres partes de la corrida: entrada a caballo (varas), puyas y banderillas (segundo tercio), y muleta y muerte (tercer tercio).' },
-            { term: 'Utro', def: 'Toro que torea por primera vez con más de cuatro años. El utrero tiene más edad y experiencia que el nobil pero menos que el cinqueño.' },
-            { term: 'Varas', def: 'Lanceta con la que el picador punza al toro en el morrillo para comprobar su bravura y rebajar su fuerza. Es el primer tercio de la lidia.' }
+            { term: 'Albero', def: 'La arena o tierra blonde que cubre el suelo del redil.' },
+            { term: 'Burladero', def: 'Tabiques que protegen a los toreros en el callejón.' },
+            { term: 'Capote', def: 'Utensilio de tela utilizado para la lidia de reses.' },
+            { term: 'Chiqueros', def: 'Los establos donde se encierra a los toros.' },
+            { term: 'Descabello', def: 'Golpe mortal en la nuca del toro con la espada.' },
+            { term: 'Estoque', def: 'La espada con la que se da muerte al toro.' },
+            { term: 'Indulto', def: 'Perdón de la vida del toro por su bravura.' },
+            { term: 'Muleta', def: 'Tela roja usada en el último tercio.' },
+            { term: 'Oreja', def: 'Trofeo que se corta al toro como premio.' },
+            { term: 'Rabo', def: 'Premio adicional a las orejas.' },
+            { term: 'Redil', def: 'La arena de la plaza de toros.' },
+            { term: 'Tercio', def: 'Cada una de las tres partes de la corrida.' }
         ];
 
-        // ==================== ESTADO ====================
-        let currentCountry = 'espana';
+        // ==================== ESTADO GLOBAL ====================
+        let currentCountry = null; // null = vista mundial
         let navbar, themeToggle, modalBackdrop, modalTitle, modalBody;
         let tickerAnimationId;
 
@@ -2323,7 +2641,7 @@
             animateHeroStats();
             initTicker();
             renderCountries();
-            renderPlazas();
+            renderPlazasMini();
             renderStats();
             renderNews();
             renderToreros();
@@ -2367,13 +2685,12 @@
             });
         }
 
-        // ==================== TICKER MUY LENTO CON JS ====================
+        // ==================== TICKER ====================
         function initTicker() {
             const track = document.getElementById('tickerTrack');
             if (!track) return;
             
             let tickerHTML = '';
-            // Duplicar 4 veces para efecto continuo fluido
             for (let j = 0; j < 4; j++) {
                 tickerNews.forEach(news => {
                     tickerHTML += `
@@ -2390,35 +2707,176 @@
             }
             track.innerHTML = tickerHTML;
 
-            // Animación manual MUY LENTA con JavaScript
             let position = 0;
-            const speed = 1; // Píxeles por frame - EXTREMADAMENTE LENTO
+            const speed = 0.5;
             
             function animate() {
                 position -= speed;
-                const totalWidth = track.scrollWidth / 2;
-                
+                const totalWidth = track.scrollWidth / 4;
                 if (Math.abs(position) >= totalWidth) {
                     position = 0;
                 }
-                
                 track.style.transform = `translateX(${position}px)`;
                 tickerAnimationId = requestAnimationFrame(animate);
             }
             
             animate();
 
-            // Pausar al hover
             const wrapper = document.querySelector('.ticker-wrapper');
             if (wrapper) {
-                wrapper.addEventListener('mouseenter', () => {
-                    cancelAnimationFrame(tickerAnimationId);
-                });
-                
-                wrapper.addEventListener('mouseleave', () => {
-                    animate();
-                });
+                wrapper.addEventListener('mouseenter', () => cancelAnimationFrame(tickerAnimationId));
+                wrapper.addEventListener('mouseleave', () => animate());
             }
+        }
+
+        // ==================== FUNCIÓN PRINCIPAL: SELECCIONAR PAÍS ====================
+        function selectCountry(countryId) {
+            // Si ya está seleccionado, desseleccionar
+            if (currentCountry === countryId) {
+                clearCountryFilter();
+                return;
+            }
+
+            currentCountry = countryId;
+            const country = countries.find(c => c.id === countryId);
+            
+            if (!country) return;
+
+            // Actualizar países en sidebar
+            renderCountries();
+            
+            // Mostrar barra de filtro de país
+            showCountryFilterBar(country);
+            
+            // Actualizar todos los contenidos
+            renderPlazasMini();
+            renderNews();
+            renderToreros();
+            renderPlazasContent();
+            renderGanaderias();
+            renderStats();
+            
+            // Scroll suave al contenido
+            scrollToContent();
+        }
+
+        function showCountryFilterBar(country) {
+            const bar = document.getElementById('countryFilterBar');
+            const flag = document.getElementById('selectedCountryFlag');
+            const name = document.getElementById('selectedCountryName');
+            const desc = document.getElementById('selectedCountryDesc');
+            const stats = document.getElementById('countryFilterStats');
+            const statsSection = document.getElementById('statsSection');
+            
+            flag.textContent = country.flag;
+            name.textContent = country.name;
+            desc.textContent = country.desc;
+            
+            // Obtener datos del país
+            const plazas = plazasDB[country.id] || [];
+            const toreros = torerosDB.filter(t => t.pais.toLowerCase() === country.name.toLowerCase());
+            const noticias = newsDB.filter(n => n.pais === country.id);
+            const ganaderias = ganaderiasDB.filter(g => g.pais === country.id);
+            
+            stats.innerHTML = `
+                <div class="country-filter-stat">
+                    <div class="country-filter-stat-number">${plazas.length}</div>
+                    <div class="country-filter-stat-label">Plazas</div>
+                </div>
+                <div class="country-filter-stat">
+                    <div class="country-filter-stat-number">${toreros.length}</div>
+                    <div class="country-filter-stat-label">Toreros</div>
+                </div>
+                <div class="country-filter-stat">
+                    <div class="country-filter-stat-number">${noticias.length}</div>
+                    <div class="country-filter-stat-label">Noticias</div>
+                </div>
+                <div class="country-filter-stat">
+                    <div class="country-filter-stat-number">${ganaderias.length}</div>
+                    <div class="country-filter-stat-label">Ganaderías</div>
+                </div>
+            `;
+            
+            bar.style.display = 'flex';
+            statsSection.style.display = 'none';
+            
+            // Ocultar secciones sin datos
+            updateSectionsVisibility();
+        }
+
+        function clearCountryFilter() {
+            currentCountry = null;
+            
+            const bar = document.getElementById('countryFilterBar');
+            const statsSection = document.getElementById('statsSection');
+            
+            bar.style.display = 'none';
+            statsSection.style.display = 'block';
+            
+            // Restaurar países
+            renderCountries();
+            renderPlazasMini();
+            renderNews();
+            renderToreros();
+            renderPlazasContent();
+            renderGanaderias();
+            renderStats();
+            renderRanking();
+            
+            // Restaurar títulos de secciones
+            restoreSectionTitles();
+        }
+
+        function updateSectionsVisibility() {
+            const country = countries.find(c => c.id === currentCountry);
+            if (!country) return;
+            
+            // Noticias
+            const newsSection = document.getElementById('noticias');
+            const newsGrid = document.getElementById('newsGrid');
+            const countryNews = newsDB.filter(n => n.pais === currentCountry);
+            if (countryNews.length === 0) {
+                newsSection.style.display = 'none';
+            } else {
+                newsSection.style.display = 'block';
+            }
+            
+            // Toreros
+            const torerosSection = document.getElementById('toreros');
+            const countryToreros = torerosDB.filter(t => t.pais.toLowerCase() === country.name.toLowerCase());
+            if (countryToreros.length === 0) {
+                torerosSection.style.display = 'none';
+            } else {
+                torerosSection.style.display = 'block';
+            }
+            
+            // Plazas - siempre mostrar (son el foco principal)
+            
+            // Ganaderías
+            const ganaderiasSection = document.getElementById('ganaderias');
+            const countryGanaderias = ganaderiasDB.filter(g => g.pais === currentCountry);
+            if (countryGanaderias.length === 0) {
+                ganaderiasSection.style.display = 'none';
+            } else {
+                ganaderiasSection.style.display = 'block';
+            }
+        }
+
+        function restoreSectionTitles() {
+            document.getElementById('newsSectionTag').textContent = 'Última Hora';
+            document.getElementById('newsSectionTitle').innerHTML = 'Noticias <em>& Crónica</em>';
+            document.getElementById('torerosSectionTag').textContent = 'Figuras del Toreo';
+            document.getElementById('torerosSectionTitle').innerHTML = 'Toreros <em>Top</em>';
+            document.getElementById('plazasSectionTag').textContent = 'Arquitectura Taurina';
+            document.getElementById('plazasSectionTitle').innerHTML = 'Plazas <em>Emblemáticas</em>';
+            document.getElementById('ganaderiasSectionTag').textContent = 'Criadores de Toros';
+            document.getElementById('ganaderiasSectionTitle').innerHTML = 'Ganaderías <em>Famosas</em>';
+            
+            // Restaurar visibilidad de secciones
+            document.getElementById('noticias').style.display = 'block';
+            document.getElementById('toreros').style.display = 'block';
+            document.getElementById('plazas').style.display = 'block';
+            document.getElementById('ganaderias').style.display = 'block';
         }
 
         // ==================== RENDERIZADOS ====================
@@ -2426,7 +2884,7 @@
             const container = document.getElementById('countryList');
             if (!container) return;
             container.innerHTML = countries.map(c => `
-                <button class="country-item ${c.id === currentCountry ? 'active' : ''}" onclick="selectCountry('${c.id}')">
+                <button class="country-item ${currentCountry === c.id ? 'active' : ''}" onclick="selectCountry('${c.id}')">
                     <span class="country-flag">${c.flag}</span>
                     <span class="country-name">${c.name}</span>
                     <span class="country-count">${c.count}</span>
@@ -2434,20 +2892,22 @@
             `).join('');
         }
 
-        function selectCountry(countryId) {
-            currentCountry = countryId;
-            renderCountries();
-            renderPlazas();
-        }
-
-        function renderPlazas() {
+        function renderPlazasMini() {
             const container = document.getElementById('plazasContainer');
             if (!container) return;
-            const plazas = plazasDB[currentCountry] || [];
+            
+            let plazas;
+            if (currentCountry) {
+                plazas = plazasDB[currentCountry] || [];
+            } else {
+                plazas = plazasDB['espana'] || [];
+            }
+            
             if (plazas.length === 0) {
-                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 1rem; font-size: 0.85rem;">No hay plazas disponibles.</p>';
+                container.innerHTML = '<p style="color: var(--text-muted); text-align: center; padding: 1rem;">No hay plazas.</p>';
                 return;
             }
+            
             container.innerHTML = plazas.slice(0, 6).map(p => `
                 <div class="plaza-mini-card" onclick="openPlazaModal('${p.id}')">
                     <img src="${p.imagen}" class="plaza-mini-img" alt="${p.nombre}" onerror="this.src='https://picsum.photos/200/200?random=${p.id}'">
@@ -2462,13 +2922,27 @@
         function renderStats() {
             const container = document.getElementById('statsGrid');
             if (!container) return;
-            const stats = [
-                { icon: '🏟️', number: '43', label: 'Plazas Históricas' },
-                { icon: '⚔️', number: '128', label: 'Toreros Activos' },
-                { icon: '🎪', number: '89', label: 'Corridas 2024' },
-                { icon: '🌍', number: '10', label: 'Países Taurinos' },
-                { icon: '🏆', number: '24', label: 'Ferias Major' }
-            ];
+            
+            let stats;
+            if (currentCountry) {
+                const country = countries.find(c => c.id === currentCountry);
+                stats = [
+                    { icon: '🏟️', number: plazasDB[currentCountry]?.length || 0, label: 'Plazas' },
+                    { icon: '⚔️', number: torerosDB.filter(t => t.pais.toLowerCase() === country?.name.toLowerCase()).length, label: 'Toreros' },
+                    { icon: '🎪', number: newsDB.filter(n => n.pais === currentCountry).length, label: 'Noticias' },
+                    { icon: '🐂', number: ganaderiasDB.filter(g => g.pais === currentCountry).length, label: 'Ganaderías' },
+                    { icon: '📅', number: country?.count || 0, label: 'Corridas 2024' }
+                ];
+            } else {
+                stats = [
+                    { icon: '🏟️', number: '43', label: 'Plazas Históricas' },
+                    { icon: '⚔️', number: '128', label: 'Toreros Activos' },
+                    { icon: '🎪', number: '89', label: 'Corridas 2024' },
+                    { icon: '🌍', number: '10', label: 'Países Taurinos' },
+                    { icon: '🏆', number: '24', label: 'Ferias Major' }
+                ];
+            }
+            
             container.innerHTML = stats.map(s => `
                 <div class="stat-card">
                     <div class="stat-icon">${s.icon}</div>
@@ -2481,25 +2955,49 @@
         function renderNews() {
             const container = document.getElementById('newsGrid');
             if (!container) return;
-            container.innerHTML = newsDB.map(n => `
+            
+            let news;
+            if (currentCountry) {
+                news = newsDB.filter(n => n.pais === currentCountry);
+                // También mostrar noticias de toreros de ese país
+                const country = countries.find(c => c.id === currentCountry);
+                const toreroNews = newsDB.filter(n => {
+                    const torero = torerosDB.find(t => t.nombre === n.torero);
+                    return torero && torero.pais.toLowerCase() === country?.name.toLowerCase();
+                });
+                news = [...news, ...toreroNews.filter(n => !news.find(existing => existing.id === n.id))];
+            } else {
+                news = newsDB;
+            }
+            
+            if (news.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">📰</div>
+                        <h3 class="empty-state-title">Sin noticias</h3>
+                        <p class="empty-state-text">No hay noticias disponibles para este país.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = news.map(n => `
                 <div class="news-card" data-tipo="${n.tipo}" onclick="openNewsModal(${n.id})">
                     <div class="news-visual">
                         <img src="${n.imagen}" alt="${n.titulo}" onerror="this.src='https://picsum.photos/600/400?random=${n.id}'">
-                        <div class="news-badge ${n.tipo}">${n.tipoArticulo || n.tipo}</div>
+                        <div class="news-badge ${n.tipo}">${n.tipo}</div>
                     </div>
                     <div class="news-body">
                         <h3 class="news-title">${n.titulo}</h3>
                         <p class="news-excerpt">${n.resumen}</p>
                         <div class="news-details">
                             ${n.torero ? `<div class="news-detail-item"><span class="news-detail-label">Torero:</span><span class="news-detail-value">${n.torero}</span></div>` : ''}
-                            ${n.ganaderia ? `<div class="news-detail-item"><span class="news-detail-label">Ganadería:</span><span class="news-detail-value">${n.ganaderia}</span></div>` : ''}
-                            <div class="news-detail-item"><span class="news-detail-label">Plaza:</span><span class="news-detail-value">${n.plaza?.split(',')[0] || 'Varias plazas'}</span></div>
+                            <div class="news-detail-item"><span class="news-detail-label">Plaza:</span><span class="news-detail-value">${n.plaza?.split(',')[0] || 'Varias'}</span></div>
                         </div>
                         <div class="news-footer">
                             <span class="news-time">${n.tiempo}</span>
                             ${n.resultado ? `<span class="news-result">${n.resultado}</span>` : ''}
                         </div>
-                        ${n.quote ? `<div class="news-quote">"${n.quote}"</div>` : ''}
                     </div>
                 </div>
             `).join('');
@@ -2517,7 +3015,27 @@
         function renderToreros() {
             const container = document.getElementById('torerosGrid');
             if (!container) return;
-            container.innerHTML = torerosDB.map(t => `
+            
+            let toreros;
+            if (currentCountry) {
+                const country = countries.find(c => c.id === currentCountry);
+                toreros = torerosDB.filter(t => t.pais.toLowerCase() === country?.name.toLowerCase());
+            } else {
+                toreros = torerosDB;
+            }
+            
+            if (toreros.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">⚔️</div>
+                        <h3 class="empty-state-title">Sin toreros registrados</h3>
+                        <p class="empty-state-text">No hay toreros de este país en nuestra base de datos.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = toreros.map(t => `
                 <div class="torero-card" onclick="openToreroModal('${t.nombre}')">
                     <div class="torero-visual">
                         <img src="${t.imagen}" alt="${t.nombre}" onerror="this.src='https://picsum.photos/400/300?random=${t.rank}'">
@@ -2528,7 +3046,7 @@
                         <h3 class="torero-name">${t.nombre}</h3>
                         <p class="torero-fullname">${t.nombreCompleto}</p>
                         <p class="torero-origin">📍 ${t.ciudadNacimiento}, ${t.pais}</p>
-                        <p class="torero-bio">${t.bio.substring(0, 250)}...</p>
+                        <p class="torero-bio">${t.bio}</p>
                         <div class="torero-stats">
                             <div class="torero-stat"><div class="torero-stat-value">${t.orejas}</div><div class="torero-stat-label">Orejas</div></div>
                             <div class="torero-stat"><div class="torero-stat-value">${t.rabos}</div><div class="torero-stat-label">Rabos</div></div>
@@ -2544,12 +3062,25 @@
             const container = document.getElementById('plazasGrid');
             if (!container) return;
             
-            let allPlazas = [];
-            Object.values(plazasDB).forEach(plazas => {
-                allPlazas = [...allPlazas, ...plazas];
-            });
+            let plazas;
+            if (currentCountry) {
+                plazas = plazasDB[currentCountry] || [];
+            } else {
+                plazas = Object.values(plazasDB).flat();
+            }
             
-            container.innerHTML = allPlazas.map(p => `
+            if (plazas.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">🏟️</div>
+                        <h3 class="empty-state-title">Sin plazas</h3>
+                        <p class="empty-state-text">No hay plazas registradas para este país.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = plazas.map(p => `
                 <div class="plaza-card" onclick="openPlazaModal('${p.id}')">
                     <div class="plaza-visual">
                         <img src="${p.imagen}" alt="${p.nombre}" onerror="this.src='https://picsum.photos/600/400?random=${p.id}'">
@@ -2561,8 +3092,6 @@
                         <div class="plaza-info">
                             <div class="plaza-info-item"><span class="plaza-info-label">Inaugurada</span><span class="plaza-info-value">${p.inauguracion}</span></div>
                             <div class="plaza-info-item"><span class="plaza-info-label">Capacidad</span><span class="plaza-info-value">${p.capacidad}</span></div>
-                            <div class="plaza-info-item"><span class="plaza-info-label">Arquitecto</span><span class="plaza-info-value">${p.arquitecto || 'Desconocido'}</span></div>
-                            <div class="plaza-info-item"><span class="plaza-info-label">Estilo</span><span class="plaza-info-value">${p.estilo}</span></div>
                         </div>
                         <p class="plaza-desc">${p.historia}</p>
                     </div>
@@ -2573,7 +3102,26 @@
         function renderGanaderias() {
             const container = document.getElementById('ganaderiasGrid');
             if (!container) return;
-            container.innerHTML = ganaderiasDB.map(g => `
+            
+            let ganaderias;
+            if (currentCountry) {
+                ganaderias = ganaderiasDB.filter(g => g.pais === currentCountry);
+            } else {
+                ganaderias = ganaderiasDB;
+            }
+            
+            if (ganaderias.length === 0) {
+                container.innerHTML = `
+                    <div class="empty-state" style="grid-column: 1 / -1;">
+                        <div class="empty-state-icon">🐂</div>
+                        <h3 class="empty-state-title">Sin ganaderías</h3>
+                        <p class="empty-state-text">No hay ganaderías registradas para este país.</p>
+                    </div>
+                `;
+                return;
+            }
+            
+            container.innerHTML = ganaderias.map(g => `
                 <div class="ganaderia-card" onclick="openGanaderiaModal('${g.nombre}')">
                     <div class="ganaderia-visual">
                         <img src="${g.imagen}" alt="${g.nombre}" onerror="this.src='https://picsum.photos/400/250?random=${g.nombre}'">
@@ -2603,6 +3151,8 @@
         function renderRanking() {
             const container = document.getElementById('rankingContainer');
             if (!container) return;
+            
+            // Ranking siempre muestra los top del mundo
             container.innerHTML = torerosDB.slice(0, 5).map((t, i) => {
                 let posClass = 'default';
                 if (i === 0) posClass = 'gold';
@@ -2640,11 +3190,11 @@
             openModal('La Famosa Taurina', `
                 <img src="https://images.unsplash.com/photo-1550931267-336712061453?w=800" class="modal-visual" alt="Tauromaquia">
                 <span class="modal-badge">Portal Taurino #1</span>
-                <p class="modal-text">La Famosa Taurina es el portal taurino más completo del mundo hispanohablante. Nacimos con la misión de preservar, promover y celebrar el arte del toreo en todas sus expresiones.</p>
-                <p class="modal-text">Nuestro archivo incluye información de más de 43 plazas históricas, 128 toreros activos, y cobertura de 10 países taurinos. Cada día trabajamos para bring las últimas noticias, análisis profundos y contenido histórico a miles de aficionados.</p>
+                <p class="modal-text">La Famosa Taurina es el portal taurino más completo del mundo hispanohablante.</p>
+                <p class="modal-text">Nuestro archivo incluye información de más de 43 plazas históricas, 128 toreros activos, y cobertura de 10 países taurinos.</p>
                 <div class="modal-highlight">
                     <h4>Nuestra Misión</h4>
-                    <p>Ser el referente digital definitivo para la comunidad taurina mundial, preservando la tradición mientras abrazamos la innovación tecnológica.</p>
+                    <p>Ser el referente digital definitivo para la comunidad taurina mundial.</p>
                 </div>
             `);
         }
@@ -2664,9 +3214,6 @@
                     <div class="modal-grid-item"><strong>Ciudad</strong><span>${plaza.ciudad}</span></div>
                     <div class="modal-grid-item"><strong>Inauguración</strong><span>${plaza.inauguracion}</span></div>
                     <div class="modal-grid-item"><strong>Capacidad</strong><span>${plaza.capacidad}</span></div>
-                    <div class="modal-grid-item"><strong>Arquitecto</strong><span>${plaza.arquitecto || 'Desconocido'}</span></div>
-                    <div class="modal-grid-item"><strong>Estilo</strong><span>${plaza.estilo}</span></div>
-                    <div class="modal-grid-item"><strong>País</strong><span>${plaza.pais}</span></div>
                 </div>
                 <h3 class="modal-section-title">Historia</h3>
                 <p class="modal-text">${plaza.historia}</p>
@@ -2687,16 +3234,12 @@
                     <div class="modal-grid-item"><strong>Nombre Completo</strong><span>${torero.nombreCompleto}</span></div>
                     <div class="modal-grid-item"><strong>Nacimiento</strong><span>${torero.fechaNacimiento}</span></div>
                     <div class="modal-grid-item"><strong>Ciudad</strong><span>${torero.ciudadNacimiento}</span></div>
-                    <div class="modal-grid-item"><strong>Alternativa</strong><span>${torero.alternativa}</span></div>
                     <div class="modal-grid-item"><strong>Orejas</strong><span>${torero.orejas}</span></div>
                     <div class="modal-grid-item"><strong>Rabos</strong><span>${torero.rabos}</span></div>
-                    <div class="modal-grid-item"><strong>Indultos</strong><span>${torero.indultos}</span></div>
                     <div class="modal-grid-item"><strong>Faenas</strong><span>${torero.faenas}</span></div>
                 </div>
                 <h3 class="modal-section-title">Biografía</h3>
                 <p class="modal-text">${torero.bio}</p>
-                <h3 class="modal-section-title">Estilo</h3>
-                <p class="modal-text">${torero.estilo}</p>
                 ${torero.fraseCelebre ? `<div class="modal-highlight"><h4>Frase Célebre</h4><p>"${torero.fraseCelebre}"</p></div>` : ''}
             `);
         }
@@ -2706,16 +3249,13 @@
             if (!news) return;
             openModal(news.titulo, `
                 <img src="${news.imagen}" class="modal-visual" alt="${news.titulo}" onerror="this.src='https://picsum.photos/800/400'">
-                <span class="modal-badge">${news.tipoArticulo || news.tipo}</span>
-                <p class="modal-text">${news.detalles || news.resumen}</p>
+                <span class="modal-badge">${news.tipo}</span>
+                <p class="modal-text">${news.resumen}</p>
                 <div class="modal-grid">
                     ${news.torero ? `<div class="modal-grid-item"><strong>Torero</strong><span>${news.torero}</span></div>` : ''}
-                    ${news.ganaderia ? `<div class="modal-grid-item"><strong>Ganadería</strong><span>${news.ganaderia}</span></div>` : ''}
                     <div class="modal-grid-item"><strong>Plaza</strong><span>${news.plaza}</span></div>
                     <div class="modal-grid-item"><strong>Fecha</strong><span>${news.tiempo}</span></div>
-                    ${news.resultado ? `<div class="modal-grid-item"><strong>Resultado</strong><span>${news.resultado}</span></div>` : ''}
                 </div>
-                ${news.quote ? `<div class="modal-highlight"><h4>Opinión de la Crítica</h4><p>${news.quote}</p></div>` : ''}
             `);
         }
 
@@ -2728,15 +3268,10 @@
                 <div class="modal-grid">
                     <div class="modal-grid-item"><strong>Ubicación</strong><span>${ganaderia.ubicacion}</span></div>
                     <div class="modal-grid-item"><strong>Fundada</strong><span>${ganaderia.founded}</span></div>
-                    <div class="modal-grid-item"><strong>Origen</strong><span>${ganaderia.origen}</span></div>
-                    <div class="modal-grid-item"><strong>Color</strong><span>${ganaderia.colorGanado}</span></div>
-                    <div class="modal-grid-item"><strong>Encaste</strong><span>${ganaderia.encaste}</span></div>
-                    ${ganaderia.toroFamoso ? `<div class="modal-grid-item"><strong>Toro Famoso</strong><span>${ganaderia.toroFamoso}</span></div>` : ''}
                 </div>
                 <h3 class="modal-section-title">Descripción</h3>
                 <p class="modal-text">${ganaderia.descripcion}</p>
-                ${ganaderia.frase ? `<div class="modal-highlight"><h4>Lema de la Ganadería</h4><p>"${ganaderia.frase}"</p></div>` : ''}
-                ${ganaderia.torosDestacados ? `<h3 class="modal-section-title">Toros Más Famosos</h3>${ganaderia.torosDestacados.map(t => `<p class="modal-text"><strong>${t.nombre}</strong> (${t.año}) - ${t.plaza} con ${t.torero}</p>`).join('')}` : ''}
+                ${ganaderia.frase ? `<div class="modal-highlight"><h4>Lema</h4><p>"${ganaderia.frase}"</p></div>` : ''}
             `);
         }
 
@@ -2786,7 +3321,7 @@
         function handleNewsletter(e) {
             e.preventDefault();
             const input = e.target.querySelector('input');
-            alert(`¡Gracias por suscribirte! Te enviaremos las mejores noticias taurinas a: ${input.value}`);
+            alert(`¡Gracias por suscribirte!`);
             input.value = '';
         }
     </script>
